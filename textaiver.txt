@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHINMA Education Media Directory</title>
+    <style>
+        /* 1. BASE STYLES & FONT */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333;
+            overflow-x: hidden;
+            min-height: 200vh; /* Extra height to test the scroll effect */
+        }
+
+        /* 2. MOVING GRADIENT BACKGROUND */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3; /* Subtle so white space still feels clean */
+            animation: move 25s infinite alternate ease-in-out;
+        }
+
+        .blob-1 { background: #00652E; top: -10%; left: -10%; } /* PHINMA Green */
+        .blob-2 { background: #FFD200; bottom: -10%; right: -10%; animation-delay: -5s; } /* PHINMA Yellow */
+        .blob-3 { background: #e0e0e0; top: 40%; left: 30%; animation-duration: 35s; }
+
+        @keyframes move {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(300px, 200px) scale(1.3); }
+        }
+
+        /* 3. TRANSPARENT NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 20px;
+            color: #000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: #00652E; }
+
+        /* 4. HERO SECTION */
+        .hero {
+            padding: 150px 80px 100px;
+            text-align: left;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        /* 5. MEDIA DIRECTORY GRID (3x2) */
+        .container {
+            padding: 0 80px 100px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px); /* Glassmorphism effect */
+            border-radius: 20px;
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 101, 46, 0.1);
+            transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 101, 46, 0.15);
+        }
+
+        .card-label {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 101, 46, 0.85); /* PHINMA Green Overlay */
+            color: white;
+            padding: 15px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .fb-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 25px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gradient-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav>
+        <div class="logo">PHINMA EDUCATION <span style="font-weight: 300; font-size: 14px;">Media Directory</span></div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Institution</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>PHINMA Education <br>Media Directory</h1>
+        <p>"All official links in one place"</p>
+    </section>
+
+    <div class="container">
+        <div class="card">
+            <div style="padding: 40px; text-align: center; font-weight: bold;">[DIRECTORY ICON]</div>
+            <div class="card-label">Phone & Email Contacts</div>
+        </div>
+
+        <div class="card">
+            <img class="fb-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="FB">
+            <div class="card-label">Official SWU PHINMA Student Life</div>
+        </div>
+
+        <div class="card">
+            <img class="fb-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="FB">
+            <div class="card-label">Southwestern University</div>
+        </div>
+
+        <div class="card">
+            <img class="fb-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="FB">
+            <div class="card-label">Southwestern University Medical Center</div>
+        </div>
+
+        <div class="card">
+            <img class="fb-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="FB">
+            <div class="card-label">Southwestern University Phinma Scholarships</div>
+        </div>
+
+        <div class="card">
+            <img class="fb-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="FB">
+            <div class="card-label">Thrive – SWU Guidance and Counseling Office</div>
+        </div>
+    </div>
+
+</body>
+</html>
