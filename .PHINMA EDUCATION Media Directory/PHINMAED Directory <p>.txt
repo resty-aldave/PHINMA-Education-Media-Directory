@@ -1,0 +1,21 @@
+DISCLAIMER BUTTON TEXT [Beside the PHINAM Education Media Directory]
+
+Independent student project: This independent student project uses campus images and names for identification under Fair Use to support the community and accurately represent the PHINMA Education network.
+
+
+CONTACT US 
+
+We aim to keep the PHINMA Education Media Directory as accurate as possible, but we recognize that digital links can change or expire without warning. If you come across a broken link, notice an outdated email address, or find that a social media page isn't the official one, please let us know. Your feedback is essential in helping us maintain a reliable resource for the entire PHINMA community, ensuring that everyone stays connected to the right channels.
+
+To report these issues or suggest updates, we encourage you to visit our GitHub repository. By opening an "Issue" on the platform, you can directly alert our team to necessary changes or even contribute to the directory yourself. This collaborative approach allows us to improve the site efficiently while keeping the project open and transparent for other student developers who want to support the initiative.
+
+
+
+
+ABOUT SECTION
+
+The PHINMA Education Media Directory serves as a central hub for future students, current enrollees, and anyone interested in the PHINMA Education network. Our primary goal is to simplify the digital experience by making it easy for users to find official websites, verified social media pages, and contact emails for every school in the system. By arranging these resources into a clear and organized hierarchy, we ensure that essential media links are neatly presented and easy to navigate for everyone.
+
+This site is an independent student-led initiative built by a team from Southwestern University PHINMA for educational and community-building purposes. While we work hard to keep everything accurate, the fast-paced nature of the internet means official links can change, so we perform periodic updates to maintain the directory's integrity. Please be aware that this is not an official website of the PHINMA Education network but a project that demonstrates student proactivity in creating digital solutions for the community.
+
+The visual content featured on this platform, including campus photography and institutional names, remains the intellectual property of the original owners and photographers. These materials are used under the principles of Fair Use for non-commercial and educational identification only. To ensure a consistent and professional layout, some images have been cropped or digitally optimized, but we are committed to presenting all information with integrity. This directory is designed to accurately reflect the identity of each school and is in no way intended to misrepresent or cast the PHINMA Education network in a negative light.
