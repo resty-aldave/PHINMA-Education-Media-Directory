@@ -1,5 +1,5 @@
 :root{
-        background-color: rgb(107, 107, 107);
+        background-color: rgb(173, 173, 173);
 }
 
 /*design for navbar or header*/
@@ -89,57 +89,84 @@ nav{
 main{
     /*top,right,bottom,left*/
     margin: 100px 100px 100px 100px;
-}
 
-main p{
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal;
-    font-size:16px;
-}
+    & p{
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 0;
+        font-style: normal;
+        font-size:16px;
+    }
 
-/*fonts*/
-main h1{
-    font-size: 64px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-    display: flex;
-}
+    & h1{
+        font-size: 64px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        display: flex;
+    }
 
-main h2{
-    font-size: 40px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-    display: flex;
-}
+    & h2{
+        font-size: 40px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        display: flex;
+    }
 
-/*images*/
-main img{
-    z-index: index -1;
-    width: 800px;
-    height: 610px;
-    object-fit:cover;
-}
+    & #flow-one{
+        display: flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-top:150px;
 
-/*the real one*/
-#flow-one{
-    display: flex;
-    justify-content:space-between;
-    align-items:center;
+        /* background-color:#fefefe; */
 
-}
+        & #text{
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
 
-#text{
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
+        & #hero-image{
+            display:flex;
+            z-index: index -1;
+            margin:0px 150px 0px 0px;
 
-#hero-image{
-    display:flex;
-    z-index: index -1;
-    margin:0px 150px 0px 0px;
+                & img{
+                    z-index: -1;
+                    width: 800px;
+                    height: 610px;
+                    object-fit: cover;
+                    
+                    --progressive-mask: 
+                        linear-gradient(to bottom, 
+                            transparent 0%, 
+                            rgba(0,0,0,0.3) 10%, 
+                            black 30%, 
+                            black 70%, 
+                            rgba(0,0,0,0.3) 90%, 
+                            transparent 100%),
+                        linear-gradient(to right, 
+                            transparent 0%, 
+                            rgba(0,0,0,0.3) 10%, 
+                            black 30%, 
+                            black 70%, 
+                            rgba(0,0,0,0.3) 90%, 
+                            transparent 100%);
+
+                    -webkit-mask-image: var(--progressive-mask);
+                    -webkit-mask-composite: source-in;
+
+                    mask-image: var(--progressive-mask);
+                    mask-composite: intersect;
+
+                    -moz-mask-image: var(--progressive-mask);
+
+                    filter: blur(0px);
+                    transition: filter 0.3s ease;
+                }
+            }
+        }
+    }
 }
