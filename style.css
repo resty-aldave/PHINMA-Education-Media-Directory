@@ -1,5 +1,5 @@
 :root{
-        background-color: rgba(252, 248, 248);
+        background-color: rgb(239, 239, 239, 1);
 }
 
 /*design for navbar or header*/
@@ -13,17 +13,109 @@ nav{
 }
 
 nav img{
-    margin: 0px 0px 0px 135px;
+    margin: 0px 0px 0px 100px;
     height:50px;
     width: 312px;
     justify-content:left;
 }
 
 #nav-text{
-    margin: 0px 135px 0px 0px;
+    margin: 0px 100px 0px 0px;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
     display: flex;
     gap:75px;
+}
+
+/*Main design*/
+#disclaimer-container{
+    bottom:100px;
+    right:100px;
+    position:fixed;
+    z-index: 999;
+
+    & #disclaimer{
+            & img{
+                width:80%;
+                height:auto;
+            }
+
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        width:72px;
+        height:72px;
+        padding:10px;
+        border-radius:50%;
+        background-color: rgba(246, 48, 73, 1);
+    }
+
+    & #disclaimer-text{
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+        font-size:16px;
+    }
+}
+
+
+
+main{
+    /*top,right,bottom,left*/
+    margin: 100px 100px 100px 100px;
+}
+
+main p{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-size:16px;
+}
+
+/*fonts*/
+main h1{
+    font-size: 64px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    display: flex;
+}
+
+main h2{
+    font-size: 40px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    display: flex;
+}
+
+/*images*/
+main img{
+    z-index: index -1;
+    width: 800px;
+    height: 610px;
+    object-fit:cover;
+}
+
+/*the real one*/
+#flow-one{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+#text{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+#hero-image{
+    display:flex;
+    z-index: index -1;
+    margin:0px 150px 0px 0px;
 }
