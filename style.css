@@ -1,6 +1,6 @@
 /* Next time go from mobile to laptop flow so that the process is forward instead of laptop to mobile which is backward */
 :root{
-        background-color: rgb(173, 173, 173);
+        background-color: rgb(255, 172, 172);
         font-size: 4px;
 }
 
@@ -8,7 +8,7 @@
 nav {
     z-index: 10;
     /*top,right,bottom,left*/
-    padding-block: clamp(.75vw, 1vw, 1000vw);
+    padding-block: clamp(25px, 1vw, 1000vw);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,15 +24,24 @@ nav {
     & #more {
         display: flex;
         align-items: center;
+        margin-right: clamp(32px, 4vw, 1000vw);
+
+        & input{
+            display: none;
+        }
 
         & #nav-text {
-            margin-right: clamp(32px, 4vw, 1000vw);
             font-size: clamp(16px, 5em, 1000em);
             font-family: "Poppins", sans-serif;
             font-weight: 600;
             font-style: normal;
             display: flex;
             gap: 3vw;
+
+            & a{
+                text-decoration: none;
+                color:#000000;
+            }
         }
 
         & #more-icon {
@@ -51,7 +60,7 @@ nav {
     bottom:4vw;
     right:4vw;
     position:fixed;
-    z-index: 999;
+    z-index: 50;
 
     & #disclaimer{
             & img{
@@ -186,18 +195,58 @@ main{
     }
 }
 
-@media (max-width:500px) {
+@media (max-width:1024px) {
     nav {
-        & #logo-img {
-            width: clamp(150px, 40vw, 200px);
-        }
-
-        & #more-icon {
-            display: block; /* Shows the kebab icon on mobile only */
-            margin-right: 20px;
+        & #more {
+            
+            & #menu-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.3);
+                display: none;
+                opacity:0;
+                visibility: hidden;
+                transition: opacity 0.4s ease, visibility 0.4s ease;
+                z-index: 75;
+            }
 
             & #nav-text {
-                display: 0; /* Hides the horizontal text links on mobile */
+                position: fixed;
+                top: 0;
+                left: -100%; 
+                height: 100vh;
+                width: 75vw;
+                background-color: white;
+                flex-direction: column;
+                display: flex;
+                transition: left 0.8s ease;
+                z-index: 100;
+                gap: 5vw;
+
+                & #nav-text-mobile-margin{
+                    padding: clamp(25px, 1vw, 1000vw);
+                }
+
+                & a{
+                    background-color:rgba(0, 0, 0, 0.2);
+                    padding: 4vw;
+                }
+            }
+
+            & #more-icon {
+                display: block;
+            }
+            #menu-toggle:checked ~ #nav-text{
+                left: 0;
+            }
+
+            #menu-toggle:checked ~ #menu-overlay {
+                display: block;
+                opacity:1;
+                visibility: visible;
             }
         }
     }
