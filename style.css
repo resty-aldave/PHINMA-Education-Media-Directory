@@ -1,30 +1,45 @@
+/* Next time go from mobile to laptop flow so that the process is forward instead of laptop to mobile which is backward */
 :root{
         background-color: rgb(173, 173, 173);
+        font-size: 4px;
 }
 
 /*design for navbar or header*/
-nav{
-    z-index: 1;
-    padding:25px 0px 25px 0px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+nav {
+    z-index: 10;
+    /*top,right,bottom,left*/
+    padding-block: clamp(.75vw, 1vw, 1000vw);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: rgba(252, 248, 248, 0.5);
 
-    & img{
-        margin: 0px 0px 0px 100px;
-        height:50px;
-        width: 312px;
-        justify-content:left;
+    & #logo-img {
+        z-index:100;
+        margin-left: clamp(36px, 4vw, 1000vw); /*4vh is looking 100px on my screen*/
+        height: auto;
+        width: clamp(200px, 12.48vw, 1000vw); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
     }
 
-    & #nav-text{
-        margin: 0px 100px 0px 0px;
-        font-family: "Poppins", sans-serif;
-        font-weight: 600;
-        font-style: normal;
+    & #more {
         display: flex;
-        gap:75px;
+        align-items: center;
+
+        & #nav-text {
+            margin-right: clamp(32px, 4vw, 1000vw);
+            font-size: clamp(16px, 5em, 1000em);
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+            display: flex;
+            gap: 3vw;
+        }
+
+        & #more-icon {
+            display: none;
+            width: 30px;
+            height: auto;
+        }
     }
 }
 
@@ -33,22 +48,22 @@ nav{
     display:flex;
     flex-direction:column;
     align-items:flex-end;
-    bottom:100px;
-    right:100px;
+    bottom:4vw;
+    right:4vw;
     position:fixed;
     z-index: 999;
 
     & #disclaimer{
             & img{
-                width:80%;
+                width:3vw;
                 height:auto;
             }
 
         display: flex;
         justify-content:center;
         align-items:center;
-        width:72px;
-        height:72px;
+        width:3vw;
+        height:auto;
         padding:10px;
         border-radius:50%;
         background-color: rgba(246, 48, 73, 1);
@@ -125,7 +140,7 @@ main{
         & #text{
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap:40px;
         }
 
         & #hero-image{
@@ -133,42 +148,57 @@ main{
             z-index: index -1;
             margin:0px 150px 0px 0px;
 
-                & img{
-                    z-index: -1;
-                    width: 800px;
-                    height: 610px;
-                    object-fit: cover;
-                    
-                    --progressive-mask: 
-                        linear-gradient(to bottom, 
-                            transparent 0%, 
-                            rgba(0,0,0,0.3) 10%, 
-                            black 30%, 
-                            black 70%, 
-                            rgba(0,0,0,0.3) 90%, 
-                            transparent 100%),
-                        linear-gradient(to right, 
-                            transparent 0%, 
-                            rgba(0,0,0,0.3) 10%, 
-                            black 30%, 
-                            black 70%, 
-                            rgba(0,0,0,0.3) 90%, 
-                            transparent 100%);
+            & img{
+                z-index: -1;
+                width: 800px;
+                height: 610px;
+                object-fit: cover;
+                
+                --progressive-mask: 
+                    linear-gradient(to bottom, 
+                        transparent 0%, 
+                        rgba(0,0,0,0.3) 10%, 
+                        black 30%, 
+                        black 70%, 
+                        rgba(0,0,0,0.3) 90%, 
+                        transparent 100%),
+                    linear-gradient(to right, 
+                        transparent 0%, 
+                        rgba(0,0,0,0.3) 10%, 
+                        black 30%, 
+                        black 70%, 
+                        rgba(0,0,0,0.3) 90%, 
+                        transparent 100%);
 
-                    -webkit-mask-image: var(--progressive-mask);
-                    -webkit-mask-composite: source-in;
+                -webkit-mask-image: var(--progressive-mask);
+                -webkit-mask-composite: source-in;
 
-                    mask-image: var(--progressive-mask);
-                    mask-composite: intersect;
+                mask-image: var(--progressive-mask);
+                mask-composite: intersect;
 
-                    -moz-mask-image: var(--progressive-mask);
+                -moz-mask-image: var(--progressive-mask);
 
-                    filter: blur(0px);
-                    transition: filter 0.3s ease;
-                }
+                filter: blur(0px);
+                transition: filter 0.3s ease;
+            }
+            
+        }
+    }
+}
+
+@media (max-width:500px) {
+    nav {
+        & #logo-img {
+            width: clamp(150px, 40vw, 200px);
+        }
+
+        & #more-icon {
+            display: block; /* Shows the kebab icon on mobile only */
+            margin-right: 20px;
+
+            & #nav-text {
+                display: 0; /* Hides the horizontal text links on mobile */
             }
         }
     }
-
-
 }
