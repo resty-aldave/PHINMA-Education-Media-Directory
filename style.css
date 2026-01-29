@@ -3,35 +3,21 @@
         background-color: rgb(255, 172, 172);
         font-size: 25%;
 
-        /* Desktop */
-        --heading: 16rem;
-        --subheading: 10rem;
-        --main-card: 8rem;
-        --main-card-info: 4rem;
-        --medium-card: 5rem;
-        --small-card: 3rem;
-        --body: 4rem;
-        --links-body: 3rem;
-        --navbar: 5rem;
-        --disclaimer: 4rem;
-        --footer-title: 3rem;
+        --heading: clamp(10rem, 6vw, 16rem);
+        --subheading: clamp(5rem, 4vw, 10rem);
+        --main-card: clamp(4rem, 3vw, 8rem);
+        --main-card-info: clamp(2rem, 1.5vw, 4rem);
+        --medium-card: clamp(3rem, 2vw, 5rem);
+        --small-card: clamp(2rem, 1vw, 3rem);
+
+        --body: clamp(3rem, 1vw, 4rem);
+        --links-body: clamp(2rem, 1vw, 3rem);
+        --navbar: clamp(4rem, 1vw, 5rem);
+        --disclaimer: clamp(3rem, 1vw, 4rem);
+
+        --footer-title: clamp(3rem, 1.5vw, 4rem);
         --footer: 3rem;
 
-        /* Mobile */
-        --heading-mobile: 6rem;
-        --subheading-mobile: 5rem;
-        --main-card-mobile: 4rem;
-        --main-card-info-mobile: 2rem;
-        --medium-card-mobile: 3rem;
-        --small-card-mobile: 2rem;
-        --body-mobile: 3rem;
-        --links-body-mobile: 2rem;
-        --navbar-mobile: 4rem;
-        --disclaimer-mobile: 3rem;
-        --footer-title-mobile: 4rem;
-        --footer-mobile: 3rem;
-
-        /* Default for clamp minimum */
         --default: 2rem;
 }
 
@@ -62,7 +48,7 @@ nav {
         }
 
         & #nav-text {
-            font-size: clamp(16px, var(--navbar), 999rem);
+            font-size: var(--navbar);
             font-family: "Poppins", sans-serif;
             font-weight: 600;
             font-style: normal;
@@ -125,7 +111,7 @@ nav {
         line-height: 6rem;
         font-weight: 0;
         font-style: normal;
-        font-size:clamp(2rem, var(--disclaimer), 999rem);
+        font-size:var(--disclaimer);
         background-color:rgba(245, 242, 242, 1);
         width:clamp(300px, 25vw, 999vw);
         height:auto;
@@ -146,10 +132,11 @@ nav {
 main{
     /*top,right,bottom,left*/
     margin: clamp(36px, 4vw, 999vw);
+    box-sizing: border-box;
     /* background-color: rgba(252, 248, 248, 1); */
 
     & h2{
-        font-size: clamp(var(--subheading-mobile), var(--subheading), 999rem);
+        font-size: var(--subheading);
         font-family: "Poppins", sans-serif;
         font-weight: 600;
         font-style: normal;
@@ -165,15 +152,16 @@ main{
         gap: 10vw;
         align-items: center;
         margin-top:8vw;
-        background-color:#0000005f;
+
+        /* background-color:#0000005f; */
 
         & h1{
-            font-size: clamp(var(--heading-mobile), var(--heading), 999rem);
+            font-size: var(--heading);
             font-family: "Poppins", sans-serif;
             font-weight: 600;
             font-style: normal;
             grid-area: heading;
-            white-space: nowrap;
+            white-space: normal;
         }
 
         & #hero-text{
@@ -183,7 +171,7 @@ main{
                 font-optical-sizing: auto;
                 font-weight: 0;
                 font-style: normal;
-                font-size:clamp(var(--body-mobile), var(--body), 999rem);
+                font-size: var(--body);
             }
         }
 
@@ -191,12 +179,13 @@ main{
             display:flex;
             z-index: index -1;
             grid-area: image;
+            justify-self: flex-start;
 
-            margin-right: clamp(1vw, 4vw, 999vw);
+            /* margin-right: clamp(8vw, 12vw, 999vw); */
 
             & img{
                 z-index: -1;
-                width: 50vw;
+                width: 100%;
                 height: auto;
                 object-fit: cover;
                 
@@ -232,6 +221,7 @@ main{
     }
 }
 
+/* Phone */
 @media (max-width:1024px) {
     nav {
         & #more {
@@ -297,23 +287,25 @@ main{
 
     main{
         & #flow-one{
-            grid-template-columns: 1fr; /* Stack into 1 column */
+            grid-template-columns: 1fr;
             grid-template-areas: 
                 "heading"
                 "image"
                 "quotes";
-            text-align: center;
             overflow-x: hidden;
 
             & h1{
-                white-space: normal; /* Prevents text from poking out the side */
-                font-size: var(--heading-mobile);
+                justify-self:start;
+                white-space: normal;
+                font-size: var(--heading);
             }
 
             & #hero-image{
+                justify-self:flex-end;
+                align-self:center;
                 & img{
                     width: 100%;
-                    max-width: 300px; /* Keeps image from being too huge on phones */
+                    max-width: 500px;
                     margin: 0 auto;
                 }
                 
