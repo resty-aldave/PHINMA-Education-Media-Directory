@@ -1,14 +1,45 @@
 /* Next time go from mobile to laptop flow so that the process is forward instead of laptop to mobile which is backward */
 :root{
         background-color: rgb(255, 172, 172);
-        font-size: 4px;
+        font-size: 25%;
+
+        /* Desktop */
+        --heading: 16rem;
+        --subheading: 10rem;
+        --main-card: 8rem;
+        --main-card-info: 4rem;
+        --medium-card: 5rem;
+        --small-card: 3rem;
+        --body: 4rem;
+        --links-body: 3rem;
+        --navbar: 5rem;
+        --disclaimer: 4rem;
+        --footer-title: 3rem;
+        --footer: 3rem;
+
+        /* Mobile */
+        --heading-mobile: 6rem;
+        --subheading-mobile: 5rem;
+        --main-card-mobile: 4rem;
+        --main-card-info-mobile: 2rem;
+        --medium-card-mobile: 3rem;
+        --small-card-mobile: 2rem;
+        --body-mobile: 3rem;
+        --links-body-mobile: 2rem;
+        --navbar-mobile: 4rem;
+        --disclaimer-mobile: 3rem;
+        --footer-title-mobile: 4rem;
+        --footer-mobile: 3rem;
+
+        /* Default for clamp minimum */
+        --default: 2rem;
 }
 
 /*design for navbar or header*/
 nav {
     z-index: 10;
     /*top,right,bottom,left*/
-    padding-block: clamp(25px, 1vw, 1000vw);
+    padding-block: clamp(25px, 1vw, 999vw);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -16,22 +47,22 @@ nav {
 
     & #logo-img {
         z-index:100;
-        margin-left: clamp(36px, 4vw, 1000vw); /*4vh is looking 100px on my screen*/
+        margin-left: clamp(36px, 4vw, 999vw); /*4vh is looking 100px on my screen*/
         height: auto;
-        width: clamp(200px, 12.48vw, 1000vw); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
+        width: clamp(200px, 12.48vw, 999vw); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
     }
 
     & #more {
         display: flex;
         align-items: center;
-        margin-right: clamp(32px, 4vw, 1000vw);
+        margin-right: clamp(32px, 4vw, 999vw);
 
         & input{
             display: none;
         }
 
         & #nav-text {
-            font-size: clamp(16px, 5em, 1000em);
+            font-size: clamp(16px, var(--navbar), 999rem);
             font-family: "Poppins", sans-serif;
             font-weight: 600;
             font-style: normal;
@@ -46,7 +77,7 @@ nav {
 
         & #more-icon {
             display: none;
-            width: 30px;
+            width: clamp(30px, 4vw, 999vw);
             height: auto;
         }
     }
@@ -57,21 +88,21 @@ nav {
     display:flex;
     flex-direction:column;
     align-items:flex-end;
-    bottom:4vw;
-    right:4vw;
+    bottom:clamp(50px, 4vw, 999vw);
+    right:clamp(50px, 4vw, 999vw);
     position:fixed;
     z-index: 50;
 
     & #disclaimer{
             & img{
-                width:3vw;
+                width:clamp(50px, 3vw, 999vw);
                 height:auto;
             }
 
         display: flex;
         justify-content:center;
         align-items:center;
-        width:3vw;
+        width:clamp(50px, 3vw, 999vw);
         height:auto;
         padding:10px;
         border-radius:50%;
@@ -85,18 +116,20 @@ nav {
         transition: all 0.3s ease;
 
         position:absolute;
-        bottom: 100px;
-        right: 100px;
+        bottom: clamp(100px, 4vw, 999vw);
+        right: clamp(100px, 4vw, 999vw);
 
         font-family: "Inter", sans-serif;
         font-optical-sizing: auto;
+        text-align:justify;
+        line-height: 6rem;
         font-weight: 0;
         font-style: normal;
-        font-size:16px;
+        font-size:clamp(2rem, var(--disclaimer), 999rem);
         background-color:rgba(245, 242, 242, 1);
-        width:500px;
+        width:clamp(300px, 25vw, 999vw);
         height:auto;
-        padding: 15px;
+        padding: clamp(15px, 1vw, 999vw);
         border-radius:15px 15px 0px 15px;
         border: 2px solid #000000;
     }
@@ -112,26 +145,11 @@ nav {
 
 main{
     /*top,right,bottom,left*/
-    margin: 100px 100px 100px 100px;
-
-    & p{
-        font-family: "Inter", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 0;
-        font-style: normal;
-        font-size:16px;
-    }
-
-    & h1{
-        font-size: 64px;
-        font-family: "Poppins", sans-serif;
-        font-weight: 600;
-        font-style: normal;
-        display: flex;
-    }
+    margin: clamp(36px, 4vw, 999vw);
+    /* background-color: rgba(252, 248, 248, 1); */
 
     & h2{
-        font-size: 40px;
+        font-size: clamp(var(--subheading-mobile), var(--subheading), 999rem);
         font-family: "Poppins", sans-serif;
         font-weight: 600;
         font-style: normal;
@@ -139,28 +157,47 @@ main{
     }
 
     & #flow-one{
-        display: flex;
-        justify-content:space-between;
-        align-items:center;
-        margin-top:150px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "heading image"
+            "subtext image";
+        gap: 10vw;
+        align-items: center;
+        margin-top:8vw;
+        background-color:#0000005f;
 
-        /* background-color:#fefefe; */
+        & h1{
+            font-size: clamp(var(--heading-mobile), var(--heading), 999rem);
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+            grid-area: heading;
+            white-space: nowrap;
+        }
 
-        & #text{
-            display: flex;
-            flex-direction: column;
-            gap:40px;
+        & #hero-text{
+            & p{
+                grid-area: quotes;
+                font-family: "Inter", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 0;
+                font-style: normal;
+                font-size:clamp(var(--body-mobile), var(--body), 999rem);
+            }
         }
 
         & #hero-image{
             display:flex;
             z-index: index -1;
-            margin:0px 150px 0px 0px;
+            grid-area: image;
+
+            margin-right: clamp(1vw, 4vw, 999vw);
 
             & img{
                 z-index: -1;
-                width: 800px;
-                height: 610px;
+                width: 50vw;
+                height: auto;
                 object-fit: cover;
                 
                 --progressive-mask: 
@@ -227,7 +264,7 @@ main{
                 gap: 5vw;
 
                 & #nav-text-mobile-margin{
-                    padding: clamp(25px, 1vw, 1000vw);
+                    padding: clamp(25px, 1vw, 999vw);
                 }
 
                 & a{
@@ -247,6 +284,39 @@ main{
                 display: block;
                 opacity:1;
                 visibility: visible;
+            }
+        }
+    }
+
+    #disclaimer-container{
+        & #disclaimer-text{
+            bottom: clamp(50px, 12vw, 999vw);
+            right: clamp(50px, 12vw, 999vw);
+        }
+    }
+
+    main{
+        & #flow-one{
+            grid-template-columns: 1fr; /* Stack into 1 column */
+            grid-template-areas: 
+                "heading"
+                "image"
+                "quotes";
+            text-align: center;
+            overflow-x: hidden;
+
+            & h1{
+                white-space: normal; /* Prevents text from poking out the side */
+                font-size: var(--heading-mobile);
+            }
+
+            & #hero-image{
+                & img{
+                    width: 100%;
+                    max-width: 300px; /* Keeps image from being too huge on phones */
+                    margin: 0 auto;
+                }
+                
             }
         }
     }
