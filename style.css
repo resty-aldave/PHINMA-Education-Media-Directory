@@ -1,6 +1,6 @@
 /* Next time go from mobile to laptop flow so that the process is forward instead of laptop to mobile which is backward */
 :root{
-        background-color: rgb(255, 172, 172);
+        background-color: rgb(255, 185, 185);
         font-size: 25%;
 
         --heading: clamp(10rem, 6vw, 16rem);
@@ -131,9 +131,8 @@ nav {
 
 main{
     /*top,right,bottom,left*/
-    margin: clamp(36px, 4vw, 999vw);
+    margin-inline: clamp(36px, 4vw, 999vw);
     box-sizing: border-box;
-    /* background-color: rgba(252, 248, 248, 1); */
 
     & h2{
         font-size: var(--subheading);
@@ -145,13 +144,13 @@ main{
 
     & #flow-one{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 30vw 1fr;
         grid-template-areas: 
             "heading image"
             "subtext image";
-        gap: 10vw;
+        gap: 16vw 4vw;
         align-items: center;
-        margin-top:8vw;
+        margin-top:4vw;
 
         /* background-color:#0000005f; */
 
@@ -162,6 +161,7 @@ main{
             font-style: normal;
             grid-area: heading;
             white-space: normal;
+            margin-top: 0vw;
         }
 
         & #hero-text{
