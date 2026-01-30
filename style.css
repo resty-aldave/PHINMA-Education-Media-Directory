@@ -244,7 +244,6 @@ main{
 @media (max-width:1024px) {
     nav {
         & #more {
-            
             & #menu-overlay {
                 position: fixed;
                 top: 0;
@@ -253,10 +252,17 @@ main{
                 height: 100vh;
                 background: rgba(0, 0, 0, 0.3);
                 display: none;
-                opacity:0;
+                opacity: 0;
                 visibility: hidden;
                 transition: opacity 0.4s ease, visibility 0.4s ease;
                 z-index: 75;
+
+                /* Add this: when overlay has .is-active, it shows up */
+                &.is-active {
+                    display: block;
+                    opacity: 1;
+                    visibility: visible;
+                }
             }
 
             & #nav-text {
@@ -272,27 +278,26 @@ main{
                 z-index: 100;
                 gap: 5vw;
 
+                /* Add this: when nav-text has .is-active, it slides in */
+                &.is-active {
+                    left: 0;
+                }
+
                 & #nav-text-mobile-margin{
                     padding: clamp(25px, 1vw, 999vw);
                 }
 
                 & a{
-                    background-color:rgba(0, 0, 0, 0.2);
+                    background-color: rgba(0, 0, 0, 0.2);
                     padding: 4vw;
+                    text-decoration: none;
+                    color: black;
                 }
             }
 
             & #more-icon {
                 display: block;
-            }
-            #menu-toggle:checked ~ #nav-text{
-                left: 0;
-            }
-
-            #menu-toggle:checked ~ #menu-overlay {
-                display: block;
-                opacity:1;
-                visibility: visible;
+                cursor: pointer;
             }
         }
     }
