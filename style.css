@@ -1,24 +1,35 @@
 /* Next time go from mobile to laptop flow so that the process is forward instead of laptop to mobile which is backward */
 :root{
         background-color: rgb(255, 185, 185);
-        font-size: 25%;
 
-        --heading: clamp(10rem, 6vw, 16rem);
-        --subheading: clamp(5rem, 4vw, 10rem);
-        --main-card: clamp(4rem, 3vw, 8rem);
-        --main-card-info: clamp(2rem, 1.5vw, 4rem);
-        --medium-card: clamp(3rem, 2vw, 5rem);
-        --small-card: clamp(2rem, 1vw, 3rem);
 
-        --body: clamp(3rem, 1vw, 4rem);
-        --links-body: clamp(2rem, 1vw, 3rem);
-        --navbar: clamp(4rem, 1vw, 5rem);
-        --disclaimer: clamp(3rem, 1vw, 4rem);
+        --heading: clamp(4rem, 4vw, 5rem);
+        --heading-mobile: clamp(3rem, 3vw, 4rem);
 
-        --footer-title: clamp(3rem, 1.5vw, 4rem);
-        --footer: 3rem;
+        --subheading: clamp(2.5rem, 1.5vw, 5rem);
 
-        --default: 2rem;
+        --main-card: clamp(2rem, 3vw, 4rem);
+
+        --main-card-info: clamp(1rem, 1.5vw, 2rem);
+
+        --medium-card: clamp(1.25rem, 2vw, 2rem);
+
+        --small-card: clamp(.75rem, 1vw, 1rem);
+
+
+        --body: clamp(1rem, 1vw, 1rem);
+
+        --links-body: clamp(.75rem, 1vw, .75rem);
+
+        --navbar: clamp(1.25rem, 1vw, 1.25rem);
+
+        --disclaimer: clamp(1rem, 1vw, 1rem);
+
+
+        --footer-title: clamp(.75rem, 1.5vw, 2rem);
+        --footer: .75rem;
+
+        --default: 1rem;
 }
 
 /*design for navbar or header*/
@@ -70,6 +81,10 @@ nav {
 }
 
 /*Main design*/
+html{
+    scroll-behavior: smooth;
+}
+
 #disclaimer-container{
     display:flex;
     flex-direction:column;
@@ -108,7 +123,7 @@ nav {
         font-family: "Inter", sans-serif;
         font-optical-sizing: auto;
         text-align:justify;
-        line-height: 6rem;
+        line-height: 1.5rem;
         font-weight: 0;
         font-style: normal;
         font-size:var(--disclaimer);
@@ -148,46 +163,54 @@ main{
         grid-template-areas: 
             "heading image"
             "subtext image";
-        gap: 16vw 4vw;
-        align-items: center;
+        gap: 8vw 4vw;
         margin-top:4vw;
 
-        /* background-color:#0000005f; */
 
-        & h1{
+        & h1 {
             font-size: var(--heading);
             font-family: "Poppins", sans-serif;
             font-weight: 600;
             font-style: normal;
-            grid-area: heading;
+
+            padding-top:6vw;
+            grid-column: 1 / -1;
+            grid-row: 1 / 2;
             white-space: normal;
-            margin-top: 0vw;
+            z-index: 2;
+            position: relative;
         }
 
-        & #hero-text{
-            & p{
-                grid-area: quotes;
+        & #hero-text {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+            z-index: 2;
+
+            & p {
+                padding-bottom:10vw;
                 font-family: "Inter", sans-serif;
                 font-optical-sizing: auto;
-                font-weight: 0;
+                font-weight: 400;
                 font-style: normal;
                 font-size: var(--body);
             }
         }
 
-        & #hero-image{
-            display:flex;
-            z-index: index -1;
+        & #hero-image {
+            display: flex;
             grid-area: image;
-            justify-self: flex-start;
+            z-index: 1;
+            justify-self: end;
+            width: 100%;
+            /* background-color:#0000005f; */
 
-            /* margin-right: clamp(8vw, 12vw, 999vw); */
-
-            & img{
-                z-index: -1;
-                width: 100%;
+            & img {
+                width:80%;
                 height: auto;
+                justify-items:flex-end;
+                max-height: 60vh;
                 object-fit: cover;
+                margin: 4vw;
                 
                 --progressive-mask: 
                     linear-gradient(to bottom, 
@@ -207,16 +230,12 @@ main{
 
                 -webkit-mask-image: var(--progressive-mask);
                 -webkit-mask-composite: source-in;
-
                 mask-image: var(--progressive-mask);
                 mask-composite: intersect;
-
                 -moz-mask-image: var(--progressive-mask);
-
                 filter: blur(0px);
                 transition: filter 0.3s ease;
             }
-            
         }
     }
 }
@@ -292,21 +311,31 @@ main{
                 "heading"
                 "image"
                 "quotes";
+            gap: 20vw;
             overflow-x: hidden;
 
             & h1{
+                grid-area: heading;
+                grid-column: auto;
+                grid-row: auto;
                 justify-self:start;
                 white-space: normal;
-                font-size: var(--heading);
+                font-size: var(--heading-mobile);
+            }
+
+            & #hero-text {
+                grid-area: quotes;
             }
 
             & #hero-image{
+                grid-area: image;
+                grid-column: auto;
+                grid-row: auto;
                 justify-self:flex-end;
                 align-self:center;
+
                 & img{
-                    width: 100%;
-                    max-width: 500px;
-                    margin: 0 auto;
+                    width: 90%;
                 }
                 
             }
