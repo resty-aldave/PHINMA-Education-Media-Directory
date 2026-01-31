@@ -4,6 +4,9 @@ const menuOverlay = document.getElementById('menu-overlay');
 const navLinks = document.querySelectorAll('#nav-text a');
 const quotes = document.querySelectorAll('.quotes');
 const heroImg = document.querySelectorAll('.hero-img');
+const carousel = document.getElementById('carousel');
+const nextBtn = document.getElementById('next-button');
+const prevBtn = document.getElementById('previous-button');
 
 // navbar or menu
 const toggleMenu = () => {
@@ -44,3 +47,28 @@ function showNextHeroImg() {
 }
 
 setInterval(showNextHeroImg, 8000);
+
+
+// carousel-button
+nextBtn.addEventListener('click', () => {
+    const card = carousel.querySelector('.university-image-container');
+    const cardWidth = card.offsetWidth;
+
+    const gap = window.innerWidth * 0.08; 
+
+    carousel.scrollBy({
+        left: cardWidth + gap,
+        behavior: 'smooth'
+    });
+});
+
+prevBtn.addEventListener('click', () => {
+    const card = carousel.querySelector('.university-image-container');
+    const cardWidth = card.offsetWidth;
+    const gap = window.innerWidth * 0.08;
+
+    carousel.scrollBy({
+        left: -(cardWidth + gap),
+        behavior: 'smooth'
+    });
+});
