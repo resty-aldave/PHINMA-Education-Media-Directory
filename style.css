@@ -8,13 +8,13 @@
 
         --subheading: clamp(2.5rem, 1.5vw, 5rem);
 
-        --main-card: clamp(2rem, 3vw, 4rem);
+        --main-card: clamp(2rem, 1vw, 4rem);
 
-        --main-card-info: clamp(1rem, 1.5vw, 2rem);
+        --main-card-info: clamp(1rem, .2vw, 2rem);
 
-        --medium-card: clamp(1.25rem, 2vw, 2rem);
+        --medium-card: clamp(1.25rem, 1vw, 2rem);
 
-        --small-card: clamp(.75rem, 1vw, 1rem);
+        --small-card: clamp(.75rem, .5vw, 1rem);
 
 
         --body: clamp(1rem, 1vw, 1rem);
@@ -52,7 +52,7 @@ nav {
     & #more {
         display: flex;
         align-items: center;
-        margin-right: clamp(32px, 4vw, 999vw);
+        margin-right: clamp(36px, 4vw, 999vw);
 
         & input{
             display: none;
@@ -148,14 +148,7 @@ main{
     /*top,right,bottom,left*/
     margin-inline: clamp(36px, 4vw, 999vw);
     box-sizing: border-box;
-
-    & h2{
-        font-size: var(--subheading);
-        font-family: "Poppins", sans-serif;
-        font-weight: 600;
-        font-style: normal;
-        display: flex;
-    }
+    gap: 2vw;
 
     & #flow-one{
         display: grid;
@@ -166,9 +159,6 @@ main{
         gap: 8vw 4vw;
         margin-top:4vw;
         margin-bottom: 4vw;
-
-        /* background-color:#0000005f; */
-
 
         & h1 {
             font-size: var(--heading);
@@ -217,8 +207,8 @@ main{
             z-index: 1;
             display: grid;
             place-items: center;
-            width: 100%;
-            max-height: 80vh;
+            /* width: 100%;
+            max-height: 80vh; */
 
             & .hero-img {
                 grid-area: 1 / 1;
@@ -258,6 +248,116 @@ main{
             & .hero-img.actives{
                 opacity: 1;
                 visibility: visible;
+            }
+        }
+    }
+
+    & #flow-two{
+        
+        
+
+        & h2{
+            font-size: var(--subheading);
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+            display:flex;
+            justify-content:center;
+        }
+
+        & #carousel{
+            width: 100vw;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            box-sizing: border-box; 
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            margin-block: 10vh;
+            gap: 8vw;
+            
+            padding-inline: clamp(12px, 18vw, 20vw);          
+            scroll-padding-inline: clamp(12px, 18vw, 20vw);
+            
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            
+            & .university-image-container{
+                display: grid;
+                grid-template-columns: 65vw;
+                grid-template-rows: 65vh;
+                text-decoration: none;
+                color:#000000;
+                border-radius:1vw;
+                width: 65vw;
+                height: 65vh;
+                position: relative;
+
+                /* background-color:#0000005f; */
+
+                & img{
+                    grid-area: 1/1;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    z-index: 1;
+                    border-radius: 1vw;
+                }
+
+                & .info{
+                    grid-area: 1/1;
+                    z-index:2;
+                    align-self: end;
+                    
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: rgba(0, 0, 0, .6);
+                    padding: 1.5vw;
+                    border-radius: 0vw 0vw 1vw 1vw;
+                    
+                    & .info-left{
+                        background-color:#0000005f;
+                        & .school-name{
+                            font-size: var(--main-card);
+                            font-family: "Poppins", sans-serif;
+                            font-weight: 600;
+                            font-style: normal;
+                            color: white;
+                            margin-top: -.01vw;
+                        }
+
+                        & .school-location{
+                            font-size: var(--main-card-info);
+                            font-family: "Inter", sans-serif;
+                            font-optical-sizing: auto;
+                            font-weight: 400;
+                            font-style: normal;
+                            color: white;
+                            margin-top: -1.5vw;
+                        }
+                    }
+
+                    & .info-right{
+                        font-size: var(--main-card-info);
+                        font-family: "Inter", sans-serif;
+                        font-optical-sizing: auto;
+                        font-weight: 400;
+                        font-style: normal;
+                        color: white;
+                    }
+                }
             }
         }
     }
