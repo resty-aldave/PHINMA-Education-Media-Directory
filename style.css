@@ -1,6 +1,6 @@
 /* Next time go from mobile to laptop flow so that the process is forward instead of laptop to mobile which is backward */
 :root{
-        background-color: rgb(255, 185, 185);
+        background-color: rgba(252, 248, 248);
 
 
         --heading: clamp(4rem, 4vw, 5rem);
@@ -271,19 +271,18 @@ main{
             padding-inline: clamp(4vw, 16vw, 24vw);
 
             & img {
-                width: 25px; /* Adjust size based on your icon files */
+                width: 25px; 
                 height: auto;
                 cursor: pointer;
                 transition: transform 0.2s ease, opacity 0.2s ease;
-                /* filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25)); */
 
                 &:hover {
-                    transform: scale(1.2); /* Slight grow effect when hovering */
+                    transform: scale(1.2);
                     opacity: 1;
                 }
 
                 &:active {
-                    transform: scale(.5); /* "Click" animation */
+                    transform: scale(.5);
                 }
             }
         }
@@ -305,8 +304,10 @@ main{
             padding-inline: clamp(20px, 26vw, 999vw);          
             scroll-padding-inline: clamp(20px, 26vw, 999vw);
             
+            padding-top: 2vw; 
+            margin-top: -.5vw;
             overflow-x: auto;
-            overflow-y: hidden;
+            overflow-y: visible;
             white-space: nowrap;
 
             scrollbar-width: none;
@@ -326,6 +327,7 @@ main{
                 width: 50vw;
                 height: 55vh;
                 position: relative;
+                transition: transform 0.3s ease;
 
                 /* background-color:#0000005f; */
 
@@ -381,6 +383,14 @@ main{
                         color: white;
                     }
                 }
+            }
+
+            & .university-image-container:hover{
+                transform: translateY(-1.5vw);
+            }
+
+            & .university-image-container:active{
+                transform: scale(.9);
             }
         }
     }
