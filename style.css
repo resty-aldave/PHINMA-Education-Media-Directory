@@ -1,24 +1,35 @@
 /* Next time go from mobile to laptop flow so that the process is forward instead of laptop to mobile which is backward */
 :root{
-        background-color: rgb(255, 172, 172);
-        font-size: 25%;
+        background-color: rgba(252, 248, 248);
 
-        --heading: clamp(10rem, 6vw, 16rem);
-        --subheading: clamp(5rem, 4vw, 10rem);
-        --main-card: clamp(4rem, 3vw, 8rem);
-        --main-card-info: clamp(2rem, 1.5vw, 4rem);
-        --medium-card: clamp(3rem, 2vw, 5rem);
-        --small-card: clamp(2rem, 1vw, 3rem);
 
-        --body: clamp(3rem, 1vw, 4rem);
-        --links-body: clamp(2rem, 1vw, 3rem);
-        --navbar: clamp(4rem, 1vw, 5rem);
-        --disclaimer: clamp(3rem, 1vw, 4rem);
+        --heading: clamp(4rem, 4vw, 5rem);
+        --heading-mobile: clamp(3rem, 3vw, 4rem);
 
-        --footer-title: clamp(3rem, 1.5vw, 4rem);
-        --footer: 3rem;
+        --subheading: clamp(2.5rem, 1.5vw, 5rem);
 
-        --default: 2rem;
+        --main-card: clamp(2rem, 1vw, 4rem);
+
+        --main-card-info: clamp(1rem, .2vw, 2rem);
+
+        --medium-card: clamp(1.25rem, 1vw, 2rem);
+
+        --small-card: clamp(.75rem, .5vw, 1rem);
+
+
+        --body: clamp(1rem, 1vw, 1rem);
+
+        --links-body: clamp(.75rem, 1vw, .75rem);
+
+        --navbar: clamp(1.25rem, 1vw, 1.25rem);
+
+        --disclaimer: clamp(1rem, 1vw, 1rem);
+
+
+        --footer-title: clamp(.75rem, 1.5vw, 2rem);
+        --footer: .75rem;
+
+        --default: 1rem;
 }
 
 /*design for navbar or header*/
@@ -33,7 +44,7 @@ nav {
 
     & #logo-img {
         z-index:100;
-        margin-left: clamp(36px, 4vw, 999vw); /*4vh is looking 100px on my screen*/
+        margin-left: clamp(36px, 4vw, 999vw); /*4vw is looking 100px on my screen*/
         height: auto;
         width: clamp(200px, 12.48vw, 999vw); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
     }
@@ -41,7 +52,7 @@ nav {
     & #more {
         display: flex;
         align-items: center;
-        margin-right: clamp(32px, 4vw, 999vw);
+        margin-right: clamp(36px, 4vw, 999vw);
 
         & input{
             display: none;
@@ -70,6 +81,10 @@ nav {
 }
 
 /*Main design*/
+html{
+    scroll-behavior: smooth;
+}
+
 #disclaimer-container{
     display:flex;
     flex-direction:column;
@@ -108,7 +123,7 @@ nav {
         font-family: "Inter", sans-serif;
         font-optical-sizing: auto;
         text-align:justify;
-        line-height: 6rem;
+        line-height: 1.5rem;
         font-weight: 0;
         font-style: normal;
         font-size:var(--disclaimer);
@@ -131,63 +146,79 @@ nav {
 
 main{
     /*top,right,bottom,left*/
-    margin: clamp(36px, 4vw, 999vw);
+    margin-inline: clamp(36px, 4vw, 999vw);
     box-sizing: border-box;
-    /* background-color: rgba(252, 248, 248, 1); */
-
-    & h2{
-        font-size: var(--subheading);
-        font-family: "Poppins", sans-serif;
-        font-weight: 600;
-        font-style: normal;
-        display: flex;
-    }
+    gap: 2vw;
 
     & #flow-one{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 30vw 1fr;
         grid-template-areas: 
             "heading image"
             "subtext image";
-        gap: 10vw;
-        align-items: center;
-        margin-top:8vw;
+        gap: 8vw 4vw;
+        margin-top:4vw;
+        margin-bottom: 4vw;
 
-        /* background-color:#0000005f; */
-
-        & h1{
+        & h1 {
             font-size: var(--heading);
             font-family: "Poppins", sans-serif;
             font-weight: 600;
             font-style: normal;
-            grid-area: heading;
+
+            padding-top:6vw;
+            grid-column: 1 / -1;
+            grid-row: 1 / 2;
             white-space: normal;
+            z-index: 2;
+            position: relative;
         }
 
-        & #hero-text{
-            & p{
-                grid-area: quotes;
+        & #hero-text {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+            z-index: 2;
+
+            & .quotes {
+ 
                 font-family: "Inter", sans-serif;
                 font-optical-sizing: auto;
-                font-weight: 0;
+                font-weight: 400;
                 font-style: normal;
                 font-size: var(--body);
+
+                position: absolute;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 1s ease, visibility 1s ease;
             }
+
+            & .quotes.active{
+                opacity: 1;
+                visibility: visible;
+            }
+
+
         }
 
-        & #hero-image{
-            display:flex;
-            z-index: index -1;
+        & #hero-image {
+            display: flex;
             grid-area: image;
-            justify-self: flex-start;
+            z-index: 1;
+            display: grid;
+            place-items: center;
+            /* width: 100%;
+            max-height: 80vh; */
 
-            /* margin-right: clamp(8vw, 12vw, 999vw); */
-
-            & img{
-                z-index: -1;
-                width: 100%;
-                height: auto;
+            & .hero-img {
+                grid-area: 1 / 1;
+                width: 90%;
+                height: 60vh;
+                margin: 4vw;
                 object-fit: cover;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 2s ease, visibility 2s ease;
                 
                 --progressive-mask: 
                     linear-gradient(to bottom, 
@@ -207,16 +238,160 @@ main{
 
                 -webkit-mask-image: var(--progressive-mask);
                 -webkit-mask-composite: source-in;
-
                 mask-image: var(--progressive-mask);
                 mask-composite: intersect;
-
                 -moz-mask-image: var(--progressive-mask);
-
                 filter: blur(0px);
                 transition: filter 0.3s ease;
             }
+
+            & .hero-img.actives{
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    & #flow-two{
+        
+        
+
+        & h2{
+            font-size: var(--subheading);
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+            display:flex;
+            justify-content:center;
+        }
+
+        #carousel-button {
+            display: flex;
+            justify-content: space-between;
+            padding-inline: clamp(4vw, 16vw, 24vw);
+
+            & img {
+                width: 25px; 
+                height: auto;
+                cursor: pointer;
+                transition: transform 0.2s ease, opacity 0.2s ease;
+
+                &:hover {
+                    transform: scale(1.2);
+                    opacity: 1;
+                }
+
+                &:active {
+                    transform: scale(.5);
+                }
+            }
+        }
+
+        & #carousel{
+            width: 100vw;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            box-sizing: border-box; 
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            margin-block: 5vh;
+            gap: 8vw;
             
+            padding-inline: clamp(20px, 26vw, 999vw);          
+            scroll-padding-inline: clamp(20px, 26vw, 999vw);
+            
+            padding-top: 2vw; 
+            margin-top: -.5vw;
+            overflow-x: auto;
+            overflow-y: visible;
+            white-space: nowrap;
+
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            
+            & .university-image-container{
+                display: grid;
+                grid-template-columns: 50vw;
+                grid-template-rows: 55vh;
+                text-decoration: none;
+                color:#000000;
+                border-radius:1vw;
+                width: 50vw;
+                height: 55vh;
+                position: relative;
+                transition: transform 0.3s ease;
+
+                /* background-color:#0000005f; */
+
+                & img{
+                    grid-area: 1/1;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    z-index: 1;
+                    border-radius: 1vw;
+                }
+
+                & .info{
+                    grid-area: 1/1;
+                    z-index:2;
+                    align-self: end;
+                    
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: rgba(0, 0, 0, .6);
+                    padding: 1.5vw;
+                    border-radius: 0vw 0vw 1vw 1vw;
+                    
+                    & .info-left{
+                        /* background-color:#0000005f; */
+                        & .school-name{
+                            font-size: var(--main-card);
+                            font-family: "Poppins", sans-serif;
+                            font-weight: 600;
+                            font-style: normal;
+                            color: white;
+                            margin-top: -.01vw;
+                        }
+
+                        & .school-location{
+                            font-size: var(--main-card-info);
+                            font-family: "Inter", sans-serif;
+                            font-optical-sizing: auto;
+                            font-weight: 400;
+                            font-style: normal;
+                            color: white;
+                            margin-top: -1.5vw;
+                        }
+                    }
+
+                    & .info-right{
+                        font-size: var(--main-card-info);
+                        font-family: "Inter", sans-serif;
+                        font-optical-sizing: auto;
+                        font-weight: 400;
+                        font-style: normal;
+                        color: white;
+                    }
+                }
+            }
+
+            & .university-image-container:hover{
+                transform: translateY(-1.5vw);
+            }
+
+            & .university-image-container:active{
+                transform: scale(.9);
+            }
         }
     }
 }
@@ -225,7 +400,6 @@ main{
 @media (max-width:1024px) {
     nav {
         & #more {
-            
             & #menu-overlay {
                 position: fixed;
                 top: 0;
@@ -234,10 +408,17 @@ main{
                 height: 100vh;
                 background: rgba(0, 0, 0, 0.3);
                 display: none;
-                opacity:0;
+                opacity: 0;
                 visibility: hidden;
                 transition: opacity 0.4s ease, visibility 0.4s ease;
                 z-index: 75;
+
+                /* Add this: when overlay has .is-active, it shows up */
+                &.is-active {
+                    display: block;
+                    opacity: 1;
+                    visibility: visible;
+                }
             }
 
             & #nav-text {
@@ -253,27 +434,26 @@ main{
                 z-index: 100;
                 gap: 5vw;
 
+                /* Add this: when nav-text has .is-active, it slides in */
+                &.is-active {
+                    left: 0;
+                }
+
                 & #nav-text-mobile-margin{
                     padding: clamp(25px, 1vw, 999vw);
                 }
 
                 & a{
-                    background-color:rgba(0, 0, 0, 0.2);
+                    background-color: rgba(0, 0, 0, 0.2);
                     padding: 4vw;
+                    text-decoration: none;
+                    color: black;
                 }
             }
 
             & #more-icon {
                 display: block;
-            }
-            #menu-toggle:checked ~ #nav-text{
-                left: 0;
-            }
-
-            #menu-toggle:checked ~ #menu-overlay {
-                display: block;
-                opacity:1;
-                visibility: visible;
+                cursor: pointer;
             }
         }
     }
@@ -292,21 +472,31 @@ main{
                 "heading"
                 "image"
                 "quotes";
+            gap: 5vw;
             overflow-x: hidden;
 
             & h1{
+                grid-area: heading;
+                grid-column: auto;
+                grid-row: auto;
                 justify-self:start;
                 white-space: normal;
-                font-size: var(--heading);
+                font-size: var(--heading-mobile);
+            }
+
+            & #hero-text {
+                grid-area: quotes;
             }
 
             & #hero-image{
+                grid-area: image;
+                grid-column: auto;
+                grid-row: auto;
                 justify-self:flex-end;
-                align-self:center;
-                & img{
-                    width: 100%;
-                    max-width: 500px;
-                    margin: 0 auto;
+
+                & .hero-img{
+                    width: 75%;
+                    height: 50vh;
                 }
                 
             }
