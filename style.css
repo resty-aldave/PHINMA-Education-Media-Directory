@@ -361,7 +361,6 @@ main{
                 grid-row: auto;
                 justify-self:flex-end;
 
-
                 & .hero-img{
                     width: 75%;
                     height: 50vh;
