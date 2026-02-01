@@ -487,6 +487,7 @@ main{
             bottom: clamp(50px, 12vw, 999vw);
             right: clamp(50px, 12vw, 999vw);
             border: 1px solid #000000;
+            width:clamp(200px, 15vw, 999vw);
         }
     }
 
