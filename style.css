@@ -469,6 +469,17 @@ main{
     }
 
     #disclaimer-container{
+        & #disclaimer{
+                & img{
+                    width:clamp(30px, 2vw, 999vw);
+                    height:auto;
+                }
+
+            width:clamp(30px, 3vw, 999vw);
+            height:auto;
+            padding:8px;
+        }
+
         & #disclaimer-text{
             bottom: clamp(50px, 12vw, 999vw);
             right: clamp(50px, 12vw, 999vw);
