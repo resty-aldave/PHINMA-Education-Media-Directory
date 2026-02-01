@@ -526,8 +526,8 @@ main{
                 justify-self:flex-end;
 
                 & .hero-img{
-                    width: 75%;
-                    height: 50vh;
+                    width: 50vw;
+                    height: 30vh;
                 }
                 
             }
