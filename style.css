@@ -23,6 +23,7 @@
         --links-body: clamp(.75rem, 1vw, .75rem);
 
         --navbar: clamp(1.25rem, 1vw, 1.25rem);
+        --navbar-mobile: clamp(1rem, 1vw, 2rem);
 
         --disclaimer: clamp(1rem, 1vw, 1rem);
 
@@ -400,6 +401,11 @@ main{
 /* Phone */
 @media (max-width:1024px) {
     nav {
+        & #logo-img {
+            height: auto;
+            width: clamp(175px, 12vw, 999vw); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
+        }
+
         & #more {
             & #menu-overlay {
                 position: fixed;
@@ -423,6 +429,7 @@ main{
             }
 
             & #nav-text {
+                font-size: var(--navbar-mobile);
                 position: fixed;
                 top: 0;
                 left: -100%; 
@@ -455,6 +462,8 @@ main{
             & #more-icon {
                 display: block;
                 cursor: pointer;
+                width: clamp(20px, 3vw, 999vw);
+                height: auto;
             }
         }
     }
