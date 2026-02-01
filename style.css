@@ -45,7 +45,7 @@ nav {
     /*top,right,bottom,left*/
     padding-block: clamp(25px, 1vw, 999vw);
     display: flex;
-    position: fixed;
+    /* position: fixed; */
     align-items: center;
     justify-content: space-between;
     background-color: rgba(252, 248, 248, 0.5);
@@ -160,7 +160,6 @@ html{
 
 
 main{
-    /*top,right,bottom,left*/
     display:flex;
     flex-direction:column;
     margin-inline: clamp(36px, 4vw, 999vw);
@@ -425,6 +424,44 @@ main{
 
             & .university-image-container:active{
                 transform: scale(.9);
+            }
+        }
+    }
+
+    & #flow-three{
+        position: relative;
+
+        & h2{
+            font-size: var(--subheading);
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+            display:flex;
+            justify-content:center;
+        }
+
+        & #contact-us-container{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                "first-p second-p";
+
+            line-height: clamp(2rem, 3rem, 4rem);
+            text-align: center;
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-size: var(--body);
+            
+            & #first-paragraph{
+                grid-area: first-p;
+                padding-inline: clamp(3vw, 4vw, 6vw);
+            }
+
+            & #second-paragraph{
+                grid-area: second-p;
+                padding-inline: clamp(3vw, 4vw, 6vw);
             }
         }
     }

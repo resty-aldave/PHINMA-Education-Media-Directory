@@ -8,6 +8,7 @@ const carousel = document.getElementById('carousel');
 const nextBtn = document.getElementById('next-button');
 const prevBtn = document.getElementById('previous-button');
 
+
 // navbar or menu
 const toggleMenu = () => {
     navText.classList.toggle('is-active');
