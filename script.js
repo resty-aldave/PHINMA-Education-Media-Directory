@@ -54,7 +54,7 @@ nextBtn.addEventListener('click', () => {
     const card = carousel.querySelector('.university-image-container');
     const cardWidth = card.offsetWidth;
 
-    const gap = window.innerWidth * 0.08; 
+    const gap = window.innerWidth * 1; 
 
     carousel.scrollBy({
         left: cardWidth + gap,
@@ -65,7 +65,7 @@ nextBtn.addEventListener('click', () => {
 prevBtn.addEventListener('click', () => {
     const card = carousel.querySelector('.university-image-container');
     const cardWidth = card.offsetWidth;
-    const gap = window.innerWidth * 0.08;
+    const gap = window.innerWidth * 1;
 
     carousel.scrollBy({
         left: -(cardWidth + gap),
