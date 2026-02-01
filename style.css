@@ -1,6 +1,6 @@
 /* Next time go from mobile to laptop flow so that the process is forward instead of laptop to mobile which is backward */
 :root{
-        background-color: rgba(252, 248, 248);
+        background-color: rgb(195, 195, 195);
 
 
         --heading: clamp(4rem, 4vw, 5rem);
@@ -36,6 +36,17 @@
         --footer: .75rem;
 
         --default: 1rem;
+}
+/*Global design*/
+html{
+    scroll-behavior: smooth;
+
+    & body{
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
 }
 
 /*design for navbar or header*/
@@ -87,16 +98,6 @@ nav {
             width: clamp(30px, 4vw, 999vw);
             height: auto;
         }
-    }
-}
-
-/*Main design*/
-html{
-    scroll-behavior: smooth;
-
-    & body{
-        overflow-x: hidden;
-        width: 100%;
     }
 }
 
@@ -278,6 +279,7 @@ main{
             font-style: normal;
             display:flex;
             justify-content:center;
+            margin-bottom: 4vw;
         }
 
         #carousel-button {
@@ -371,7 +373,7 @@ main{
                     object-fit: cover;
                     z-index: 1;
                     border-radius: var(--main-card-radius);
-                    border: .75px solid #000000;
+                    border: .75px solid #0000005f;
                 }
 
                 & .info{
@@ -438,6 +440,7 @@ main{
             font-style: normal;
             display:flex;
             justify-content:center;
+            margin-bottom: 4vw;
         }
 
         & #contact-us-container{
@@ -446,24 +449,52 @@ main{
             grid-template-areas:
                 "first-p second-p";
 
-            line-height: clamp(2rem, 3rem, 4rem);
+            line-height: clamp(2rem, 2rem, 4rem);
             text-align: center;
             font-family: "Inter", sans-serif;
             font-optical-sizing: auto;
             font-weight: 400;
             font-style: normal;
             font-size: var(--body);
-            
+
             & #first-paragraph{
                 grid-area: first-p;
-                padding-inline: clamp(3vw, 4vw, 6vw);
+                padding-inline: clamp(4vw, 8vw, 12vw);
             }
 
             & #second-paragraph{
                 grid-area: second-p;
-                padding-inline: clamp(3vw, 4vw, 6vw);
+                padding-inline: clamp(4vw, 8vw, 12vw);
             }
         }
+    }
+
+    & #flow-four{
+        position: relative;
+
+        & h2{
+            font-size: var(--subheading);
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+            display:flex;
+            justify-content:center;
+            margin-bottom: 4vw;
+        }
+
+        & #about-us-container{
+            line-height: clamp(2rem, 2rem, 4rem);
+            text-align: center;
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-size: var(--body);
+
+            padding-inline: clamp(8vw, 12vw, 16vw);
+            
+        }
+
     }
 }
 
