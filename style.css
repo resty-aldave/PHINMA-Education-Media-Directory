@@ -239,6 +239,22 @@ main{
                         rgba(0,0,0,0.3) 90%, 
                         transparent 100%);
 
+                --progressive-mask-mobile: 
+                    linear-gradient(to bottom, 
+                        transparent 0%, 
+                        rgba(0,0,0,0.3) 15%, 
+                        black 35%, 
+                        black 75%, 
+                        rgba(0,0,0,0.3) 90%, 
+                        transparent 100%),
+                    linear-gradient(to right, 
+                        transparent 0%, 
+                        rgba(0,0,0,0.3) 15%, 
+                        black 35%, 
+                        black 75%, 
+                        rgba(0,0,0,0.3) 90%, 
+                        transparent 100%);
+
                 -webkit-mask-image: var(--progressive-mask);
                 -webkit-mask-composite: source-in;
                 mask-image: var(--progressive-mask);
@@ -498,9 +514,8 @@ main{
                 "heading"
                 "image"
                 "quotes";
-            gap: 5vw;
+            gap: 10vh;
             overflow-x: hidden;
-            gap: 2vw;
 
             & h1{
                 grid-area: heading;
@@ -527,7 +542,11 @@ main{
 
                 & .hero-img{
                     width: 50vw;
-                    height: 30vh;
+                    height: 40vh;
+
+                    -webkit-mask-image: var(--progressive-mask-mobile);
+                    mask-image: var(--progressive-mask-mobile);
+                    -moz-mask-image: var(--progressive-mask-mobile);
                 }
                 
             }
