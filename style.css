@@ -271,6 +271,7 @@ main{
 
     & #flow-two{
         position: relative;
+        scroll-margin-top: 50px;
 
         & h2{
             font-size: var(--subheading);
@@ -279,7 +280,7 @@ main{
             font-style: normal;
             display:flex;
             justify-content:center;
-            margin-bottom: 4vw;
+            margin-bottom: 8vw;
         }
 
         #carousel-button {
@@ -288,7 +289,7 @@ main{
             width: 100vw;
             position: absolute;
             z-index: 10;
-            top: 52.5%;
+            top: 60%;
             left: 50%;
             right: 50%;
             margin-left: -50vw;
@@ -349,6 +350,8 @@ main{
             &::-webkit-scrollbar {
                 display: none;
             }
+
+            scroll-snap-type: x mandatory;
             
             & .university-image-container{
                 --main-card-radius: clamp(1vw, 1vw, 2vw);
@@ -364,7 +367,7 @@ main{
                 position: relative;
                 transition: transform 0.3s ease;
 
-                /* background-color:#0000005f; */
+                scroll-snap-align: center;
 
                 & img{
                     grid-area: 1/1;
@@ -440,7 +443,7 @@ main{
             font-style: normal;
             display:flex;
             justify-content:center;
-            margin-bottom: 4vw;
+            margin-bottom: 8vw;
         }
 
         & #contact-us-container{
@@ -479,7 +482,7 @@ main{
             font-style: normal;
             display:flex;
             justify-content:center;
-            margin-bottom: 4vw;
+            margin-bottom: 8vw;
         }
 
         & #about-us-container{
@@ -571,11 +574,11 @@ main{
     #disclaimer-container{
         & #disclaimer{
                 & img{
-                    width:clamp(30px, 6vw, 999vw);
+                    width:clamp(30px, 40px, 10vw);
                     height:auto;
                 }
 
-            width:clamp(30px, 6vw, 999vw);
+            width:clamp(30px, 40px, 10vw);
             height:auto;
             padding:8px;
         }
@@ -599,7 +602,7 @@ main{
                 "heading"
                 "image"
                 "quotes";
-            gap: 8vh;
+            gap: 4vh;
             overflow-x: hidden;
 
             & h1{
@@ -626,8 +629,8 @@ main{
                 justify-self:flex-end;
 
                 & .hero-img{
-                    width: 70vw;
-                    height: 40vh;
+                    width: clamp(1vw, auto, 50vw);
+                    height:50vh;
 
                 }
                 
@@ -654,8 +657,8 @@ main{
                 padding-inline: clamp(20px, 10vw, 30vw); 
 
                 & img {
-                    width: clamp(2vw, 4vw, 4vw); 
-                    height: clamp(2vw, 4vw, 4vw);
+                    width: clamp(3vw, 3vw, 4vw); 
+                    height: clamp(3vw, 3vw, 4vw);
                     padding:1vw;
                 }
             }
