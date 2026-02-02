@@ -271,7 +271,7 @@ main{
 
     & #flow-two{
         position: relative;
-        scroll-margin-top: 50px;
+        /* scroll-margin-top: 50px; */
 
         & h2{
             font-size: var(--subheading);
