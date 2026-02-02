@@ -494,6 +494,7 @@ main{
 
     & #flow-four{
         position: relative;
+        margin-top: 4vw;
 
         & h2{
             font-size: var(--subheading);
@@ -506,16 +507,18 @@ main{
         }
 
         & #about-us-container{
-            line-height: clamp(2rem, 2rem, 4rem);
+            line-height: clamp(2rem, 3rem, 4rem);
             text-align: center;
             font-family: "Inter", sans-serif;
             font-optical-sizing: auto;
             font-weight: 400;
             font-style: normal;
             font-size: var(--body);
+            display: flex;
+            flex-direction:column;
+            gap: 1vw;
 
-            padding-inline: clamp(8vw, 12vw, 16vw);
-            
+            padding-inline: clamp(12vw, 16vw, 20vw);
         }
 
     }
@@ -741,6 +744,7 @@ main{
         & #flow-three{
             & h2{
                 font-size: var(--subheading-mobile);
+                margin-bottom: 12vw;
             }
 
             & #contact-us-container{
@@ -753,6 +757,30 @@ main{
                 line-height: 1.5rem;
                 font-size: var(--body-mobile);
             }
+
+            & a{margin-top: 12vw;
+                font-size: var(--links-body);
+
+                & img{
+                    width:clamp(30px, 1vw, 999vw);
+                    height:auto;
+                }
+            }
+        }
+
+        & #flow-four{
+            & h2{
+                font-size: var(--subheading-mobile);
+                margin-bottom: 12vw;
+            }
+
+            & #about-us-container{
+                line-height: 1.5rem;
+                font-size: var(--body-mobile);
+
+                padding-inline: clamp(4vw, 8vw, 12vw);
+            }
+
         }
     }
 }
