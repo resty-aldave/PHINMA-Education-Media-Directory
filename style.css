@@ -61,9 +61,7 @@ nav {
     justify-content: space-between;
     background-color: rgba(252, 248, 248, 0.5);
 
-    
-
-    & #logo-img {
+    & .logo-img {
         z-index:100;
         margin-left: clamp(36px, 4vw, 999vw); /*4vw is looking 100px on my screen*/
         height: auto;
@@ -522,6 +520,10 @@ main{
         }
 
     }
+}
+
+footer{
+    
 }
 
 /* Phone */
