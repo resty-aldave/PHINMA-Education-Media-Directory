@@ -1,6 +1,6 @@
 /* Next time go from mobile to laptop flow so that the process is forward instead of laptop to mobile which is backward */
 :root{
-        background-color: rgb(195, 195, 195);
+        background-color: rgb(252, 248, 248);
 
 
         --heading: clamp(4rem, 4vw, 5rem);
@@ -32,7 +32,7 @@
         --disclaimer-mobile: clamp(.5rem, .5vw, 1rem);
 
 
-        --footer-title: clamp(.75rem, 1.5vw, 2rem);
+        --footer-title: clamp(.75rem, .75vw, 2rem);
         --footer: .75rem;
 
         --default: 1rem;
@@ -49,6 +49,68 @@ html{
     }
 }
 
+/* Background rotation */
+.blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(75px); 
+    z-index: -100;
+    opacity: 0.55;
+    animation: orbit 30s infinite linear;
+
+    &.blob-1 {
+        width: 50vw;
+        height: 50vw;
+        background-color: #9AB0FD; 
+        top: -10%;
+        left: 0;
+        transform-origin: 50vw 60vh;
+    }
+
+    &.blob-2 {
+        width: 30vw;
+        height: 30vw;
+        background-color: #00D05F; 
+        top: 15%;
+        right: 1%;
+        transform-origin: -19vw 35vh;
+    }
+
+    &.blob-3 {
+        width: 15vw;
+        height: 15vw;
+        background-color: #FFE35E; 
+        bottom: -25%;
+        left: 15%;
+        transform-origin: 35vw -60vh;
+    }
+
+    &.blob-4 {
+        width: 40vw;
+        height: 40vw;
+        background-color: #D5D5D5; 
+        bottom: 0%;
+        right: 0%;
+        transform-origin: -10vw -10vh;
+    }
+}
+
+.grain-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+@keyframes orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
 /*design for navbar or header*/
 nav {
     width: 100%;
@@ -61,9 +123,7 @@ nav {
     justify-content: space-between;
     background-color: rgba(252, 248, 248, 0.5);
 
-    
-
-    & #logo-img {
+    & .logo-img {
         z-index:100;
         margin-left: clamp(36px, 4vw, 999vw); /*4vw is looking 100px on my screen*/
         height: auto;
@@ -521,6 +581,146 @@ main{
             padding-inline: clamp(12vw, 16vw, 20vw);
         }
 
+    }
+}
+
+footer{
+    margin-top: 8vw;
+    padding-block: clamp(36px, 8vh, 999vh);
+    background-color: rgba(217, 207, 199, 1);
+    
+
+    & #footer-desktop-view{
+        & #top-footer{
+            display:flex;
+            margin-inline: clamp(36px, 4vw, 999vw);
+            
+            & #phinma-information{
+                width: 40vw;
+                height: auto;
+                padding-right: 8vw;
+                /* background-color: rgb(193, 153, 120); */
+
+                & img{
+                    height: auto;
+                    width: clamp(200px, 12.48vw, 999vw);
+                    margin-bottom:  4vh;
+                }
+
+                & #phinma-title{
+                    font-size: var(--footer-title);
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 600;
+                    font-style: normal;
+                }
+
+                & #phinma-text{
+                    font-size: var(--footer);
+                    font-family: "Inter", sans-serif;
+                    font-optical-sizing: auto;
+                    font-weight: 400;
+                    font-style: normal;
+                }
+
+                & #phinma{
+                    font-size: var(--footer);
+
+                    line-height: 1.5rem;
+
+                    & #website{
+                        font-family: "Inter", sans-serif;
+                        font-optical-sizing: auto;
+                        font-weight: 400;
+                        font-style: normal;
+
+                        text-decoration:none;
+                        color:rgba(0, 0, 0)
+                    }
+
+                    & #email{
+                        font-family: "Inter", sans-serif;
+                        font-optical-sizing: auto;
+                        font-weight: 400;
+                        font-style: normal;
+
+                        color:rgba(0, 0, 0)
+                    }
+
+                    & #number{
+                        font-family: "Inter", sans-serif;
+                        font-optical-sizing: auto;
+                        font-weight: 400;
+                        font-style: normal;
+
+                        text-decoration:none;
+                        color:rgba(0, 0, 0)
+                    }
+                }
+            }
+
+            & #footer-nav{
+                /* background-color: rgb(89, 89, 89, .5); */
+                display:grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: repeat(9, auto);
+                column-gap: 5vw;
+                grid-auto-flow: column;
+
+                width: 100%;
+                height:auto;
+
+                line-height: 1.5rem;
+                font-size: var(--footer);
+                font-family: "Inter", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+
+                & a{
+                    text-decoration: none;
+                    color:#000000;
+                    justify-self:start;
+                }
+                
+                
+
+            }
+        }
+
+        & span{
+            display: flex;
+            border: 1px solid#000000;
+            margin-block: clamp(36px, 4vh, 999vh);
+            margin-inline: clamp(36px, 4vw, 999vw);
+        }
+
+        & #bottom-footer{
+            margin-inline: clamp(36px, 4vw, 999vw);
+            display: flex;
+            justify-content: space-between;
+
+            & #student-led, #version{
+                display: flex;
+                align-items: center;
+                font-size: var(--footer-title);
+                font-family: "Poppins", sans-serif;
+                font-weight: 600;
+                font-style: normal;
+                gap: 1vw;
+
+                & img{
+                    width:clamp(30px, 2vw, 999vw);
+                    height:auto;
+                }
+            }
+
+            & p{
+                font-size: var(--footer-title);
+                font-family: "Poppins", sans-serif;
+                font-weight: 600;
+                font-style: normal;
+            }
+        }
     }
 }
 
