@@ -73,3 +73,11 @@ prevBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+function toggleInstitution() {
+        var list = document.getElementById("institution-options");
+        var arrow = document.getElementById("institution-arrow");
+
+        list.classList.toggle("show");
+        arrow.classList.toggle("rotate");
+    }
