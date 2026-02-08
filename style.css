@@ -131,7 +131,7 @@ nav {
             z-index:100;
             margin-left: clamp(36px, 4vw, 999vw); /*4vw is looking 100px on my screen*/
             height: auto;
-            width: clamp(200px, 19.5rem, 400px); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
+            width: clamp(200px, 12.48vw, 999vw); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
         }
     }
 
@@ -628,7 +628,7 @@ footer{
 
                 & img{
                     height: auto;
-                    width: clamp(200px, 19.5rem, 400px);
+                    width: clamp(200px, 12.48vw, 999vw);
                     margin-bottom:  4vh;
                 }
 
@@ -707,7 +707,7 @@ footer{
                 gap: 1vw;
 
                 & img{
-                    width:clamp(30px, 1.5rem, 999vw);
+                    width:clamp(30px, 1.5vw, 999vw);
                     height:auto;
                 }
             }
@@ -913,7 +913,7 @@ footer{
                 width: 100vw;
                 position: absolute;
                 z-index: 10;
-                top: 63.5%;
+                top: 55%;
                 left: 50%;
                 right: 50%;
                 margin-left: -50vw;
