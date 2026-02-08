@@ -35,6 +35,8 @@
         --footer-title: normal 600 clamp(.75rem, .75vw, 1rem) "Poppins", sans-serif;
         --footer: normal 400 .75rem "Inter", sans-serif;
 
+        --footer-mobile: normal 400 .5rem "Inter", sans-serif;
+
         --default: 1rem;
 }
 /*Global design*/
@@ -991,7 +993,7 @@ footer{
                     & img{
                         height: auto;
                         width: clamp(200px, 12.48vw, 999vw);
-                        margin-bottom:  4vh;
+                        margin-bottom:  2vh;
                     }
 
                     & #phinma-title{
@@ -1028,7 +1030,7 @@ footer{
 
                 & #footer-nav {
                     font: var(--footer);
-                    margin-top: 8vh;
+                    margin-top: 4vh;
                     display: flex;
                     flex-direction: column;
                     gap: 1vh;
@@ -1107,7 +1109,7 @@ footer{
                 display: block;
                 border: .75px solid#000000;
                 margin-inline: clamp(36px, 4vw, 999vw);
-                margin-block: clamp(36px, 4vh, 999vh);
+                margin-block: clamp(10px, 2vh, 999vh);
                 align-self: stretch;
             }
 
@@ -1118,7 +1120,7 @@ footer{
                 align-items: center;
 
                 & #student-led, #version{
-                    font: var(--footer);
+                    font: var(--footer-mobile);
                     font-optical-sizing: auto;
                     display: flex;
                     align-items: center;
@@ -1131,7 +1133,7 @@ footer{
                 }
 
                 & p{
-                    font: var(--footer);
+                    font: var(--footer-mobile);
                     font-optical-sizing: auto;
                     text-align: center;
                 }
