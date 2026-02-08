@@ -918,7 +918,7 @@ footer{
                 right: 50%;
                 margin-left: -50vw;
                 margin-right: -50vw;
-                padding-inline: clamp(20px, 10vw, 15vw); 
+                padding-inline: clamp(20px, 12vw, 15vw); 
 
                 & img {
                     width: clamp(3vw, 3vw, 4vw); 
