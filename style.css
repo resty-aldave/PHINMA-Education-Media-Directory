@@ -943,7 +943,6 @@ footer{
                 margin-inline: clamp(36px, 4vw, 999vw);
                 box-sizing: border-box;
                 align-self: stretch;
-                width: auto;
                 
                 & #phinma-information{
                     height: auto;
@@ -1029,7 +1028,7 @@ footer{
                         & #institution-options {
                             display: flex;
                             flex-direction: column;
-                            width: 100%;
+                            width: 80%;
                             margin-inline: auto;
                             gap: 10px;
 
@@ -1071,7 +1070,7 @@ footer{
                 border: .75px solid#000000;
                 margin-inline: clamp(36px, 4vw, 999vw);
                 margin-block: clamp(36px, 4vh, 999vh);
-                width:80%;
+                align-self: stretch;
             }
 
             & #bottom-footer{
