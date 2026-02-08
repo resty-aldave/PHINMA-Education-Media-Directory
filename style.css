@@ -941,6 +941,9 @@ footer{
                 display:flex;
                 flex-direction: column;
                 margin-inline: clamp(36px, 4vw, 999vw);
+                box-sizing: border-box;
+                align-self: stretch;
+                width: auto;
                 
                 & #phinma-information{
                     height: auto;
@@ -984,33 +987,82 @@ footer{
                     }
                 }
 
-                & #footer-nav{
-                    /* background-color: rgb(89, 89, 89, .5); */
+                & #footer-nav {
+                    font: var(--footer);
+                    margin-top: 8vh;
                     display: flex;
                     flex-direction: column;
+                    gap: 1vh;
+                    width: 100%;
 
-                    font: var(--footer);
-                    line-height: 1.5rem;
-                    font-optical-sizing: auto;
-
-                    & .footer-nav-button{
-                        text-decoration: none;
-                        color:#000000;
-                        justify-self:start;
-                        width: fit-content;
-                        height:auto;
-
-                        gap: 10vh;
-                        background-color: rgba(198, 198, 198, 1);
-                        border:1px solid rgba(0, 0, 0);
-                        border-radius: 8px;
+                    & .footer-nav-button {
+                        box-sizing: border-box;
                         width: 100%;
-                        padding: 1vh;
-                    }
-                    
-                    
-                    
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
 
+                        background-color: rgba(198, 198, 198, 1);
+                        border: 1px solid rgba(0, 0, 0, 0.2);
+                        border-radius: 16px;
+                        padding: 15px 25px;
+                        text-decoration: none;
+                        color: #000000;
+                        cursor: pointer;
+
+                        & img {
+                            height: 16px;
+                            width: auto;
+                            transition: transform 0.3s ease;
+                        }
+
+                        & .rotate {
+                            transform: rotate(90deg);
+                        }
+                    }
+
+                    & .accordion-group {
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+
+                        & #institution-options {
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            margin-inline: auto;
+                            gap: 10px;
+
+                            max-height: 0;
+                            opacity: 0;
+                            overflow: hidden;
+                            transform: translateY(-10px);
+                            transition: 
+                                max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                                opacity 0.4s ease, 
+                                transform 0.4s ease,
+                                padding 0.3s ease;
+                            padding-top: 0;
+
+                            &.show {
+                                max-height: 100vh;
+                                opacity: 1;
+                                transform: translateY(0);
+                                padding-top: 10px;
+                            }
+
+                            & a {
+                                font: var(--footer);
+                                text-decoration: none;
+                                color: #000000;
+                                padding: 10px 20px;
+                                background-color: #f0f0f0;
+                                border-radius: 10px;
+                            }
+                        }
+                    }
+
+                    
                 }
             }
 
