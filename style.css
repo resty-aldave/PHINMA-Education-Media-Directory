@@ -131,7 +131,7 @@ nav {
             z-index:100;
             margin-left: clamp(36px, 4vw, 999vw); /*4vw is looking 100px on my screen*/
             height: auto;
-            width: clamp(200px, 12.48vw, 999vw); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
+            width: clamp(200px, 19.5rem, 400px); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
         }
     }
 
@@ -217,8 +217,6 @@ nav {
     }
 }
 
-
-
 main{
     display:flex;
     flex-direction:column;
@@ -239,7 +237,7 @@ main{
         & h1 {
             font: var(--heading);
 
-            padding-top:6vw;
+            padding-top:12vh;
             grid-column: 1 / -1;
             grid-row: 1 / 2;
             white-space: normal;
@@ -329,7 +327,7 @@ main{
             font: var(--subheading);
             display:flex;
             justify-content:center;
-            margin-bottom: 8vw;
+            margin-bottom: 4vw;
         }
 
         #carousel-button {
@@ -479,7 +477,7 @@ main{
             font: var(--subheading);
             display:flex;
             justify-content:center;
-            margin-bottom: 8vw;
+            margin-bottom: 4vw;
         }
 
         & #contact-us-container{
@@ -490,17 +488,30 @@ main{
 
             font: var(--body);
             line-height: clamp(2rem, 3rem, 4rem);
+            padding-inline: clamp(4vw, 4vw, 12vw);
+            column-gap: 4vw;
             text-align: center;
             
 
             & #first-paragraph{
                 grid-area: first-p;
                 padding-inline: clamp(4vw, 8vw, 12vw);
+
+                background-color:rgba(255, 255, 255, 0.6);
+                padding-block: clamp(4vh, 8vh, 12vh);
+                border-radius: 2vh;
+                border: 1px  solid#0000002f;
             }
 
             & #second-paragraph{
                 grid-area: second-p;
                 padding-inline: clamp(4vw, 8vw, 12vw);
+
+                background-color:rgba(255, 255, 255, 0.6);
+                padding-block: clamp(4vh, 8vh, 12vh);
+                border-radius: 2vh;
+                border: 1px  solid#0000002f;
+
             }
         }
 
@@ -526,12 +537,13 @@ main{
     & #flow-four{
         position: relative;
         margin-top: 4vw;
+        margin-inline: clamp(36px, 16vw, 999vw);
 
         & h2{
             font: var(--subheading);
             display:flex;
             justify-content:center;
-            margin-bottom: 8vw;
+            margin-bottom: 4vw;
         }
 
         & #about-us-container{
@@ -543,7 +555,54 @@ main{
             flex-direction:column;
             gap: 1vw;
 
-            padding-inline: clamp(12vw, 16vw, 20vw);
+            padding-inline: clamp(4vw, 8vw, 12vw);
+
+            background-color:rgba(255, 255, 255, 0.6);
+            padding-block: clamp(4vh, 8vh, 12vh);
+            border-radius: 2vh;
+            border: 1px  solid#0000002f;
+
+            & .text-group {
+                width: 100%;
+
+                & summary {
+                    font: var(--body);
+                    cursor: pointer;
+                    outline: none;
+                }
+
+                &[open] summary {
+                    display: none;
+                }
+
+                & .content {
+                    display: flex;
+                    flex-direction: column;
+                    animation: fadeIn 1s ease;
+
+                    & .read-less-btn {
+                        align-self: center;
+                        background: none;
+                        border: none;
+                        padding: 0;
+                        font: var(--body);
+                        color: #0000009f;
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            @keyframes fadeIn {
+                0% { 
+                    opacity: 0; 
+                    transform: translateY(-10px); 
+                }
+                100% { 
+                    opacity: 1; 
+                    transform: translateY(0); 
+                }
+            }
         }
 
     }
@@ -552,7 +611,7 @@ main{
 footer{
     margin-top: 8vw;
     padding-block: clamp(36px, 4vh, 999vh);
-    background-color: rgba(217, 207, 199, 1);
+    background-color: rgba(217, 207, 199, .5);
 
     & #footer-desktop-view{
         display: block;
@@ -569,7 +628,7 @@ footer{
 
                 & img{
                     height: auto;
-                    width: clamp(200px, 12.48vw, 999vw);
+                    width: clamp(200px, 19.5rem, 400px);
                     margin-bottom:  4vh;
                 }
 
@@ -648,7 +707,7 @@ footer{
                 gap: 1vw;
 
                 & img{
-                    width:clamp(30px, 1.5vw, 999vw);
+                    width:clamp(30px, 1.5rem, 999vw);
                     height:auto;
                 }
             }
@@ -812,6 +871,7 @@ footer{
 
             & h1{
                 font: var(--heading-mobile);
+                padding-top:0vh;
                 grid-area: heading;
                 grid-column: auto;
                 grid-row: auto;
@@ -939,9 +999,30 @@ footer{
                     "second-p";
 
                 line-height: 1.5rem;
+
+                & #first-paragraph{
+                    grid-area: first-p;
+                    padding-inline: clamp(4vw, 8vw, 12vw);
+
+                    background-color:rgba(255, 255, 255, 0.6);
+                    padding-block: clamp(4vh, 8vh, 12vh);
+                    border-radius: 2vh;
+                    border: 1px  solid#0000002f;
+                }
+
+                & #second-paragraph{
+                    grid-area: second-p;
+                    padding-inline: clamp(4vw, 8vw, 12vw);
+
+                    background-color:rgba(255, 255, 255, 0.6);
+                    padding-block: clamp(4vh, 8vh, 12vh);
+                    border-radius: 2vh;
+                    border: 1px  solid#0000002f;
+                }
             }
 
-            & a{margin-top: 12vw;
+            & a{
+                margin-top: 12vw;
                 font: var(--links-body);
 
                 & img{
@@ -952,6 +1033,7 @@ footer{
         }
 
         & #flow-four{
+            margin-inline: clamp(16px, 2vw, 999vw);
             & h2{
                 font: var(--subheading-mobile);
                 margin-bottom: 12vw;
@@ -962,8 +1044,20 @@ footer{
                 line-height: 1.5rem;
 
                 padding-inline: clamp(4vw, 8vw, 12vw);
-            }
 
+                & .text-group {
+                    & summary {
+                        font: var(--body-mobile);
+                    }
+
+                    & .content {
+
+                        & .read-less-btn {
+                            font: var(--body-mobile);
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -1043,7 +1137,7 @@ footer{
                         justify-content: space-between;
                         align-items: center;
 
-                        background-color: rgba(198, 198, 198, 1);
+                        background-color: rgba(255, 255, 255, 0.6);
                         border: 1px solid rgba(0, 0, 0, 0.2);
                         border-radius: 16px;
                         padding: 15px 25px;
