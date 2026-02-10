@@ -1,9 +1,14 @@
 # 🌐 PHINMA Education Media Directory
 > **A centralized hub for verified institutional links and digital resources.**
 
+<div align="center">
+
 [![GitHub License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 [![Deployment Status](https://img.shields.io/badge/Deployment-Vercel-black?logo=vercel)](https://vercel.com)
 [![Branch Protection](https://img.shields.io/badge/Protected_Branches-main_%26_stage-blue)](https://github.com)
+
+</div>
+
 
 ---
 
@@ -12,11 +17,13 @@ The **PHINMA Education Media Directory** is an independent, student-led initiati
 
 It serves as a digital bridge for students and the community, organizing official websites, verified social media pages, and contact information into a clear, navigable hierarchy. This project demonstrates student proactivity in creating digital solutions that simplify information discovery within the PHINMA Education network.
 
+
 ## ✨ Key Features
 * **Verified Directory:** A comprehensive collection of official media links for every school in the network.
 * **Modern Aesthetic:** A sleek, minimal interface utilizing glassmorphism and motion design for an immersive user experience.
 * **Dynamic Visual Layer:** Smooth, synchronized background animations that provide depth without compromising performance.
 * **Mobile-First Architecture:** Fully responsive design ensuring seamless accessibility across all screen sizes.
+
 
 ## 🚀 Strategic Roadmap
 
@@ -36,10 +43,12 @@ It serves as a digital bridge for students and the community, organizing officia
 * Tech stack migration to **React** and **TypeScript** for robust scalability.
 * Refactoring CSS architecture to **Tailwind CSS** for rapid styling and design system consistency.
 
+
 ## 🛠️ Technical Implementation
 * **Frontend Stack:** Developed using semantic HTML5 and modern CSS (Nesting, Flexbox, and Grid).
 * **Fluid Typography & Scaling:** Utilizes advanced CSS functions to ensure consistent visual hierarchy across resolutions.
 * **CI/CD Pipeline:** Automated deployment via **Vercel** for high availability and performance.
+
 
 ## 🛡️ Governance & Workflow
 1. **Protected Branches:** Enforced restrictions on `main` and `stage` branches.
@@ -48,10 +57,12 @@ It serves as a digital bridge for students and the community, organizing officia
 
 ---
 
+
 ### ⚠️ Disclaimer
 This site is an **independent project** and is **not an official website** of the PHINMA Education network. Institutional names, logos, and photography remain the intellectual property of their respective owners and are used here under **Fair Use** for educational purposes only.
 
 <div align="center">
+
 
 ### ⚖️ License
 This project is licensed under the **MIT License**. 
