@@ -1,4 +1,5 @@
 <div align="center">
+
 # 🌐 PHINMA Education Media Directory
 **A centralized hub for verified institutional links and digital resources.**
 
@@ -64,13 +65,17 @@ It serves as a digital bridge for students and the community, organizing officia
 
 
 <div align="center">
+
 ### ⚠️ Disclaimer
-</div>
+
+
 This site is an **independent project** and is **not an official website** of the PHINMA Education network. Institutional names, logos, and photography remain the intellectual property of their respective owners and are used here under **Fair Use** for educational purposes only.
 
+</div>
+
+
+
 <div align="center">
-
-
 
 ### ⚖️ License
 This project is licensed under the **MIT License**. 
