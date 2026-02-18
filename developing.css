@@ -36,6 +36,7 @@ main{
 @media (max-width:1024px) {
     main{
         #developing{
+
             & #content{
                 font: var(--heading-mobile);
 
