@@ -1,39 +1,41 @@
 /* Next time go from mobile to laptop flow so that the process is forward instead of laptop to mobile which is backward */
 :root{
-        background-color: rgb(195, 195, 195);
+        background-color: rgb(252, 248, 248);
+        /* font: [font-style] [font-variant] [font-weight] [font-stretch] [font-size]/[line-height] [font-family]; */
+
+        --heading: normal 600 clamp(4rem, 4vw, 5rem) "Poppins", sans-serif;
+        --heading-mobile: normal 600 clamp(2rem, 2vw, 3rem) "Poppins", sans-serif;
+
+        --subheading: normal 600 clamp(2.5rem, 2.5vw, 3rem) "Poppins", sans-serif;
+        --subheading-mobile: normal 600 clamp(1.25rem, 1.25vw, 2rem) "Poppins", sans-serif;
+
+        --main-card: normal 600 clamp(2rem, 1vw, 4rem) "Poppins", sans-serif;
+        --main-card-mobile: normal 600 clamp(1rem, 1vw, 2rem) "Poppins", sans-serif;
+
+        --main-card-info: normal 400 clamp(1rem, 1vw, 2rem) "Inter", sans-serif;
+        --main-card-info-mobile: normal 400 clamp(.5rem, .5vw, 1rem) "Inter", sans-serif;
+
+        --medium-card: normal 600 clamp(1.25rem, 1vw, 2rem) "Poppins", sans-serif;
+
+        --small-card: normal 600 clamp(.75rem, .5vw, 1rem) "Poppins", sans-serif;
 
 
-        --heading: clamp(4rem, 4vw, 5rem);
-        --heading-mobile: clamp(2rem, 2vw, 3rem);
+        --body: normal 400 clamp(1rem, 1vw, 1rem) "Inter", sans-serif;
+        --body-mobile: normal 400 clamp(.75rem, .75vw, 1rem) "Inter", sans-serif;
 
-        --subheading: clamp(2.5rem, 2.5vw, 3rem);
-        --subheading-mobile: clamp(1.25rem, 1.25vw, 2rem);
+        --links-body: normal 600 clamp(.75rem, .75vw, .75rem) "Poppins", sans-serif;
 
-        --main-card: clamp(2rem, 1vw, 4rem);
-        --main-card-mobile: clamp(1rem, 1vw, 2rem);
+        --navbar: normal 600 clamp(1.25rem, 1vw, 1.25rem) "Poppins", sans-serif;
+        --navbar-mobile: normal 600 clamp(1rem, 1vw, 2rem) "Poppins", sans-serif;
 
-        --main-card-info: clamp(1rem, 1vw, 2rem);
-        --main-card-info-mobile: clamp(.5rem, .5vw, 1rem);
-
-        --medium-card: clamp(1.25rem, 1vw, 2rem);
-
-        --small-card: clamp(.75rem, .5vw, 1rem);
+        --disclaimer: normal 400 clamp(1rem, 1vw, 1rem) "Inter", sans-serif;
+        --disclaimer-mobile: normal 400 clamp(.5rem, .5vw, 1rem) "Inter", sans-serif;
 
 
-        --body: clamp(1rem, 1vw, 1rem);
-        --body-mobile: clamp(.75rem, .75vw, 1rem);
+        --footer-title: normal 600 clamp(.75rem, .75vw, 1rem) "Poppins", sans-serif;
+        --footer: normal 400 .75rem "Inter", sans-serif;
 
-        --links-body: clamp(.75rem, .75vw, .75rem);
-
-        --navbar: clamp(1.25rem, 1vw, 1.25rem);
-        --navbar-mobile: clamp(1rem, 1vw, 2rem);
-
-        --disclaimer: clamp(1rem, 1vw, 1rem);
-        --disclaimer-mobile: clamp(.5rem, .5vw, 1rem);
-
-
-        --footer-title: clamp(.75rem, 1.5vw, 2rem);
-        --footer: .75rem;
+        --footer-mobile: normal 400 .5rem "Inter", sans-serif;
 
         --default: 1rem;
 }
@@ -61,13 +63,14 @@ nav {
     justify-content: space-between;
     background-color: rgba(252, 248, 248, 0.5);
 
-    
+    & a{
 
-    & #logo-img {
-        z-index:100;
-        margin-left: clamp(36px, 4vw, 999vw); /*4vw is looking 100px on my screen*/
-        height: auto;
-        width: clamp(200px, 12.48vw, 999vw); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
+        & .logo-img {
+            z-index:100;
+            margin-left: clamp(36px, 4vw, 999vw); /*4vw is looking 100px on my screen*/
+            height: auto;
+            width: clamp(200px, 12.48vw, 999vw); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
+        }
     }
 
     & #more {
@@ -80,10 +83,7 @@ nav {
         }
 
         & #nav-text {
-            font-size: var(--navbar);
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            font-style: normal;
+            font: var(--navbar);
             display: flex;
             gap: 3vw;
 
@@ -136,19 +136,16 @@ nav {
         bottom: clamp(100px, 4vw, 999vw);
         right: clamp(100px, 4vw, 999vw);
 
-        font-family: "Inter", sans-serif;
+        font:var(--disclaimer);
         font-optical-sizing: auto;
-        text-align:justify;
         line-height: 1.5rem;
-        font-weight: 0;
-        font-style: normal;
-        font-size:var(--disclaimer);
+        text-align:justify;
         background-color:rgba(245, 242, 242, 1);
         width:clamp(300px, 25vw, 999vw);
         height:auto;
         padding: clamp(15px, 1vw, 999vw);
         border-radius:15px 15px 0px 15px;
-        border: 2px solid #000000;
+        border: 1.5px solid #000000;
     }
 
     &:hover #disclaimer-text{
@@ -157,8 +154,6 @@ nav {
         transform: translateY(0);
     }
 }
-
-
 
 main{
     display:flex;
@@ -178,12 +173,9 @@ main{
         margin-bottom: 4vw;
 
         & h1 {
-            font-size: var(--heading);
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            font-style: normal;
+            font: var(--heading);
 
-            padding-top:6vw;
+            padding-top:12vh;
             grid-column: 1 / -1;
             grid-row: 1 / 2;
             white-space: normal;
@@ -197,12 +189,8 @@ main{
             z-index: 2;
 
             & .quotes {
- 
-                font-family: "Inter", sans-serif;
+                font: var(--body);
                 font-optical-sizing: auto;
-                font-weight: 400;
-                font-style: normal;
-                font-size: var(--body);
 
                 position: absolute;
                 opacity: 0;
@@ -274,13 +262,10 @@ main{
         /* scroll-margin-top: 50px; */
 
         & h2{
-            font-size: var(--subheading);
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            font-style: normal;
+            font: var(--subheading);
             display:flex;
             justify-content:center;
-            margin-bottom: 8vw;
+            margin-bottom: 4vw;
         }
 
         #carousel-button {
@@ -391,32 +376,23 @@ main{
                     border-radius: 0vw 0vw var(--main-card-radius) var(--main-card-radius);
                     
                     & .info-left{
-                        line-height: clamp(10px, .3vw, 1vw);
-
                         & .school-name{
-                            font-size: var(--main-card);
-                            font-family: "Poppins", sans-serif;
-                            font-weight: 600;
-                            font-style: normal;
+                            font: var(--main-card);
                             color: white;
+                            line-height: clamp(10px, .3vw, 1vw);
                         }
 
                         & .school-location{
-                            font-size: var(--main-card-info);
-                            font-family: "Inter", sans-serif;
+                            font: var(--main-card-info);
                             font-optical-sizing: auto;
-                            font-weight: 400;
-                            font-style: normal;
                             color: white;
+                            line-height: clamp(10px, .3vw, 1vw);
                         }
                     }
 
                     & .info-right{
-                        font-size: var(--main-card-info);
-                        font-family: "Inter", sans-serif;
+                        font: var(--main-card-info);
                         font-optical-sizing: auto;
-                        font-weight: 400;
-                        font-style: normal;
                         color: white;
                     }
                 }
@@ -436,13 +412,10 @@ main{
         position: relative;
 
         & h2{
-            font-size: var(--subheading);
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            font-style: normal;
+            font: var(--subheading);
             display:flex;
             justify-content:center;
-            margin-bottom: 8vw;
+            margin-bottom: 4vw;
         }
 
         & #contact-us-container{
@@ -451,26 +424,38 @@ main{
             grid-template-areas:
                 "first-p second-p";
 
+            font: var(--body);
             line-height: clamp(2rem, 3rem, 4rem);
+            padding-inline: clamp(4vw, 4vw, 12vw);
+            column-gap: 4vw;
             text-align: center;
-            font-family: "Inter", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-            font-size: var(--body);
+            
 
             & #first-paragraph{
                 grid-area: first-p;
                 padding-inline: clamp(4vw, 8vw, 12vw);
+
+                background-color:rgba(255, 255, 255, 0.6);
+                padding-block: clamp(4vh, 8vh, 12vh);
+                border-radius: 2vh;
+                border: 1px  solid#0000002f;
             }
 
             & #second-paragraph{
                 grid-area: second-p;
                 padding-inline: clamp(4vw, 8vw, 12vw);
+
+                background-color:rgba(255, 255, 255, 0.6);
+                padding-block: clamp(4vh, 8vh, 12vh);
+                border-radius: 2vh;
+                border: 1px  solid#0000002f;
+
             }
         }
 
         & a{
+            font: var(--links-body);
+
             margin-top: 8vw;
             display: flex;
             align-items: center;
@@ -478,12 +463,7 @@ main{
             gap: 2vw;
             text-decoration:none;
             color:#000000;
-
-            font-family: "Inter", sans-serif;
             font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-            font-size: var(--links-body);
 
             & img{
                 width:clamp(50px, 2vw, 999vw);
@@ -495,37 +475,221 @@ main{
     & #flow-four{
         position: relative;
         margin-top: 4vw;
+        margin-inline: clamp(36px, 16vw, 999vw);
 
         & h2{
-            font-size: var(--subheading);
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            font-style: normal;
+            font: var(--subheading);
             display:flex;
             justify-content:center;
-            margin-bottom: 8vw;
+            margin-bottom: 4vw;
         }
 
         & #about-us-container{
+            font: var(--body);
             line-height: clamp(2rem, 3rem, 4rem);
             text-align: center;
-            font-family: "Inter", sans-serif;
             font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-            font-size: var(--body);
             display: flex;
             flex-direction:column;
             gap: 1vw;
 
-            padding-inline: clamp(12vw, 16vw, 20vw);
+            padding-inline: clamp(4vw, 8vw, 12vw);
+
+            background-color:rgba(255, 255, 255, 0.6);
+            padding-block: clamp(4vh, 8vh, 12vh);
+            border-radius: 2vh;
+            border: 1px  solid#0000002f;
+
+            & .text-group {
+                width: 100%;
+
+                & summary {
+                    font: var(--body);
+                    cursor: pointer;
+                    outline: none;
+                }
+
+                &[open] summary {
+                    display: none;
+                }
+
+                & .content {
+                    display: flex;
+                    flex-direction: column;
+                    animation: fadeIn 1s ease;
+
+                    & .read-less-btn {
+                        align-self: center;
+                        background: none;
+                        border: none;
+                        padding: 0;
+                        font: var(--body);
+                        color: #0000009f;
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            @keyframes fadeIn {
+                0% { 
+                    opacity: 0; 
+                    transform: translateY(-10px); 
+                }
+                100% { 
+                    opacity: 1; 
+                    transform: translateY(0); 
+                }
+            }
         }
 
     }
+
+    & #table{
+        font: var(--body);
+        margin-top: 8vw;
+        display: grid;
+        grid-column: 1fr 1fr 1fr;
+        grid-row: 1fr;
+        border: 1px solid#000000;
+        
+        & table{
+            border-collapse: collapse;
+
+                & th{
+                    background-color: #ffffff;
+                    padding: 2vw;
+                }
+                & td{
+                    background-color: #ffffff;
+                    padding: 2vw;
+                    margin-top: 100vw;
+                }
+        }
+        
+    }
+}
+
+footer{
+    margin-top: 8vw;
+    padding-block: clamp(36px, 4vh, 999vh);
+    background-color: rgba(217, 207, 199, .5);
+
+    & #footer-desktop-view{
+        display: block;
+
+        & #top-footer{
+            display:flex;
+            margin-inline: clamp(36px, 4vw, 999vw);
+            
+            & #phinma-information{
+                width: 25vw;
+                height: auto;
+                padding-right: 8vw;
+                /* background-color: rgb(193, 153, 120); */
+
+                & img{
+                    height: auto;
+                    width: clamp(200px, 12.48vw, 999vw);
+                    margin-bottom:  4vh;
+                }
+
+                & #phinma-title{
+                    font: var(--footer-title);
+                }
+
+                & #phinma-text{
+                    font: var(--footer);
+                    font-optical-sizing: auto;
+                    
+                }
+
+                & #phinma{
+                    font: var(--footer);
+                    line-height: 1.5rem;
+                    font-optical-sizing: auto;
+
+                    & #website{
+                        text-decoration:none;
+                        color:rgba(0, 0, 0)
+                    }
+
+                    & #email{
+                        color:rgba(0, 0, 0)
+                    }
+
+                    & #number{
+                        text-decoration:none;
+                        color:rgba(0, 0, 0)
+                    }
+                }
+            }
+
+            & #footer-nav{
+                font: var(--footer);
+                display:grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: repeat(9, auto);
+                column-gap: 5vw;
+                grid-auto-flow: column;
+
+                line-height: 1.5rem;
+                font-optical-sizing: auto;
+
+                & a{
+                    text-decoration: none;
+                    color:#000000;
+                    justify-self:start;
+                    width: fit-content;
+                    height:auto;
+                }
+                
+                
+
+            }
+        }
+
+        & span{
+            display: block;
+            border-top: 1px solid #000000;
+            margin-inline: clamp(36px, 4vw, 999vw); ; 
+            margin-block: clamp(36px, 4vh, 60px); 
+        }
+
+        & #bottom-footer{
+            display: flex;
+            margin-inline: clamp(36px, 4vw, 999vw);
+            justify-content: space-between;
+
+            & #student-led, #version{
+                font: var(--footer);
+                font-optical-sizing: auto;
+                display: flex;
+                align-items: center;
+                gap: 1vw;
+
+                & img{
+                    width:clamp(30px, 1.5vw, 999vw);
+                    height:auto;
+                }
+            }
+
+            & p{
+                font: var(--footer);
+                font-optical-sizing: auto;
+            }
+        }
+    }
+
+    & #footer-mobile-view{
+        display: none;
+    }
+
 }
 
 /* Phone */
 @media (max-width:1024px) {
+
     nav {
         & #logo-img {
             height: auto;
@@ -555,7 +719,7 @@ main{
             }
 
             & #nav-text {
-                font-size: var(--navbar-mobile);
+                font: var(--navbar-mobile);
                 position: fixed;
                 top: 0;
                 left: -100%; 
@@ -607,7 +771,7 @@ main{
         }
 
         & #disclaimer-text{
-            font-size:var(--disclaimer-mobile);
+            font:var(--disclaimer-mobile);
             line-height: .75rem;
             bottom: clamp(50px, 12vw, 999vw);
             right: clamp(50px, 12vw, 999vw);
@@ -629,19 +793,20 @@ main{
             overflow-x: hidden;
 
             & h1{
+                font: var(--heading-mobile);
+                padding-top:0vh;
                 grid-area: heading;
                 grid-column: auto;
                 grid-row: auto;
                 justify-self:start;
                 white-space: normal;
-                font-size: var(--heading-mobile);
             }
 
             & #hero-text {
                 grid-area: quotes;
 
                 & .quotes {
-                    font-size: var(--body-mobile);
+                    font: var(--body-mobile);
                 }
             }
 
@@ -662,7 +827,7 @@ main{
 
         & #flow-two{
             & h2{
-                font-size: var(--subheading-mobile);
+                font: var(--subheading-mobile);
             }
 
             #carousel-button {
@@ -671,12 +836,12 @@ main{
                 width: 100vw;
                 position: absolute;
                 z-index: 10;
-                top: 63.5%;
+                top: 57%;
                 left: 50%;
                 right: 50%;
                 margin-left: -50vw;
                 margin-right: -50vw;
-                padding-inline: clamp(20px, 10vw, 15vw); 
+                padding-inline: clamp(20px, 12vw, 15vw); 
 
                 & img {
                     width: clamp(3vw, 3vw, 4vw); 
@@ -722,19 +887,20 @@ main{
                         line-height: clamp(.1rem, .1rem, 1rem);
                                                 
                         & .info-left{
-                            line-height: clamp(.1rem, .1rem, 1rem);
 
                             & .school-name{
-                                font-size: var(--main-card-mobile);
+                                font: var(--main-card-mobile);
+                                line-height: clamp(.1rem, .1rem, 1rem);
                             }
 
                             & .school-location{
-                                font-size: var(--main-card-info-mobile);
+                                font: var(--main-card-info-mobile);
+                                line-height: clamp(.1rem, .1rem, 1rem);
                             }
                         }
 
                         & .info-right{
-                            font-size: var(--main-card-info-mobile);
+                            font: var(--main-card-info-mobile);
                         }
                     }
                 }
@@ -743,11 +909,12 @@ main{
 
         & #flow-three{
             & h2{
-                font-size: var(--subheading-mobile);
+                font: var(--subheading-mobile);
                 margin-bottom: 12vw;
             }
 
             & #contact-us-container{
+                font: var(--body-mobile);
                 display: grid;
                 grid-template-columns: 1fr;
                 grid-template-areas:
@@ -755,11 +922,31 @@ main{
                     "second-p";
 
                 line-height: 1.5rem;
-                font-size: var(--body-mobile);
+
+                & #first-paragraph{
+                    grid-area: first-p;
+                    padding-inline: clamp(4vw, 8vw, 12vw);
+
+                    background-color:rgba(255, 255, 255, 0.6);
+                    padding-block: clamp(4vh, 8vh, 12vh);
+                    border-radius: 2vh;
+                    border: 1px  solid#0000002f;
+                }
+
+                & #second-paragraph{
+                    grid-area: second-p;
+                    padding-inline: clamp(4vw, 8vw, 12vw);
+
+                    background-color:rgba(255, 255, 255, 0.6);
+                    padding-block: clamp(4vh, 8vh, 12vh);
+                    border-radius: 2vh;
+                    border: 1px  solid#0000002f;
+                }
             }
 
-            & a{margin-top: 12vw;
-                font-size: var(--links-body);
+            & a{
+                margin-top: 12vw;
+                font: var(--links-body);
 
                 & img{
                     width:clamp(30px, 1vw, 999vw);
@@ -769,18 +956,205 @@ main{
         }
 
         & #flow-four{
+            margin-inline: clamp(16px, 2vw, 999vw);
             & h2{
-                font-size: var(--subheading-mobile);
+                font: var(--subheading-mobile);
                 margin-bottom: 12vw;
             }
 
             & #about-us-container{
+                font: var(--body-mobile);
                 line-height: 1.5rem;
-                font-size: var(--body-mobile);
 
                 padding-inline: clamp(4vw, 8vw, 12vw);
+
+                & .text-group {
+                    & summary {
+                        font: var(--body-mobile);
+                    }
+
+                    & .content {
+
+                        & .read-less-btn {
+                            font: var(--body-mobile);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    footer{
+        & #footer-desktop-view{
+            display: none;
+        }
+
+        & #footer-mobile-view{
+            display:block;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            & #top-footer{
+                display:flex;
+                flex-direction: column;
+                margin-inline: clamp(36px, 4vw, 999vw);
+                box-sizing: border-box;
+                align-self: stretch;
+                
+                & #phinma-information{
+                    height: auto;
+                    text-align: center;
+
+                    & img{
+                        height: auto;
+                        width: clamp(200px, 12.48vw, 999vw);
+                        margin-bottom:  2vh;
+                    }
+
+                    & #phinma-title{
+                        font: var(--footer-title);
+                    }
+
+                    & #phinma-text{
+                        font: var(--footer);
+                        font-optical-sizing: auto;
+                    }
+
+                    & #phinma{
+                        font: var(--footer);
+                        line-height: 1.5rem;
+
+                        & #website{
+                            font-optical-sizing: auto;
+                            text-decoration:none;
+                            color:rgba(0, 0, 0)
+                        }
+
+                        & #email{
+                            font-optical-sizing: auto;
+                            color:rgba(0, 0, 0)
+                        }
+
+                        & #number{
+                            font-optical-sizing: auto;
+                            text-decoration:none;
+                            color:rgba(0, 0, 0)
+                        }
+                    }
+                }
+
+                & #footer-nav {
+                    font: var(--footer);
+                    margin-top: 4vh;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1vh;
+                    width: 100%;
+
+                    & .footer-nav-button {
+                        box-sizing: border-box;
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        background-color: rgba(255, 255, 255, 0.6);
+                        border: 1px solid rgba(0, 0, 0, 0.2);
+                        border-radius: 16px;
+                        padding: 15px 25px;
+                        text-decoration: none;
+                        color: #000000;
+                        cursor: pointer;
+
+                        & img {
+                            height: 16px;
+                            width: auto;
+                            transition: transform 0.3s ease;
+                        }
+
+                        & .rotate {
+                            transform: rotate(90deg);
+                        }
+                    }
+
+                    & .accordion-group {
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+
+                        & #institution-options {
+                            display: flex;
+                            flex-direction: column;
+                            width: 80%;
+                            margin-inline: auto;
+                            gap: 10px;
+
+                            max-height: 0;
+                            opacity: 0;
+                            overflow: hidden;
+                            transform: translateY(-10px);
+                            transition: 
+                                max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                                opacity 0.4s ease, 
+                                transform 0.4s ease,
+                                padding 0.3s ease;
+                            padding-top: 0;
+
+                            &.show {
+                                max-height: 100vh;
+                                opacity: 1;
+                                transform: translateY(0);
+                                padding-top: 10px;
+                            }
+
+                            & a {
+                                font: var(--footer);
+                                text-decoration: none;
+                                color: #000000;
+                                padding: 10px 20px;
+                                background-color: #f0f0f0;
+                                border-radius: 10px;
+                            }
+                        }
+                    } 
+                }
             }
 
+            & span{
+                display: block;
+                border: .75px solid#000000;
+                margin-inline: clamp(36px, 4vw, 999vw);
+                margin-block: clamp(10px, 2vh, 999vh);
+                align-self: stretch;
+            }
+
+            & #bottom-footer{
+                margin-inline: clamp(36px, 4vw, 999vw);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                & #student-led, #version{
+                    font: var(--footer-mobile);
+                    font-optical-sizing: auto;
+                    display: flex;
+                    align-items: center;
+                    gap: 1vw;
+
+                    & img{
+                        width:clamp(20px, 1.5vw, 999vw);
+                        height:auto;
+                    }
+                }
+
+                & p{
+                    font: var(--footer-mobile);
+                    font-optical-sizing: auto;
+                    text-align: center;
+                }
+            }
         }
     }
 }

@@ -55,7 +55,7 @@ nextBtn.addEventListener('click', () => {
     const card = carousel.querySelector('.university-image-container');
     const cardWidth = card.offsetWidth;
 
-    const gap = window.innerWidth * 1; 
+    const gap = 1; 
 
     carousel.scrollBy({
         left: cardWidth + gap,
@@ -66,10 +66,19 @@ nextBtn.addEventListener('click', () => {
 prevBtn.addEventListener('click', () => {
     const card = carousel.querySelector('.university-image-container');
     const cardWidth = card.offsetWidth;
-    const gap = window.innerWidth * 1;
+
+    const gap = 1;
 
     carousel.scrollBy({
         left: -(cardWidth + gap),
         behavior: 'smooth'
     });
 });
+// Nav bar footer
+function toggleInstitution() {
+        var list = document.getElementById("institution-options");
+        var arrow = document.getElementById("institution-arrow");
+
+        list.classList.toggle("show");
+        arrow.classList.toggle("rotate");
+    }
