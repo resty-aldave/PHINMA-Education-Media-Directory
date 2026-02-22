@@ -1188,6 +1188,9 @@ footer{
                         padding: clamp(1vw, 2vw, 3vw);
                         border-radius: 0vw 0vw var(--main-card-radius-mobile) var(--main-card-radius-mobile);
                         line-height: clamp(.1rem, .1rem, 1rem);
+
+                        backdrop-filter: blur(1.5px);
+                        -webkit-backdrop-filter: blur(1.5px);
                                                 
                         & .info-left{
 
