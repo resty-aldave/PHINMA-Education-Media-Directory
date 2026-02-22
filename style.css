@@ -58,7 +58,6 @@ nav {
     /*top,right,bottom,left*/
     padding-block: clamp(25px, 1vw, 999vw);
     display: flex;
-    /* position: fixed; */
     align-items: center;
     justify-content: space-between;
     background-color: rgba(252, 248, 248, 0.5);
@@ -219,7 +218,7 @@ header{
                 color: black;
 
                 & svg{
-                    width: 1.5vw;
+                    width: 1.5em;
                 }
                 background-color: white;
 
@@ -678,16 +677,7 @@ main{
 
 /* THIS IS FOR THE SCHOOL.HTML */
     & #intro{
-        /* padding-top:12vh; */
-
-        & img{
-            width: 100%;
-        }
-
-        & h1{
-            font: var(--heading);
-            font-size: 4rem;
-        }
+        padding-top:8vh;
 
         & #intro-text{
             font: var(--body);
@@ -993,6 +983,8 @@ footer{
 @media (max-width:1024px) {
 
     nav {
+        position: relative;
+
         & #logo-img {
             height: auto;
             width: clamp(175px, 12vw, 999vw); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
@@ -1187,6 +1179,9 @@ footer{
                         padding: clamp(1vw, 2vw, 3vw);
                         border-radius: 0vw 0vw var(--main-card-radius-mobile) var(--main-card-radius-mobile);
                         line-height: clamp(.1rem, .1rem, 1rem);
+
+                        backdrop-filter: blur(1.5px);
+                        -webkit-backdrop-filter: blur(1.5px);
                                                 
                         & .info-left{
 
@@ -1438,16 +1433,22 @@ footer{
                 flex-direction: column;
                 align-items: center;
 
-                & #student-led, #version{
-                    font: var(--footer-mobile);
-                    font-optical-sizing: auto;
+                & #version-led{
                     display: flex;
-                    align-items: center;
-                    gap: 1vw;
+                    justify-content: space-between;
+                    gap: 8em;
 
-                    & img{
-                        width:clamp(20px, 1.5vw, 999vw);
-                        height:auto;
+                    & #student-led, #version{
+                        font: var(--footer-mobile);
+                        font-optical-sizing: auto;
+                        display: flex;
+                        align-items: center;
+                        gap: 1vw;
+
+                        & img{
+                            width:clamp(20px, 1.5vw, 999vw);
+                            height:auto;
+                        }
                     }
                 }
 
