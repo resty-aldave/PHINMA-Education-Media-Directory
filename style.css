@@ -218,7 +218,7 @@ header{
                 color: black;
 
                 & svg{
-                    width: 1.5vw;
+                    width: 1.5em;
                 }
                 background-color: white;
 
@@ -677,16 +677,7 @@ main{
 
 /* THIS IS FOR THE SCHOOL.HTML */
     & #intro{
-        /* padding-top:12vh; */
-
-        & img{
-            width: 100%;
-        }
-
-        & h1{
-            font: var(--heading);
-            font-size: 4rem;
-        }
+        padding-top:8vh;
 
         & #intro-text{
             font: var(--body);
