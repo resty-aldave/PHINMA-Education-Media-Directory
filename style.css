@@ -58,7 +58,6 @@ nav {
     /*top,right,bottom,left*/
     padding-block: clamp(25px, 1vw, 999vw);
     display: flex;
-    /* position: fixed; */
     align-items: center;
     justify-content: space-between;
     background-color: rgba(252, 248, 248, 0.5);
@@ -993,6 +992,8 @@ footer{
 @media (max-width:1024px) {
 
     nav {
+        position: relative;
+
         & #logo-img {
             height: auto;
             width: clamp(175px, 12vw, 999vw); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
@@ -1438,16 +1439,22 @@ footer{
                 flex-direction: column;
                 align-items: center;
 
-                & #student-led, #version{
-                    font: var(--footer-mobile);
-                    font-optical-sizing: auto;
+                & #version-led{
                     display: flex;
-                    align-items: center;
-                    gap: 1vw;
+                    justify-content: space-between;
+                    gap: 8em;
 
-                    & img{
-                        width:clamp(20px, 1.5vw, 999vw);
-                        height:auto;
+                    & #student-led, #version{
+                        font: var(--footer-mobile);
+                        font-optical-sizing: auto;
+                        display: flex;
+                        align-items: center;
+                        gap: 1vw;
+
+                        & img{
+                            width:clamp(20px, 1.5vw, 999vw);
+                            height:auto;
+                        }
                     }
                 }
 
