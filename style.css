@@ -224,6 +224,7 @@ header{
 
                 text-decoration: none;
                 color: black;
+                border: 1px solid;
 
                 & svg{
                     width: 1.5em;
