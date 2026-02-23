@@ -1386,6 +1386,7 @@ footer{
             & a{
                 margin-top: 12vw;
                 font: var(--links-body);
+                font-size: .75rem;
 
                 & img{
                     width:clamp(30px, 1vw, 999vw);
