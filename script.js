@@ -10,75 +10,124 @@ const prevBtn = document.getElementById('previous-button');
 
 
 // navbar or menu
-const toggleMenu = () => {
-    navText.classList.toggle('is-active');
-    menuOverlay.classList.toggle('is-active');
-};
+if (moreIcon && navText && menuOverlay) {
+    const toggleMenu = () => {
+        navText.classList.toggle('is-active');
+        menuOverlay.classList.toggle('is-active');
+    };
 
-moreIcon.addEventListener('click', toggleMenu);
-menuOverlay.addEventListener('click', toggleMenu);
+    moreIcon.addEventListener('click', toggleMenu);
+    menuOverlay.addEventListener('click', toggleMenu);
 
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navText.classList.remove('is-active');
-        menuOverlay.classList.remove('is-active');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navText.classList.remove('is-active');
+            menuOverlay.classList.remove('is-active');
+        });
     });
-});
+}
 
 // quotes
-let currentQuoteIndex = 0;
+if (quotes.length > 0) {
+    let currentQuoteIndex = 0;
 
-function showNextQuote() {
+    function showNextQuote() {
+        quotes[currentQuoteIndex].classList.remove('active');
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+        quotes[currentQuoteIndex].classList.add('active');
+    }
 
-    quotes[currentQuoteIndex].classList.remove('active');
-    currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-    quotes[currentQuoteIndex].classList.add('active');
+    setInterval(showNextQuote, 5000);
 }
-
-setInterval(showNextQuote, 5000);
 
 // hero-img
-let currentHeroImgIndex = 0;
+if (heroImg.length > 0) {
+    let currentHeroImgIndex = 0;
 
-function showNextHeroImg() {
+    function showNextHeroImg() {
+        heroImg[currentHeroImgIndex].classList.remove('actives');
+        currentHeroImgIndex = (currentHeroImgIndex + 1) % heroImg.length;
+        heroImg[currentHeroImgIndex].classList.add('actives');
+    }
 
-    heroImg[currentHeroImgIndex].classList.remove('actives');
-    currentHeroImgIndex = (currentHeroImgIndex + 1) % heroImg.length;
-    heroImg[currentHeroImgIndex].classList.add('actives');
+    setInterval(showNextHeroImg, 8000);
 }
-
-setInterval(showNextHeroImg, 8000);
 
 
 // carousel-button
-nextBtn.addEventListener('click', () => {
-    const card = carousel.querySelector('.university-image-container');
-    const cardWidth = card.offsetWidth;
-
-    const gap = 1; 
-
-    carousel.scrollBy({
-        left: cardWidth + gap,
-        behavior: 'smooth'
+if (carousel && nextBtn && prevBtn) {
+    nextBtn.addEventListener('click', () => {
+        const card = carousel.querySelector('.university-image-container');
+        if (card) {
+            const cardWidth = card.offsetWidth;
+            const gap = 1; 
+            carousel.scrollBy({
+                left: cardWidth + gap,
+                behavior: 'smooth'
+            });
+        }
     });
-});
 
-prevBtn.addEventListener('click', () => {
-    const card = carousel.querySelector('.university-image-container');
-    const cardWidth = card.offsetWidth;
-
-    const gap = 1;
-
-    carousel.scrollBy({
-        left: -(cardWidth + gap),
-        behavior: 'smooth'
+    prevBtn.addEventListener('click', () => {
+        const card = carousel.querySelector('.university-image-container');
+        if (card) {
+            const cardWidth = card.offsetWidth;
+            const gap = 1;
+            carousel.scrollBy({
+                left: -(cardWidth + gap),
+                behavior: 'smooth'
+            });
+        }
     });
-});
+}
+
 // Nav bar footer
 function toggleInstitution() {
-        var list = document.getElementById("institution-options");
-        var arrow = document.getElementById("institution-arrow");
+    var list = document.getElementById("institution-options");
+    var arrow = document.getElementById("institution-arrow");
 
+    if (list && arrow) {
         list.classList.toggle("show");
         arrow.classList.toggle("rotate");
     }
+}
+
+// For links options
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.cards-option').forEach(container => {
+        const checkbox = container.querySelector('.menu-checkbox');
+        
+        if (!checkbox) return;
+
+        let closeTimer;
+
+        const startTimer = () => {
+            clearTimeout(closeTimer);
+            closeTimer = setTimeout(() => {
+                checkbox.checked = false;
+            }, 3000); 
+        };
+
+        container.querySelectorAll('a, .medias').forEach(link => {
+            link.addEventListener('click', () => {
+                checkbox.checked = false;
+                clearTimeout(closeTimer);
+            });
+        });
+
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                startTimer();
+            } else {
+                clearTimeout(closeTimer);
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!container.contains(e.target) && checkbox.checked) {
+                checkbox.checked = false;
+                clearTimeout(closeTimer);
+            }
+        });
+    });
+});

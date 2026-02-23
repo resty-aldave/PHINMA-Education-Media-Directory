@@ -1705,6 +1705,7 @@ footer{
 
                 & p{
                     font: var(--footer-mobile);
+                    font-size: .4rem;
                     font-optical-sizing: auto;
                     text-align: center;
                 }
