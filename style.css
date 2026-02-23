@@ -68,13 +68,14 @@ nav {
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
 
-    & a{
 
+    & #go-back{
+        z-index:100;
+        margin-left: clamp(36px, 4vw, 999vw); /*4vw is looking 100px on my screen*/
+        
         & .logo-img {
-            z-index:100;
-            margin-left: clamp(36px, 4vw, 999vw); /*4vw is looking 100px on my screen*/
             height: auto;
-            width: clamp(200px, 12.48vw, 999vw); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
+            width: clamp(200px, 12.48vw, 12.48vw); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
         }
     }
 
@@ -211,6 +212,7 @@ header{
         & #direct{
             display: flex;
             gap: 2em;
+            white-space: nowrap;
 
             & button, a{
                 font: var(--body);
@@ -446,14 +448,12 @@ main{
             scroll-snap-type: x mandatory;
             
             & .university-image-container{
-                --main-card-radius: clamp(1vw, 1vw, 2vw);
-
                 display: grid;
                 grid-template-columns: 60vw;
                 grid-template-rows: 35vw;
                 text-decoration: none;
                 color:#000000;
-                border-radius:var(--main-card-radius);
+                border-radius:1.5em;
                 position: relative;
                 transition: transform 0.3s ease;
 
@@ -465,7 +465,7 @@ main{
                     height: 100%;
                     object-fit: cover;
                     z-index: 1;
-                    border-radius: var(--main-card-radius);
+                    border-radius: 1.5em;
                     border: .75px solid #0000005f;
                 }
 
@@ -478,8 +478,9 @@ main{
                     justify-content: space-between;
                     align-items: center;
                     background-color: rgba(0, 0, 0, .6);
-                    padding: 1.5vw;
-                    border-radius: 0vw 0vw var(--main-card-radius) var(--main-card-radius);
+                    padding-block: 3em;
+                    padding-inline: 5em;
+                    border-radius: 0vw 0vw 1.5em 1.5em;
 
                     backdrop-filter: blur(3px);
                     -webkit-backdrop-filter: blur(3px);
@@ -703,6 +704,7 @@ main{
             padding-inline: 3em;
             border-radius: 1em;
             line-height: 1.5em;
+            text-align: justify;
             border: 1px solid #0000005f;
         }
     }
@@ -712,7 +714,6 @@ main{
 
         & h2{
             font: var(--subheading);
-            /* margin-bottom: 4vw; */
         }
 
         & #academic-level-container{
@@ -724,7 +725,6 @@ main{
                 display: grid;
                 grid-template-columns: 20vw;
                 grid-template-rows: 15vw;
-                /* margin-bottom: 4vw; */
 
                 text-decoration: none;
                 color:#000000;
@@ -818,7 +818,6 @@ main{
                 display: grid;
                 grid-template-columns: 1fr;
                 grid-template-rows: 10vw;
-                /* margin-bottom: 4vw; */
 
                 text-decoration: none;
                 color:#000000;
@@ -972,14 +971,6 @@ main{
                 border-radius: 1em;
                 z-index: 10;
             }
-
-            & .cards:active{
-                transform: scale(1.2);
-                box-shadow: 0 20px 30px #0000005f;
-                border: 1px solid #0000008f;
-                border-radius: 1em;
-                z-index: 10;
-            }
         }
     }
 }
@@ -1107,9 +1098,8 @@ footer{
     nav {
         position: relative;
 
-        & #logo-img {
-            height: auto;
-            width: clamp(175px, 12vw, 999vw); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
+        & #go-back .logo-img {
+            width: clamp(130px, 10vw, 10vw); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
         }
 
         & #more {
@@ -1203,23 +1193,25 @@ footer{
             & #school{
                 & h1{
                     font: var(--subheading-mobile);
+                    line-height: 1em;
                 }
 
                 & p{
                     font: var(--body-mobile);
                     font-size: .5rem;
+                    margin-top: -1vh;
                 }
             }
 
             & #direct{
                 flex-direction: column;
                 row-gap: .1em;
-                align-self: flex-end;
-                padding-bottom: 2vh;
+                /* align-self: flex-end; */
+                /* padding-bottom: 2vh; */
 
                 & button, a{
                     font: var(--body-mobile);
-                    font-size: .5rem;
+                    font-size: .3rem;
                 }
             }
         }
@@ -1276,7 +1268,7 @@ footer{
             }
 
             #carousel-button {
-                display: flex;
+                display: none;
                 justify-content: space-between;
                 width: 100vw;
                 position: absolute;
@@ -1313,22 +1305,20 @@ footer{
                 scroll-padding-inline: clamp(25px, 18vw, 999vw);
 
                 & .university-image-container{
-                    --main-card-radius-mobile: clamp(2vw, 2vw, 5vw);
-                    --image-size-width-mobile: clamp();
+                    border-radius: 1em;
 
-                    /* grid-template-columns: 60vw;
-                    grid-template-rows: 30vw; MAYBE I'LL ERASE IT SOON*/
-                    border-radius:var(--main-card-radius-mobile);
+                    grid-template-columns: 70vw;
+                    grid-template-rows: 45vw;
 
                     & img{
-                        border-radius: var(--main-card-radius-mobile);
+                        border-radius: 1em;
                     }
 
                     & .info{
                         flex-direction:column;
                         align-items:flex-start;
                         padding: clamp(1vw, 2vw, 3vw);
-                        border-radius: 0vw 0vw var(--main-card-radius-mobile) var(--main-card-radius-mobile);
+                        border-radius: 0vw 0vw 1em 1em;
                         line-height: clamp(.1rem, .1rem, 1rem);
 
                         backdrop-filter: blur(1.5px);
@@ -1343,12 +1333,13 @@ footer{
 
                             & .school-location{
                                 font: var(--main-card-info-mobile);
-                                line-height: clamp(.1rem, .1rem, 1rem);
+                                margin-top: -.5vh;
                             }
                         }
 
                         & .info-right{
                             font: var(--main-card-info-mobile);
+                            margin-top: -.5vh;
                         }
                     }
                 }
@@ -1445,33 +1436,31 @@ footer{
             }
 
             & #academic-level-container{
+                display: flex;
                 overflow-x: auto;
                 overflow-y: visible;
                 white-space: nowrap;
 
-                padding-block: 20vh;
-                margin-block: -20vh;
-                margin-inline: calc(-50vw + 50%);
-                padding-inline: 2.5em;
-
+                margin-inline:calc(-50vw + 50%);
+                padding-inline: 2em;
                 scrollbar-width: none;
-                -ms-overflow-style: none;
 
-                &::-webkit-scrollbar {
-                    display: none;
-                }
+                padding-block: 10vh;
+                margin-block: -10vh;
 
-                display: flex;
-                justify-content: flex-start;
-                gap: 1.5em;
+                gap: 1em;
 
                 & .academic-image-container{
                     display: grid;
-                    grid-template-columns: 40vw;
-                    grid-template-rows: 30vw;
+                    grid-template-columns: 50vw;
+                    grid-template-rows: 40vw;
 
                     & .academic-info{
-                        font: var(--medium-card-mobile);               
+                        font: var(--medium-card-mobile);
+
+                        & p{
+                            margin-top: -.5vh;
+                        }
                     }
                 }
             }
@@ -1484,24 +1473,29 @@ footer{
             }
 
             & #container{
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
 
                 box-sizing: border-box;
-                justify-content: flext-start;
-                align-items: flex-start;
+                justify-content: center;
+                align-items: center;
                 column-gap: 1em;
                 row-gap: 1em;
 
+                padding-right: 0;
+
                 & .cards{
-                    grid-template-columns: 26vw;
-                    grid-template-rows: 22vw;
+                    width: 38vw;
+                    grid-template-rows: 28vw;
+                    align-self: center;
+
+                    margin-inline: auto;
+
 
                     & .cards-info{
                         display: flex;
                         justify-content: space-between;
 
                         font: var(--small-card-mobile);
-                        align-self: flex-end;
                         
                         & .cards-option{
                             display: flex;
