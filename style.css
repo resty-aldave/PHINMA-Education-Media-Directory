@@ -1187,7 +1187,7 @@ footer{
     }
 
     header{
-        grid-template-rows: 30vh;
+        grid-template-rows: clamp(20vw, 30vh, 30vh);
 
         & #school-name{            
             & #school{
@@ -1475,11 +1475,10 @@ footer{
             & #container{
                 grid-template-columns: repeat(2, 1fr);
 
-                box-sizing: border-box;
                 justify-content: center;
                 align-items: center;
                 column-gap: 1em;
-                row-gap: 1em;
+                row-gap: 2em;
 
                 padding-right: 0;
 
@@ -1487,9 +1486,13 @@ footer{
                     width: 38vw;
                     grid-template-rows: 28vw;
                     align-self: center;
+                    position: relative;
 
                     margin-inline: auto;
 
+                    &:has(.menu-checkbox:checked) {
+                        z-index: 100;
+                    }
 
                     & .cards-info{
                         display: flex;
@@ -1512,6 +1515,15 @@ footer{
                                 bottom: 120%;
                             }
                         }
+                    }
+                    &:hover {
+                        transform: none !important;
+                        box-shadow: none !important;
+                    }
+                    
+                    /* Use a simple active state instead */
+                    &:active {
+                        transform: scale(0.98);
                     }
                 }
             }
