@@ -16,14 +16,16 @@
         --main-card-info-mobile: normal 400 clamp(.5rem, .5vw, 1rem) "Inter", sans-serif;
 
         --medium-card: normal 600 clamp(1.25rem, 1vw, 2rem) "Poppins", sans-serif;
+        --medium-card-mobile: normal 600 clamp(.75rem, 1vw, .75rem) "Poppins", sans-serif;
 
-        --small-card: normal 600 clamp(.75rem, .5vw, 1rem) "Poppins", sans-serif;
+        --small-card: normal 600 clamp(1rem, .5vw, 1rem) "Poppins", sans-serif;
+        --small-card-mobile: normal 600 clamp(.5rem, .5vw, .5rem) "Poppins", sans-serif;
 
 
         --body: normal 400 clamp(1.15rem, 1vw, 1.15rem) "Inter", sans-serif;
         --body-mobile: normal 400 clamp(.75rem, .75vw, 1rem) "Inter", sans-serif;
 
-        --links-body: normal 600 clamp(.75rem, .75vw, .75rem) "Poppins", sans-serif;
+        --links-body: normal 600 clamp(1rem, .75vw, 1rem) "Poppins", sans-serif;
 
         --navbar: normal 600 clamp(1.25rem, 1vw, 1.25rem) "Poppins", sans-serif;
         --navbar-mobile: normal 600 clamp(1rem, 1vw, 2rem) "Poppins", sans-serif;
@@ -160,7 +162,6 @@ nav {
 
 header{
     display: grid;
-    overflow: hidden;
     position: relative;
 
     grid-template-columns: 100vw;
@@ -171,13 +172,12 @@ header{
     & img{
         grid-area: 1/1;
         width: 100%;
-        height: auto;
+        height: 100%;
         z-index: -1;
 
         display: block;
         object-fit: cover;
-
-        min-height: 0;
+        object-position: 50% 10%;
     }
 
     & #school-name{
@@ -192,9 +192,13 @@ header{
         box-sizing: border-box;
 
         width: 100%;
-        height: 30%;
+        height: 40%;
         
         & #school{
+            & h1{
+                font: var(--subheading);
+            }
+
             font: var(--body);
             color: white;
 
@@ -233,6 +237,16 @@ header{
             }
 
             & button:hover, a:hover{
+                transform: scale(1.1);
+                background-color: #000000; /*This color will based on the color of the school*/
+                color: white;
+
+                & svg path{
+                    fill: white;
+                }
+            }
+
+            & button:active, a:active{
                 transform: scale(1.1);
                 background-color: #000000; /*This color will based on the color of the school*/
                 color: white;
@@ -709,7 +723,7 @@ main{
             & .academic-image-container{
                 display: grid;
                 grid-template-columns: 20vw;
-                grid-template-rows: 30vh;
+                grid-template-rows: 15vw;
                 /* margin-bottom: 4vw; */
 
                 text-decoration: none;
@@ -803,7 +817,7 @@ main{
             & .cards{
                 display: grid;
                 grid-template-columns: 1fr;
-                grid-template-rows: 20vh;
+                grid-template-rows: 10vw;
                 /* margin-bottom: 4vw; */
 
                 text-decoration: none;
@@ -871,6 +885,8 @@ main{
                         }
 
                         & .options{
+                            font: var(--body);
+                            font-size: .75rem;
                             position: absolute;
 
                             display: grid;
@@ -881,8 +897,8 @@ main{
                             column-gap: 3em;
                             row-gap: 1em;
 
-                            right: 100%;
-                            bottom: 100%;
+                            right: 50%;
+                            bottom: 130%;
                             background-color: white;
                             color: black;
                             padding: 1em;
@@ -938,6 +954,7 @@ main{
 
                             display:flex;
                             align-items: center;
+                            margin-left: .5vw;
 
                             & svg{
                                 width: 1.5em;
@@ -1179,6 +1196,35 @@ footer{
         }
     }
 
+    header{
+        grid-template-rows: 30vh;
+
+        & #school-name{            
+            & #school{
+                & h1{
+                    font: var(--subheading-mobile);
+                }
+
+                & p{
+                    font: var(--body-mobile);
+                    font-size: .5rem;
+                }
+            }
+
+            & #direct{
+                flex-direction: column;
+                row-gap: .1em;
+                align-self: flex-end;
+                padding-bottom: 2vh;
+
+                & button, a{
+                    font: var(--body-mobile);
+                    font-size: .5rem;
+                }
+            }
+        }
+    }
+
     main{
         gap:16vw;
 
@@ -1240,7 +1286,7 @@ footer{
                 right: 50%;
                 margin-left: -50vw;
                 margin-right: -50vw;
-                padding-inline: clamp(20px, 12vw, 15vw); 
+                padding-inline: clamp(20px, 12vw, 15vw);
 
                 & img {
                     width: clamp(3vw, 3vw, 4vw); 
@@ -1379,6 +1425,98 @@ footer{
 
                         & .read-less-btn {
                             font: var(--body-mobile);
+                        }
+                    }
+                }
+            }
+        }
+
+        /* THIS IS FOR THE SCHOOL.HTML */
+        & #intro{
+            & #intro-text{
+                font: var(--body-mobile);
+            }
+        }
+
+        & #academic-level{
+                        
+            & h2{
+                font: var(--subheading-mobile);
+            }
+
+            & #academic-level-container{
+                overflow-x: auto;
+                overflow-y: visible;
+                white-space: nowrap;
+
+                padding-block: 20vh;
+                margin-block: -20vh;
+                margin-inline: calc(-50vw + 50%);
+                padding-inline: 2.5em;
+
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                display: flex;
+                justify-content: flex-start;
+                gap: 1.5em;
+
+                & .academic-image-container{
+                    display: grid;
+                    grid-template-columns: 40vw;
+                    grid-template-rows: 30vw;
+
+                    & .academic-info{
+                        font: var(--medium-card-mobile);               
+                    }
+                }
+            }
+        }
+
+        & #university-contacts{
+
+            & h2{
+                font: var(--subheading-mobile);
+            }
+
+            & #container{
+                grid-template-columns: repeat(3, 1fr);
+
+                box-sizing: border-box;
+                justify-content: flext-start;
+                align-items: flex-start;
+                column-gap: 1em;
+                row-gap: 1em;
+
+                & .cards{
+                    grid-template-columns: 26vw;
+                    grid-template-rows: 22vw;
+
+                    & .cards-info{
+                        display: flex;
+                        justify-content: space-between;
+
+                        font: var(--small-card-mobile);
+                        align-self: flex-end;
+                        
+                        & .cards-option{
+                            display: flex;
+                            flex-direction: column;
+                            position: relative;
+
+                            & .options{
+                                font: var(--body-mobile);
+                                font-size: .5rem;
+
+                                display: flex;
+                                flex-direction: column;
+
+                                bottom: 120%;
+                            }
                         }
                     }
                 }
