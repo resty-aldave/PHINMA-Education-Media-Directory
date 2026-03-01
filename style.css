@@ -402,7 +402,7 @@ main{
                 background-color: rgba(255, 255, 255, 0.5);
                 padding:.5vw;
                 border-radius:50%;
-                border: 1px solid#0000005f;
+                border: 1px solid #0000005f;
 
                 &:hover {
                     background-color: rgba(110, 110, 110, 0.3);
@@ -669,23 +669,87 @@ main{
     & #table{
         font: var(--body);
         margin-top: 8vw;
-        display: grid;
-        grid-column: 1fr 1fr 1fr;
-        grid-row: 1fr;
-        border: 1px solid#000000;
+
+        & legend{
+            font: var(--subheading);
+            margin-bottom: 1em;
+        }
         
         & table{
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid #000000;
+            border-radius: 1em;
 
-                & th{
-                    background-color: #ffffff;
-                    padding: 2vw;
+            & thead tr th{
+                background-color: #ffffff;
+                padding: 1em;
+            }
+
+            & tbody tr .description{
+                background-color: #ffffff;
+                padding-block: 1em;
+                padding-inline: 1.5em;
+                width: 50vw;
+            }
+
+            & tbody tr .info{
+                background-color: #ffffff;
+                padding-block: 1em;
+                padding-inline: 1.5em;
+                width: 30vw;
+
+                & a{
+                    display: flex;
+                    justify-content: right;
+
+                    text-decoration: none;
+                    color: black;
                 }
-                & td{
-                    background-color: #ffffff;
-                    padding: 2vw;
-                    margin-top: 100vw;
-                }
+            }
+
+            & tbody tr .time{
+                background-color: #ffffff;
+                padding-block: 1em;
+                padding-inline: 1.5em;
+                width: 10vw;
+
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            
+
+            /* This iss the radius of the corner above the table */
+            & thead tr th:first-child {
+                border-top-left-radius: 1em;
+            }
+
+            & thead tr th:last-child {
+                border-top-right-radius: 1em;
+            }
+
+            /* This is the border for the bottom corner of the table */
+            & tbody tr:last-child td:first-child{
+                border-bottom-left-radius: 1em;
+            }
+
+            & tbody tr:last-child td:last-child{
+                border-bottom-right-radius: 1em;
+            }
+
+            td, th {
+                border-bottom: 1px solid black;
+                border-right: 1px solid black;
+            }
+
+            td:last-child, th:last-child {
+                border-right: none;
+            }
+
+            tr:last-child td {
+                border-bottom: none;
+            }
         }
         
     }
