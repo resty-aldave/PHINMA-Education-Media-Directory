@@ -14,6 +14,7 @@ if (moreIcon && navText && menuOverlay) {
     const toggleMenu = () => {
         navText.classList.toggle('is-active');
         menuOverlay.classList.toggle('is-active');
+        document.body.classList.toggle('no-scroll');
     };
 
     moreIcon.addEventListener('click', toggleMenu);
@@ -23,6 +24,7 @@ if (moreIcon && navText && menuOverlay) {
         link.addEventListener('click', () => {
             navText.classList.remove('is-active');
             menuOverlay.classList.remove('is-active');
+            document.body.classList.remove('no-scroll');
         });
     });
 }

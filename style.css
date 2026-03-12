@@ -1,4 +1,8 @@
 /* Next time go from mobile to laptop flow so that the process is forward instead of laptop to mobile which is backward */
+* {
+  box-sizing: border-box;
+}
+
 :root {
   background-color: rgb(252, 248, 248);
   /* font: [font-style] [font-variant] [font-weight] [font-stretch] [font-size]/[line-height] [font-family]; */
@@ -38,69 +42,85 @@
   --footer-mobile: normal 400 0.5rem "Inter", sans-serif;
 
   --default: 1rem;
+
+  --layout-margin-desktop: clamp(1em, 10vw, 16em);
+  --layout-margin-mobile: clamp(1.5rem, 5vw, 3rem);
 }
 /*Global design*/
-html {
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   scroll-behavior: smooth;
-
-  & body {
-    overflow-x: hidden;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
 }
+
+/* *, *::before, *::after {
+  box-sizing: inherit;
+} */
+
+/* body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+} */
 
 /*design for navbar or header*/
 nav {
   width: 100%;
   z-index: 20;
-  /*top,right,bottom,left*/
-  padding-block: clamp(25px, 1vw, 999vw);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: fixed;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: .5px solid #0000003f;
   background-color: rgba(252, 248, 248, 0.5);
 
-  position: absolute;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
 
-  & #go-back {
-    z-index: 100;
-    margin-left: clamp(1em, 10vw, 16em); /*4vw is looking 100px on my screen*/
-
-    & .logo-img {
-      height: auto;
-      width: clamp(120px, 10vw, 12.48em); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
-    }
-  }
-
-  & #more {
+  & #nav-container {
     display: flex;
+    width: 100%;
+    max-width: clamp(300px, 95vw, 1600px);
     align-items: center;
-    margin-right: clamp(1em, 10vw, 16em);
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 5vw, 2rem);
+    padding-block: 1.5em;
+    justify-content: space-between;
+    /* background-color: #0000005f; */
 
-    & input {
-      display: none;
-    }
+      & #go-back {
+        z-index: 100;
 
-    & #nav-text {
-      font: var(--navbar);
-      display: flex;
-      gap: 3vw;
-
-      & a {
-        text-decoration: none;
-        color: #000000;
+        & .logo-img {
+          height: auto;
+          width: clamp(120px, 10vw, 12.48em); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
+        }
       }
-    }
 
-    & #more-icon {
-      display: none;
-      width: clamp(24px, 2.5vw, 40px);
-      height: auto;
-    }
+      & #more {
+        display: flex;
+        align-items: center;
+
+        & input {
+          display: none;
+        }
+
+        & #nav-text {
+          gap: 3em;
+          display: flex;
+          font: var(--navbar);
+
+          & a {
+            color: #000000;
+            text-decoration: none;
+          }
+        }
+
+        & #more-icon {
+          height: auto;
+          display: none;
+          width: clamp(24px, 2.5vw, 40px);
+        }
+      }
   }
 }
 
@@ -109,24 +129,24 @@ nav {
   flex-direction: column;
   align-items: flex-end;
   bottom: clamp(1.5em, 5vw, 8em);
-  right: clamp(1em, 10vw, 16em);
+  right: var(--layout-margin-desktop);
   position: fixed;
   z-index: 50;
 
   & #disclaimer {
-    & img {
-      width: clamp(30px, 3vw, 3em);
-      height: auto;
-    }
-
     display: flex;
     justify-content: center;
     align-items: center;
-    width: clamp(30px, 3vw, 3em);
-    height: auto;
-    padding: 10px;
+    width: 4rem;
+    height: 4rem;
+    padding: 0;
     border-radius: 50%;
     background-color: rgba(246, 48, 73, 1);
+
+    & img {
+      width: 2.5rem;
+      height: auto;
+    }
   }
 
   & #disclaimer-text {
@@ -136,17 +156,18 @@ nav {
     transition: all 0.3s ease;
 
     position: absolute;
-    bottom: clamp(50px, 5vw, 100px);
-    right: clamp(-10px, 0vw, 100px);
+    bottom: clamp(50px, 3vw, 100px);
+    right: clamp(-10px, 3vw, 100px);
 
     font: var(--disclaimer);
     font-optical-sizing: auto;
     line-height: 1.5rem;
     text-align: justify;
     background-color: rgba(245, 242, 242, 1);
-    width: clamp(200px, 30vw, 500px);
+    width: clamp(200px, 30em, 500px);
     height: auto;
-    padding: clamp(10px, 1.5vw, 20px);
+    padding-inline: clamp(10px, 2em, 2em);
+    padding-block: clamp(10px, 1.5em, 2em);
     border-radius: 1em 1em 0 1em;
     border: 1.5px solid #000000;
   }
@@ -167,6 +188,21 @@ header {
 
   box-shadow: 0 20px 30px #0000004f;
 
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 1%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+    z-index: 0;
+  }
+
   & img {
     grid-area: 1/1;
     width: 100%;
@@ -185,12 +221,10 @@ header {
     align-items: center;
     align-self: flex-end;
 
-    padding-inline: clamp(1em, 10vw, 16em);
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 1%,
-      rgba(0, 0, 0, 0.9) 100%
-    );
+    max-width: clamp(300px, 95vw, 1600px);
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 5vw, 2rem);
+    z-index: 1;
     box-sizing: border-box;
 
     width: 100%;
@@ -229,11 +263,11 @@ header {
         border: 1px solid;
 
         & svg {
-          width: 1.5em;
+          width: 1.25em;
         }
         background-color: white;
 
-        padding-inline: 1em;
+        padding-inline: .75em;
         padding-block: 1em;
 
         border-radius: 1em;
@@ -270,19 +304,21 @@ header {
 main {
   display: flex;
   flex-direction: column;
-  margin-inline: clamp(1em, 10vw, 16em);
+  max-width: clamp(300px, 95vw, 1600px);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 2rem);
   box-sizing: border-box;
-  gap: 4vw;
+  gap: 4em;
 
   & #flow-one {
     display: grid;
-    grid-template-columns: 30vw 1fr;
+    grid-template-columns: min(100%, 30em) 1fr;
     grid-template-areas:
       "heading image"
       "subtext image";
-    gap: 8vw 4vw;
-    margin-top: 4vw;
-    margin-bottom: 4vw;
+    gap: clamp(2em, 5vw, 8em) clamp(1em, 2vw, 4em);
+    margin-top: 12em;
+    margin-bottom: 12em;
 
     & h1 {
       font: var(--heading);
@@ -324,14 +360,13 @@ main {
       z-index: 1;
       display: grid;
       place-items: center;
-      /* width: 100%;
-            max-height: 80vh; */
 
       & .hero-img {
         grid-area: 1 / 1;
-        width: clamp(15em, 40vw, 60em);
-        height: clamp(12em, 35vw, 50em);
-        margin: 4vw;
+        width: clamp(15em, 50em, 60em);
+        height: clamp(12em, 45em, 50em);
+        margin-top: 4em;
+        margin-left: 12em;
         object-fit: cover;
         opacity: 0;
         visibility: hidden;
@@ -383,35 +418,35 @@ main {
       font: var(--subheading);
       display: flex;
       justify-content: center;
-      margin-bottom: 4vw;
+      margin-bottom: 4em;
     }
 
     #carousel-button {
       display: flex;
       justify-content: space-between;
-      width: 100vw;
+      justify-self: center;
+      width: clamp(250px, 50vw, 100%);
       position: absolute;
       z-index: 10;
-      top: 60%;
+      top: 62%;
       left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      padding-inline: clamp(20px, 15vw, 20vw);
-
+      transform: translate(-50%, -50%);
+      padding-inline: 0;
+      pointer-events: none; /* Allows clicking card through the container */
       box-sizing: border-box;
-      /* margin-bottom: 20px; */
 
       & img {
-        width: clamp(16px, 1.75vw, 30px);
-        height: clamp(16px, 1.75vw, 30px);
+        pointer-events: auto; /* Re-enable clicks for buttons */
+        width: 3rem;
+        height: 3rem;
+        aspect-ratio: 1;
         object-fit: contain;
         cursor: pointer;
         transition:
           transform 0.2s ease,
           opacity 0.5s ease;
         background-color: rgba(255, 255, 255, 0.5);
-        padding: 0.5vw;
+        padding: 0.75rem;
         border-radius: 50%;
         border: 1px solid #0000005f;
 
@@ -429,29 +464,26 @@ main {
 
     & #carousel {
       width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
       display: flex;
       justify-content: flex-start;
       align-items: center;
       box-sizing: border-box;
       position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
       margin-block: 5vh;
-      gap: 8vw;
+      gap: 20em;
 
-      padding-inline: clamp(20px, 20vw, 999vw);
-      scroll-padding-inline: clamp(20px, 20vw, 999vw);
-
-      padding-top: 2vw;
-      margin-top: -0.5vw;
+      padding-top: 2em;
+      padding-inline: clamp(250px, 35vw, 100%);
+      margin-top: -0.5em;
       overflow-x: auto;
       overflow-y: visible;
       white-space: nowrap;
 
       scrollbar-width: none;
       -ms-overflow-style: none;
+      /* background-color: #0000005f; */
 
       &::-webkit-scrollbar {
         display: none;
@@ -461,8 +493,11 @@ main {
 
       & .university-image-container {
         display: grid;
-        grid-template-columns: 60vw;
-        grid-template-rows: 35vw;
+        width: 55em;
+        flex-shrink: 0;
+        aspect-ratio: 4/3;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
         text-decoration: none;
         color: #000000;
         border-radius: 1.5em;
@@ -490,27 +525,27 @@ main {
           justify-content: space-between;
           align-items: center;
           background-color: rgba(0, 0, 0, 0.6);
-          padding-block: 3em;
-          padding-inline: 5em;
+          padding-block: 1.5em;
+          padding-inline: 1.5rem;
           border-radius: 0vw 0vw 1.5em 1.5em;
 
-          backdrop-filter: blur(3px);
+          backdrop-filter: blur(5px);
           -webkit-backdrop-filter: blur(3px);
 
-          max-height: 35vw;
+          max-height: 35em;
 
           & .info-left {
             & .school-name {
               font: var(--main-card);
               color: white;
-              line-height: clamp(10px, 0.3vw, 1vw);
+              line-height: clamp(10px, 0.3em, 1em);
             }
 
             & .school-location {
               font: var(--main-card-info);
               font-optical-sizing: auto;
               color: white;
-              line-height: clamp(10px, 0.3vw, 1vw);
+              line-height: clamp(10px, 0.3em, 1em);
 
               & svg {
                 width: 0.7em;
@@ -528,7 +563,7 @@ main {
       }
 
       & .university-image-container:hover {
-        transform: translateY(-1.5vw);
+        transform: translateY(-1.5em);
       }
 
       & .university-image-container:active {
@@ -544,7 +579,7 @@ main {
       font: var(--subheading);
       display: flex;
       justify-content: center;
-      margin-bottom: 4vw;
+      margin-bottom: 4em;
     }
 
     & #contact-us-container {
@@ -555,26 +590,26 @@ main {
       font: var(--body);
       line-height: clamp(2rem, 3rem, 4rem);
       padding-inline: clamp(3em, 4em, 5em);
-      column-gap: 4vw;
+      column-gap: 4em;
       text-align: center;
 
       & #first-paragraph {
         grid-area: first-p;
-        padding-inline: clamp(4vw, 8vw, 12vw);
+        padding-inline: 4em;
 
         background-color: rgba(255, 255, 255, 0.6);
-        padding-block: clamp(4vh, 8vh, 12vh);
-        border-radius: 2vh;
+        padding-block: 3em;
+        border-radius: 1em;
         border: 1px solid#0000002f;
       }
 
       & #second-paragraph {
         grid-area: second-p;
-        padding-inline: clamp(4vw, 8vw, 12vw);
+        padding-inline: 4em;
 
         background-color: rgba(255, 255, 255, 0.6);
-        padding-block: clamp(4vh, 8vh, 12vh);
-        border-radius: 2vh;
+        padding-block: 3em;
+        border-radius: 1em;
         border: 1px solid#0000002f;
       }
     }
@@ -582,11 +617,11 @@ main {
     & a {
       font: var(--links-body);
 
-      margin-top: 8vw;
+      margin-top: 8em;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 2vw;
+      gap: 1em;
       text-decoration: none;
       color: #000000;
       font-optical-sizing: auto;
@@ -600,14 +635,14 @@ main {
 
   & #flow-four {
     position: relative;
-    margin-top: 4vw;
+    margin-top: 4em;
     margin-inline: clamp(1em, 5vw, 16em);
 
     & h2 {
       font: var(--subheading);
       display: flex;
       justify-content: center;
-      margin-bottom: 4vw;
+      margin-bottom: 4em;
     }
 
     & #about-us-container {
@@ -617,12 +652,12 @@ main {
       font-optical-sizing: auto;
       display: flex;
       flex-direction: column;
-      gap: 1vw;
+      gap: 1em;
 
-      padding-inline: clamp(4vw, 8vw, 12vw);
+      padding-inline: 6em;
 
       background-color: rgba(255, 255, 255, 0.6);
-      padding-block: clamp(4vh, 8vh, 12vh);
+      padding-block: 3em;
       border-radius: 2vh;
       border: 1px solid#0000002f;
 
@@ -673,7 +708,10 @@ main {
   /* THIS IS THE CSS FOR THE TABLE */
   & #table {
     font: var(--body);
-    margin-top: 8vw;
+    margin-top: 8em;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 1em;
 
     & legend {
       font: var(--subheading);
@@ -695,14 +733,14 @@ main {
         background-color: #ffffff;
         padding-block: 1em;
         padding-inline: 1.5em;
-        width: 50vw;
+        width: clamp(20em, 50vw, 50em);
       }
 
       & tbody tr .info {
         background-color: #ffffff;
         padding-block: 1em;
         padding-inline: 1.5em;
-        width: 30vw;
+        width: clamp(15em, 30vw, 30em);
         row-gap: 0.75em;
 
         display: flex;
@@ -720,7 +758,7 @@ main {
         background-color: #ffffff;
         padding-block: 1em;
         padding-inline: 1.5em;
-        width: 10vw;
+        width: 10em;
 
         justify-content: center;
         align-items: center;
@@ -736,7 +774,7 @@ main {
         border-top-right-radius: 1em;
       }
 
-      /* This is the border for the bottom corner of the table */
+      /* This is the border for the bottom corner of the table --hahays*/
       & tbody tr:last-child td:first-child {
         border-bottom-left-radius: 1em;
       }
@@ -764,7 +802,7 @@ main {
 
   /* THIS IS FOR THE SCHOOL.HTML */
   & #intro {
-    padding-top: 8vh;
+    padding-top: 4em;
 
     & #intro-text {
       font: var(--body);
@@ -793,8 +831,8 @@ main {
 
       & .academic-image-container {
         display: grid;
-        grid-template-columns: 20vw;
-        grid-template-rows: 15vw;
+        grid-template-columns: 30em;
+        grid-template-rows: 23em;
 
         text-decoration: none;
         color: #000000;
@@ -831,7 +869,7 @@ main {
 
           width: 100%;
           height: 5em;
-          max-height: 15vw;
+          max-height: 15em;
 
           & p {
             margin: 0;
@@ -849,7 +887,7 @@ main {
       }
 
       & .academic-image-container:hover {
-        transform: translateY(-1.5vw);
+        transform: translateY(-1.5em);
         box-shadow: 0 20px 30px #0000005f;
         border: 1px solid #0000008f;
         border-radius: 1em;
@@ -877,12 +915,12 @@ main {
       box-sizing: border-box;
       justify-content: flex-start;
       align-items: flex-start;
-      gap: clamp(0.75em, 2vw, 2em);
+      gap: clamp(0.75em, 1.5vw, 2em);
 
       & .cards {
         display: grid;
-        width: 15vw;
-        grid-template-rows: clamp(10vw, 11vw, 12vw);
+        width: clamp(8em, 20em, 20em);
+        grid-template-rows: clamp(6em, 15em, 15em);
 
         text-decoration: none;
         color: #000000;
@@ -925,7 +963,7 @@ main {
 
           width: 100%;
           height: 5em;
-          max-height: 15vw;
+          max-height: 15em;
 
           & p {
             margin: 0;
@@ -1038,7 +1076,7 @@ main {
 }
 
 footer {
-  margin-top: 8vw;
+  margin-top: 8em;
   padding-block: clamp(36px, 4vh, 999vh);
   background-color: rgba(217, 207, 199, 0.5);
 
@@ -1047,17 +1085,19 @@ footer {
 
     & #top-footer {
       display: flex;
-      margin-inline: clamp(1em, 10vw, 16em);
+      max-width: clamp(300px, 95vw, 1600px);
+      margin-inline: auto;
+      padding-inline: clamp(1rem, 5vw, 2rem);
 
       & #phinma-information {
-        width: 25vw;
+        width: 25em;
         height: auto;
-        padding-right: 8vw;
+        padding-right: 8em;
         /* background-color: rgb(193, 153, 120); */
 
         & img {
           height: auto;
-          width: clamp(120px, 12.48vw, 200px);
+          width: clamp(120px, 12.48em, 200px);
           margin-bottom: 4vh;
         }
 
@@ -1096,7 +1136,7 @@ footer {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: repeat(9, auto);
-        column-gap: 5vw;
+        column-gap: 5em;
         grid-auto-flow: column;
 
         line-height: 1.5rem;
@@ -1115,13 +1155,16 @@ footer {
     & span {
       display: block;
       border-top: 1px solid #000000;
-      margin-inline: clamp(1em, 10vw, 16em);
+      max-width: clamp(300px, 95vw, 1600px);
+      margin-inline: auto;
       margin-block: clamp(36px, 4vh, 60px);
     }
 
     & #bottom-footer {
       display: flex;
-      margin-inline: clamp(1em, 10vw, 16em);
+      max-width: clamp(300px, 95vw, 1600px);
+      margin-inline: auto;
+      padding-inline: clamp(1rem, 5vw, 2rem);
       justify-content: space-between;
 
       & #student-led,
@@ -1130,7 +1173,7 @@ footer {
         font-optical-sizing: auto;
         display: flex;
         align-items: center;
-        gap: 1vw;
+        gap: 1em;
 
         & img {
           width: clamp(20px, 1.5vw, 30px);
@@ -1150,11 +1193,30 @@ footer {
   }
 }
 
-/* Phone */
+/* Phonyy */
 @media (max-width: 1024px) {
+  html {
+    scroll-padding-top: 80px;
+  }
+  
+  body {
+    padding-top: 60px;
+  }
+
   nav {
-    position: relevant;
-    padding-block: clamp(1em, .75vw, 1.25em);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-block: 0.8em;
+
+    & #nav-container {
+       padding-inline: var(--layout-margin-mobile);
+       padding-block: 0.5rem;
+    }
+
+    & #go-back {
+      margin-left: 0;
+    }
 
 
     & #go-back .logo-img {
@@ -1162,6 +1224,7 @@ footer {
     }
 
     & #more {
+
       & #menu-overlay {
         position: fixed;
         top: 0;
@@ -1191,13 +1254,14 @@ footer {
         top: 0;
         left: -100%;
         height: 100vh;
-        width: 75vw;
+        width: 80vw;
         background-color: white;
         flex-direction: column;
         display: flex;
-        transition: left 0.8s ease;
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 100;
-        gap: 1em;
+        gap: 0;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.1);
 
         /* Add this: when nav-text has .is-active, it slides in */
         &.is-active {
@@ -1205,53 +1269,65 @@ footer {
         }
 
         & #nav-text-mobile-margin {
-          padding: clamp(25px, 1vw, 999vw);
+          padding: clamp(25px, 1em, 999em);
         }
 
         & a {
-          background-color: rgba(0, 0, 0, 0.2);
-          padding: 4vw;
+          padding: 1.5rem 2rem;
           text-decoration: none;
           color: black;
+          border-bottom: 1px solid #f0f0f0;
+          width: 100%;
         }
       }
 
       & #more-icon {
-        display: block;
+        display: block !important;
+        flex-shrink: 0;
         cursor: pointer;
-        width: clamp(20px, 1em, 35px);
+        width: 1.5rem;
         height: auto;
       }
     }
   }
 
   #disclaimer-container {
+    right: var(--layout-margin-mobile);
+    bottom: var(--layout-margin-mobile);
+
     & #disclaimer {
+      width: 3rem;
+      height: 3rem;
+      padding: 0;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       & img {
-        width: clamp(30px, 40px, 10vw);
+        width: 1.5rem;
         height: auto;
       }
-
-      width: clamp(30px, 40px, 10vw);
-      height: auto;
-      padding: 8px;
     }
 
     & #disclaimer-text {
       font: var(--disclaimer-mobile);
-      line-height: 0.75rem;
-      bottom: clamp(50px, 12vw, 999vw);
-      right: clamp(50px, 12vw, 999vw);
+      line-height: 1rem;
+      bottom: 4em;
+      right: 4em;
       border: 1px solid #000000;
-      width: clamp(200px, 20vw, 999vw);
+      width: clamp(250px, 70vw, 350px);
+      padding: 1.25rem;
+      border-radius: 1rem 1rem 0 1rem;
     }
   }
 
   header {
-    grid-template-rows: clamp(20vw, 30vh, 30vh);
+    position: relative;
+    grid-template-rows: clamp(20em, 30vh, 30vh);
 
     & #school-name {
-      padding-inline: clamp(1em, 4vw, 3em);
+      padding-inline: var(--layout-margin-mobile);
 
       & #school {
         & h1 {
@@ -1282,11 +1358,12 @@ footer {
   }
 
   main {
-    margin-inline: clamp(1em, 4vw, 3em);
-    gap: 10vw;
+    margin-inline: var(--layout-margin-mobile);
+    gap: 10em;
 
     & #flow-one {
       margin-top: 10vh;
+      margin-bottom: 1.5em;
       grid-template-columns: 1fr;
       grid-template-areas:
         "heading"
@@ -1317,16 +1394,21 @@ footer {
         grid-area: image;
         grid-column: auto;
         grid-row: auto;
-        justify-self: flex-end;
+        justify-self: center;
 
         & .hero-img {
-          width: clamp(60vw, 80vw, 90vw);
-          height: clamp(25vh, 40vw, 50vh);
+          width: 100%;
+          max-width: 60em;
+          height: auto;
+          min-height: clamp(200px, 40vh, 500px);
+          margin-left: 0;
         }
       }
     }
 
     & #flow-two {
+      margin-bottom: 0;
+
       & h2 {
         font: var(--subheading-mobile);
       }
@@ -1334,45 +1416,46 @@ footer {
       #carousel-button {
         display: none;
         justify-content: space-between;
-        width: 100vw;
+        width: 100%;
         position: absolute;
         z-index: 10;
         top: 57%;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        padding-inline: clamp(20px, 12vw, 15vw);
+        left: unset;
+        right: unset;
+        margin-left: unset;
+        margin-right: unset;
+        padding-inline: clamp(20px, 12em, 15em);
 
         & img {
-          width: clamp(3vw, 3vw, 4vw);
-          height: clamp(3vw, 3vw, 4vw);
-          padding: 1vw;
+          width: clamp(3em, 3em, 4em);
+          height: clamp(3em, 3em, 4em);
+          padding: 1em;
         }
       }
 
       & #carousel {
         width: 100vw;
+        margin-inline: calc(-50vw + 50%);
         display: flex;
         justify-content: flex-start;
         align-items: center;
         box-sizing: border-box;
         position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
+        left: unset;
+        right: unset;
         margin-block: 5vh;
-        gap: 10vw;
+        gap: 1.5rem;
 
-        padding-inline: clamp(25px, 30vw, 999vw);
-        scroll-padding-inline: clamp(25px, 18vw, 999vw);
+        /* padding-inline: calc(50vw - (clamp(250px, 80vw, 70em) / 2));
+        scroll-padding-inline: calc(50vw - (clamp(250px, 80vw, 70em) / 2)); */
 
         & .university-image-container {
           border-radius: 1em;
-
-          grid-template-columns: 70vw;
-          grid-template-rows: 45vw;
+          flex: 0 0 auto;
+          width: clamp(250px, 75vw, 70em);
+          aspect-ratio: 10/12;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr;
 
           & img {
             border-radius: 1em;
@@ -1381,9 +1464,9 @@ footer {
           & .info {
             flex-direction: column;
             align-items: flex-start;
-            padding: clamp(1vw, 2vw, 3vw);
-            border-radius: 0vw 0vw 1em 1em;
-            line-height: clamp(0.1rem, 0.1rem, 1rem);
+            padding: clamp(1em, 2em, 3em);
+            border-radius: 0em 0em 1em 1em;
+            line-height: normal;
 
             backdrop-filter: blur(1.5px);
             -webkit-backdrop-filter: blur(1.5px);
@@ -1391,7 +1474,7 @@ footer {
             & .info-left {
               & .school-name {
                 font: var(--main-card-mobile);
-                line-height: clamp(0.1rem, 0.1rem, 1rem);
+                line-height: normal;
               }
 
               & .school-location {
@@ -1412,7 +1495,6 @@ footer {
     & #flow-three {
       & h2 {
         font: var(--subheading-mobile);
-        margin-bottom: 12vw;
       }
 
       & #contact-us-container {
@@ -1424,52 +1506,53 @@ footer {
           "second-p";
 
         line-height: 1.5rem;
+        padding-inline: 1em;
 
         & #first-paragraph {
           grid-area: first-p;
-          padding-inline: clamp(4vw, 8vw, 12vw);
+          padding-inline: 1.5rem;
 
           background-color: rgba(255, 255, 255, 0.6);
-          padding-block: clamp(4vh, 8vh, 12vh);
-          border-radius: 2vh;
+          padding-block: 2rem;
+          border-radius: 1rem;
           border: 1px solid#0000002f;
         }
 
         & #second-paragraph {
           grid-area: second-p;
-          padding-inline: clamp(4vw, 8vw, 12vw);
+          padding-inline: 1.5rem;
 
           background-color: rgba(255, 255, 255, 0.6);
-          padding-block: clamp(4vh, 8vh, 12vh);
-          border-radius: 2vh;
+          padding-block: 2rem;
+          border-radius: 1rem;
           border: 1px solid#0000002f;
         }
       }
 
       & a {
-        margin-top: 12vw;
         font: var(--links-body);
         font-size: 0.75rem;
 
         & img {
-          width: clamp(30px, 1vw, 999vw);
+          width: clamp(30px, 1em, 999em);
           height: auto;
         }
       }
     }
 
     & #flow-four {
-      margin-inline: clamp(16px, 2vw, 999vw);
+      margin-inline: 1em;
+
       & h2 {
         font: var(--subheading-mobile);
-        margin-bottom: 12vw;
       }
 
       & #about-us-container {
         font: var(--body-mobile);
         line-height: 1.5rem;
-
-        padding-inline: clamp(4vw, 8vw, 12vw);
+        padding-inline: 1.5rem;
+        padding-block: 2rem;
+        border-radius: 1rem;
 
         & .text-group {
           & summary {
@@ -1504,18 +1587,21 @@ footer {
         white-space: nowrap;
 
         margin-inline: calc(-50vw + 50%);
-        padding-inline: 2em;
+        padding-inline: calc(50vw - 42.5vw);
         scrollbar-width: none;
+        scroll-snap-type: x mandatory;
 
-        padding-block: 10vh;
-        margin-block: -10vh;
+        padding-block: 5vh;
+        margin-block: -5vh;
 
         gap: 1em;
 
         & .academic-image-container {
+          flex: 0 0 85vw;
+          scroll-snap-align: center;
           display: grid;
-          grid-template-columns: 50vw;
-          grid-template-rows: 40vw;
+          aspect-ratio: 3/4;
+          grid-template-rows: 1fr;
 
           & .academic-info {
             font: var(--medium-card-mobile);
@@ -1533,18 +1619,13 @@ footer {
         font: var(--subheading-mobile);
       }
 
-      & #container {
-        grid-template-columns: repeat(2, 1fr);
-
-        justify-content: center;
-        align-items: center;
-        column-gap: 1em;
-        row-gap: 2em;
-
-        padding-right: 0;
+      & .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
 
         & .cards {
-          width: 38vw;
+          width: 100%;
           grid-template-rows: 28vw;
           align-self: center;
           position: relative;
@@ -1605,7 +1686,9 @@ footer {
       & #top-footer {
         display: flex;
         flex-direction: column;
-        margin-inline: clamp(1em, 4vw, 3em);
+        max-width: clamp(300px, 95vw, 1600px);
+        margin-inline: auto;
+        padding-inline: var(--layout-margin-mobile);
         box-sizing: border-box;
         align-self: stretch;
 
@@ -1615,7 +1698,7 @@ footer {
 
           & img {
             height: auto;
-            width: clamp(100px, 30vw, 200px);
+            width: clamp(100px, 30em, 200px);
             margin-bottom: 2vh;
           }
 
@@ -1656,6 +1739,7 @@ footer {
           margin-top: 4vh;
           display: flex;
           flex-direction: column;
+          align-self: center;
           gap: 1vh;
           width: 100%;
 
@@ -1731,13 +1815,16 @@ footer {
       & span {
         display: block;
         border: 0.75px solid#000000;
-        margin-inline: clamp(1em, 4vw, 3em);
+        max-width: clamp(300px, 95vw, 1600px);
+        margin-inline: auto;
         margin-block: clamp(10px, 2vh, 999vh);
         align-self: stretch;
       }
 
       & #bottom-footer {
-        margin-inline: clamp(1em, 4vw, 3em);
+        max-width: clamp(300px, 95vw, 1600px);
+        margin-inline: auto;
+        padding-inline: var(--layout-margin-mobile);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1745,7 +1832,7 @@ footer {
         & #version-led {
           display: flex;
           justify-content: space-between;
-          gap: 8em;
+          gap: 1em;
 
           & #student-led,
           #version {
@@ -1756,7 +1843,7 @@ footer {
             gap: 1vw;
 
             & img {
-              width: clamp(14px, 4vw, 20px);
+              width: clamp(14px, 4em, 20px);
               height: auto;
             }
           }
