@@ -1582,6 +1582,7 @@ footer {
 
           & img {
             border-radius: 1em;
+            height: 28em;
           }
 
           & .info {
@@ -1719,7 +1720,7 @@ footer {
             
             & a{
               font: var(--body-mobile);
-              font-size: .6rem;
+              font-size: .5rem;
               white-space: normal;
             }
           }
@@ -1770,15 +1771,15 @@ footer {
         padding-block: 5vh;
         margin-block: -5vh;
 
-        gap: 1em;
+        gap: .75em;
 
         & .academic-image-container {
           flex: auto auto;
           scroll-snap-align: center;
           display: grid;
           /* aspect-ratio: 3/4; */
-          grid-template-columns: 20em;
-          grid-template-rows: 16em;
+          grid-template-columns: 16em;
+          grid-template-rows: 14em;
           margin-inline: 1em;
 
           & .academic-info {
