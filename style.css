@@ -483,7 +483,7 @@ main {
 
       scrollbar-width: none;
       -ms-overflow-style: none;
-      /* background-color: #0000005f; */
+      background-color: #0000005f;
 
       &::-webkit-scrollbar {
         display: none;
@@ -1557,6 +1557,7 @@ footer {
 
       & #carousel {
         width: 100vw;
+        height: 55vh;
         margin-inline: calc(-50vw + 50%);
         display: flex;
         justify-content: flex-start;
@@ -1565,18 +1566,20 @@ footer {
         position: relative;
         left: unset;
         right: unset;
-        margin-block: 5vh;
+        /* margin-block: 5vh; */
         gap: 1.5rem;
 
         padding-inline: calc(50vw - (clamp(250px, 80vw, 70em) / 2));
         scroll-padding-inline: calc(50vw - (clamp(250px, 80vw, 70em) / 2));
 
         & .university-image-container {
+          padding-top: 0;
+          margin-top: 0;
           border-radius: 1em;
           flex: 0 0 auto;
           width: clamp(250px, 75vw, 70em);
           aspect-ratio: 10/12;
-          min-height: 0;
+          /* min-height: 0; */
           grid-template-columns: 1fr;
           grid-template-rows: 1fr;
 
