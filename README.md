@@ -67,6 +67,7 @@ It serves as a digital bridge for students and the community, organizing officia
 1. **Protected Branches:** Enforced restrictions on `main` and `stage` branches.
 2. **Quality Assurance:** All updates require a Pull Request (PR) and comprehensive code review.
 3. **Data Integrity:** Periodic audits ensure all institutional links remain accurate.
+4. **Contribution Guidelines:** Detailed instructions can be found in [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ---
 
