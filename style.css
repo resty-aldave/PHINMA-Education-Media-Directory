@@ -771,7 +771,7 @@ main {
           
           & a{
             font: var(--body);
-            font-size: 1rem;
+            font-size: .9rem;
             text-decoration: none;
             color: black;
           }
@@ -1723,7 +1723,7 @@ footer {
             
             & a{
               font: var(--body-mobile);
-              font-size: .5rem;
+              font-size: .45rem;
               white-space: normal;
             }
           }
