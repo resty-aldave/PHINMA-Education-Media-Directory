@@ -1712,7 +1712,7 @@ footer {
     }
 
     /* THIS IS THE CSS FOR THE MORE CONTACTS */
-    & .university-contacts {
+    & .university-more-contacts {
       margin-top: 3em;
 
       & .container-contact {
@@ -1808,6 +1808,8 @@ footer {
     }
 
     & .university-contacts {
+      margin-bottom: -5em;
+
       & h2 {
         font: var(--subheading-mobile);
       }
