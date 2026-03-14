@@ -1,0 +1,60 @@
+:root{
+    --heading: normal 600 clamp(1rem, 2vw, 2rem) "Inter", sans-serif;
+    --heading-mobile: normal 600 clamp(.75rem, 1vw, 1rem) "Inter", sans-serif;
+}
+main{
+        #developing{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 8vw;
+            
+
+            & #content{
+                font: var(--heading);
+
+                display: flex;
+                justify-items: center; 
+                align-items: center; 
+
+                background-color: #ffffff7f; 
+                border: 1px solid#0000005f; 
+
+                padding: 4vw;
+                width: 65vw; 
+                height: 50vh; 
+                border-radius: 2vw;
+
+                & img{
+                    width: 20vw;
+                }
+            }
+        }
+}
+
+/* Phone */
+@media (max-width:1024px) {
+    main{
+        #developing{
+
+            & #content{
+                font: var(--heading-mobile);
+
+                flex-direction: column;
+
+                padding: 8vw;
+                height: auto; 
+                border-radius: 4vw;
+
+
+                & h1{
+                    text-align:center;
+                }
+
+                & img{
+                    width: 30vw;
+                }
+            }
+        }
+    }
+}
