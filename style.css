@@ -14,16 +14,21 @@
   --subheading-mobile: normal 600 clamp(1rem, 4vw, 2rem) "Poppins", sans-serif;
 
   --main-card: normal 600 clamp(1.25rem, 2vw, 2.5rem) "Poppins", sans-serif;
-  --main-card-mobile: normal 600 clamp(0.75rem, 3vw, 1.5rem) "Poppins", sans-serif;
+  --main-card-mobile:
+    normal 600 clamp(0.75rem, 3vw, 1.5rem) "Poppins", sans-serif;
 
   --main-card-info: normal 400 clamp(0.75rem, 1vw, 1.25rem) "Inter", sans-serif;
-  --main-card-info-mobile: normal 400 clamp(0.4rem, 2.5vw, 0.75rem) "Inter", sans-serif;
+  --main-card-info-mobile:
+    normal 400 clamp(0.4rem, 2.5vw, 0.75rem) "Inter", sans-serif;
 
-  --medium-card: normal 600 clamp(0.875rem, 1.25vw, 1.5rem) "Poppins", sans-serif;
-  --medium-card-mobile: normal 600 clamp(0.6rem, 2.5vw, 0.875rem) "Poppins", sans-serif;
+  --medium-card:
+    normal 600 clamp(0.875rem, 1.25vw, 1.5rem) "Poppins", sans-serif;
+  --medium-card-mobile:
+    normal 600 clamp(0.6rem, 2.5vw, 0.875rem) "Poppins", sans-serif;
 
   --small-card: normal 600 clamp(0.7rem, 1vw, 1rem) "Poppins", sans-serif;
-  --small-card-mobile: normal 600 clamp(0.4rem, 2vw, 0.625rem) "Poppins", sans-serif;
+  --small-card-mobile:
+    normal 600 clamp(0.4rem, 2vw, 0.625rem) "Poppins", sans-serif;
 
   --body: normal 400 clamp(0.875rem, 1.15vw, 1.25rem) "Inter", sans-serif;
   --body-mobile: normal 400 clamp(0.625rem, 3vw, 0.875rem) "Inter", sans-serif;
@@ -31,12 +36,15 @@
   --links-body: normal 600 clamp(0.75rem, 1vw, 1.125rem) "Poppins", sans-serif;
 
   --navbar: normal 600 clamp(0.875rem, 1vw, 1.25rem) "Poppins", sans-serif;
-  --navbar-mobile: normal 600 clamp(0.875rem, 3.5vw, 1.25rem) "Poppins", sans-serif;
+  --navbar-mobile:
+    normal 600 clamp(0.875rem, 3.5vw, 1.25rem) "Poppins", sans-serif;
 
   --disclaimer: normal 400 clamp(0.75rem, 1vw, 1.15rem) "Inter", sans-serif;
-  --disclaimer-mobile: normal 400 clamp(0.4rem, 2.5vw, 0.75rem) "Inter", sans-serif;
+  --disclaimer-mobile:
+    normal 400 clamp(0.4rem, 2.5vw, 0.75rem) "Inter", sans-serif;
 
-  --footer-title: normal 600 clamp(0.625rem, 0.875vw, 1rem) "Poppins", sans-serif;
+  --footer-title:
+    normal 600 clamp(0.625rem, 0.875vw, 1rem) "Poppins", sans-serif;
   --footer: normal 400 0.75rem "Inter", sans-serif;
 
   --footer-mobile: normal 400 0.5rem "Inter", sans-serif;
@@ -47,7 +55,8 @@
   --layout-margin-mobile: clamp(1.5rem, 5vw, 3rem);
 }
 /*Global design*/
-html, body {
+html,
+body {
   overflow-x: hidden;
   width: 100%;
   margin: 0;
@@ -72,9 +81,8 @@ nav {
   position: fixed;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: .5px solid #0000003f;
+  border-bottom: 0.5px solid #0000003f;
   background-color: rgba(252, 248, 248, 0.5);
-
 
   & #nav-container {
     display: flex;
@@ -87,40 +95,44 @@ nav {
     justify-content: space-between;
     /* background-color: #0000005f; */
 
-      & #go-back {
-        z-index: 100;
+    & #go-back {
+      z-index: 100;
 
-        & .logo-img {
-          height: auto;
-          width: clamp(120px, 10vw, 12.48em); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
-        }
+      & .logo-img {
+        height: auto;
+        width: clamp(
+          120px,
+          10vw,
+          12.48em
+        ); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
+      }
+    }
+
+    & #more {
+      display: flex;
+      align-items: center;
+
+      & input {
+        display: none;
       }
 
-      & #more {
+      & #nav-text {
+        gap: 3em;
         display: flex;
-        align-items: center;
+        font: var(--navbar);
 
-        & input {
-          display: none;
-        }
-
-        & #nav-text {
-          gap: 3em;
-          display: flex;
-          font: var(--navbar);
-
-          & a {
-            color: #000000;
-            text-decoration: none;
-          }
-        }
-
-        & #more-icon {
-          height: auto;
-          display: none;
-          width: clamp(24px, 2.5vw, 40px);
+        & a {
+          color: #000000;
+          text-decoration: none;
         }
       }
+
+      & #more-icon {
+        height: auto;
+        display: none;
+        width: clamp(24px, 2.5vw, 40px);
+      }
+    }
   }
 }
 
@@ -189,7 +201,7 @@ header {
   box-shadow: 0 20px 30px #0000004f;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -267,7 +279,7 @@ header {
         }
         background-color: white;
 
-        padding-inline: .75em;
+        padding-inline: 0.75em;
         padding-block: 1em;
 
         border-radius: 1em;
@@ -520,10 +532,9 @@ main {
           object-position: 65% 80%;
         }
 
-        & #up{
+        & #up {
           object-position: 50% 90%;
         }
-          
 
         & .info {
           grid-area: 1/1;
@@ -718,7 +729,7 @@ main {
   }
 
   /* THIS IS THE CSS FOR THE MORE CONTACTS */
-  & .university-contacts {
+  & .university-more-contacts {
     margin-top: 10em;
 
     & h2 {
@@ -768,21 +779,20 @@ main {
           display: flex;
           flex-direction: column;
           gap: 0.5em;
-          
-          & a{
+
+          & a {
             font: var(--body);
-            font-size: .9rem;
+            font-size: 0.9rem;
             text-decoration: none;
             color: black;
           }
 
-          & .contact-info{
+          & .contact-info {
             background-color: rgba(208, 208, 208, 0.4);
             border-top: 1px solid #0000002f;
             border-bottom: 1px solid #0000002f;
-            padding-block: .5em;
+            padding-block: 0.5em;
             padding-inline: 1em;
-            
           }
         }
 
@@ -1320,7 +1330,7 @@ footer {
   html {
     scroll-padding-top: 80px;
   }
-  
+
   body {
     padding-top: 60px;
   }
@@ -1332,21 +1342,23 @@ footer {
     padding-block: 0.8em;
 
     & #nav-container {
-       padding-inline: var(--layout-margin-mobile);
-       padding-block: 0.5rem;
+      padding-inline: var(--layout-margin-mobile);
+      padding-block: 0.5rem;
     }
 
     & #go-back {
       margin-left: 0;
     }
 
-
     & #go-back .logo-img {
-      width: clamp(8em,9em,10em); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
+      width: clamp(
+        8em,
+        9em,
+        10em
+      ); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
     }
 
     & #more {
-
       & #menu-overlay {
         position: fixed;
         top: 0;
@@ -1383,7 +1395,7 @@ footer {
         transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 100;
         gap: 0;
-        box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
 
         /* Add this: when nav-text has .is-active, it slides in */
         &.is-active {
@@ -1610,7 +1622,7 @@ footer {
                 font: var(--main-card-info-mobile);
                 white-space: normal;
                 line-height: 1.2;
-                margin-top: .75em;
+                margin-top: 0.75em;
               }
             }
 
@@ -1718,12 +1730,12 @@ footer {
           border: 1px solid #0000002f;
 
           & .contacts {
-            margin-block: .6em;
+            margin-block: 0.6em;
             gap: 0.1em;
-            
-            & a{
+
+            & a {
               font: var(--body-mobile);
-              font-size: .45rem;
+              font-size: 0.45rem;
               white-space: normal;
             }
           }
@@ -1738,14 +1750,13 @@ footer {
             transform: none !important;
             box-shadow: none !important;
           }
-          
+
           &:active {
             transform: scale(0.98);
           }
         }
       }
     }
-
 
     /* THIS IS FOR THE SCHOOL.HTML */
     & #intro {
@@ -1774,7 +1785,7 @@ footer {
         padding-block: 5vh;
         margin-block: -5vh;
 
-        gap: .75em;
+        gap: 0.75em;
 
         & .academic-image-container {
           flex: auto auto;
@@ -1844,7 +1855,7 @@ footer {
             transform: none !important;
             box-shadow: none !important;
           }
-          
+
           &:active {
             transform: scale(0.98);
           }
