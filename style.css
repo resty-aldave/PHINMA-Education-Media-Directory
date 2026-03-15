@@ -1045,7 +1045,8 @@ main {
       box-sizing: border-box;
       justify-content: flex-start;
       align-items: flex-start;
-      gap: clamp(0.75em, 1.5vw, 2em);
+      column-gap: 4.5em;
+      row-gap: 3em;
 
       & .cards {
         display: grid;
@@ -1053,6 +1054,7 @@ main {
         grid-template-rows: clamp(6em, 15em, 15em);
         background-color: white;
         border-radius: 1em;
+        border: 1px solid #0000004f;
 
         text-decoration: none;
         color: #000000;
@@ -1760,12 +1762,16 @@ footer {
 
     /* THIS IS FOR THE SCHOOL.HTML */
     & #intro {
+      margin-bottom: -5em;
+
       & #intro-text {
         font: var(--body-mobile);
       }
     }
 
     & #academic-level {
+      margin-bottom: -5em;
+
       & h2 {
         font: var(--subheading-mobile);
         margin-bottom: 2em;
