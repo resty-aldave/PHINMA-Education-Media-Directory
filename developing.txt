@@ -1,6 +1,17 @@
-<section id="developing" ">
-            <div id="content">
-                <h1>This project is currently under active development.</h1>
-                <img src="../../Assets/Images/under-development.png" alt="underdevelopment ">
-            </div>
-        </section>
+<section id="developing">
+    <div id="content">
+        <h1>Just me for now! This page is still getting ready.</h1>
+        <img src="../../Assets/Images/under-development.png" alt="underdevelopment ">
+    </div>
+</section>
+
+
+
+
+
+<section id="empty">
+    <div id="content">
+        <h1>Nothing to see here... just a lonely bunny.</h1>
+        <img src="../../Assets/Images/cricket.png" alt="nothing to see here... ">
+    </div>
+</section>

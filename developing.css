@@ -1,60 +1,67 @@
-:root{
-    --heading: normal 600 clamp(1rem, 2vw, 2rem) "Inter", sans-serif;
-    --heading-mobile: normal 600 clamp(.75rem, 1vw, 1rem) "Inter", sans-serif;
+:root {
+  --heading: normal 600 clamp(1rem, 2vw, 2rem) "Inter", sans-serif;
+  --heading-mobile: normal 600 clamp(0.75rem, 1vw, 1rem) "Inter", sans-serif;
 }
-main{
-        #developing{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 8vw;
-            
+main {
+  #developing,
+  #empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8vw;
 
-            & #content{
-                font: var(--heading);
+    & #content {
+      font: var(--heading);
 
-                display: flex;
-                justify-items: center; 
-                align-items: center; 
+      display: flex;
+      justify-items: center;
+      align-items: center;
 
-                background-color: #ffffff7f; 
-                border: 1px solid#0000005f; 
+      background-color: rgba(255, 255, 255, 0.6);
+      border: 1px solid#0000005f;
 
-                padding: 4vw;
-                width: 65vw; 
-                height: 50vh; 
-                border-radius: 2vw;
+      padding: 4vw;
+      width: 65vw;
+      height: 50vh;
+      border-radius: 2vw;
+      overflow: hidden;
 
-                & img{
-                    width: 20vw;
-                }
-            }
-        }
+      & img {
+        width: 20vw;
+        border-radius: 1.5vw;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
 }
 
 /* Phone */
-@media (max-width:1024px) {
-    main{
-        #developing{
+@media (max-width: 1024px) {
+  main {
+    margin-top: 4em;
 
-            & #content{
-                font: var(--heading-mobile);
+    #developing,
+    #empty {
+      & #content {
+        font: var(--heading-mobile);
 
-                flex-direction: column;
+        flex-direction: column;
 
-                padding: 8vw;
-                height: auto; 
-                border-radius: 4vw;
+        padding: 8vw;
+        height: auto;
+        border-radius: 4vw;
+        overflow: hidden;
 
-
-                & h1{
-                    text-align:center;
-                }
-
-                & img{
-                    width: 30vw;
-                }
-            }
+        & h1 {
+          text-align: center;
         }
+
+        & img {
+          width: 30vw;
+          border-radius: 3vw;
+          box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.1);
+        }
+      }
     }
+  }
 }
