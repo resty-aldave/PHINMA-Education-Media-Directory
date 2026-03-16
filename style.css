@@ -192,6 +192,7 @@ nav {
 }
 
 header {
+  margin-bottom: -12em;
   display: grid;
   position: relative;
 
@@ -1033,9 +1034,11 @@ main {
   }
 
   & .university-contacts {
+    margin-top: 4em;
+    margin-bottom: -2em;
+
     & h2 {
       font: var(--subheading);
-      /* margin-bottom: 4vw; */
     }
 
     & .container {
@@ -1814,6 +1817,7 @@ footer {
     }
 
     & .university-contacts {
+      margin-top: -2em;
       margin-bottom: -5em;
 
       & h2 {
