@@ -81,6 +81,16 @@ if (carousel && nextBtn && prevBtn) {
             });
         }
     });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        // Prevent scrolling with arrows if user is focused on the carousel area
+        if (e.key === 'ArrowRight') {
+            nextBtn.click();
+        } else if (e.key === 'ArrowLeft') {
+            prevBtn.click();
+        }
+    });
 }
 
 // Nav bar footer
