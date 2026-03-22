@@ -1,94 +1,132 @@
-<div align="center">
+# 🎓 PHINMA Education Media Directory  
+**A centralized hub for verified institutional links and digital resources across the PHINMA Education network**  
 
-# 🌐 PHINMA Education Media Directory
+> *An independent, student-led initiative from Southwestern University PHINMA*  
 
-**A centralized hub for verified institutional links and digital resources.**
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-brightgreen)](https://phinma-education-media-directory.vercel.app)  
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)  
 
+---  
 
-[![GitHub License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
-[![Deployment Status](https://img.shields.io/badge/Deployment-Vercel-black?logo=vercel)](https://vercel.com)
-[![Branch Protection](https://img.shields.io/badge/Protected_Branches-main_%26_stage-blue)](https://github.com)
+## 📖 Overview  
 
-</div>
+The **PHINMA Education Media Directory** is a lightweight, high-performance static web portal that aggregates **verified** websites, social media profiles, and contact channels for institutions within the PHINMA Education system. Serving 12 campuses across the Philippines and Indonesia, it acts as a digital bridge for students and the community.
 
----
+Designed with a **mobile-first** approach, the directory features a premium UI utilizing glassmorphism, dynamic background animations (via `blob.css`), and a sophisticated grain overlay—all achieved without heavy external frameworks.
 
-## 📖 Project Overview
+🔗 **Explore the Directory:** [phinma-education-media-directory.vercel.app](https://phinma-education-media-directory.vercel.app)  
 
-The **PHINMA Education Media Directory** is an independent, student-led initiative developed by a team from **Southwestern University PHINMA**. 
+---  
 
-It serves as a digital bridge for students and the community, organizing official websites, verified social media pages, and contact information into a clear, navigable hierarchy. This project demonstrates student proactivity in creating digital solutions that simplify information discovery within the PHINMA Education network.
+## ✨ Key Features  
 
+- 🛡️ **Verified Directory** – Centralized collection of official URLs, social media handles, and institutional emails.
+- 🎨 **Modern Aesthetic** – Sleek interface with glassmorphism cards, fluid blob animations, and interactive motion design.
+- 📱 **Responsive Design** – Optimized for seamless access across mobile, tablet, and desktop resolutions.
+- ⚡ **Lightweight Core** – Built with zero-dependency Vanilla JS, HTML5, and modern CSS (Flexbox & Grid).
+- 📂 **Institutional Hierarchy** – Organized file structure for easy navigation and campus-specific resource discovery.
+- 🌍 **International Scope** – Support for the full network across the Philippines and Indonesia.
 
+---  
 
-## ✨ Key Features
+## 🛠️ Tech Stack  
 
-* **Verified Directory:** A comprehensive collection of official media links for every school in the network.
-* **Modern Aesthetic:** A sleek, minimal interface utilizing glassmorphism and motion design for an immersive user experience.
-* **Dynamic Visual Layer:** Smooth, synchronized background animations that provide depth without compromising performance.
-* **Mobile-First Architecture:** Fully responsive design ensuring seamless accessibility across all screen sizes.
+| Category        | Technology                                     | Implementation Details                       |
+|-----------------|------------------------------------------------|----------------------------------------------|
+| **Markup**      | HTML5                                          | Semantic structure for SEO and accessibility |
+| **Styling**     | CSS3 (Flexbox, Grid, Nesting)                  | Custom properties, `blob.css` for animations |
+| **Logic**       | Vanilla JavaScript                             | DOM manipulation for carousels & navigation  |
+| **Deployment**  | Vercel                                         | Automated CI/CD from GitHub main branch      |
+| **Assets**      | Optimized SVG & WebP                           | Low-latency media stored in `/Assets`       |
 
+---  
 
+## 🏗️ Architecture Overview  
 
-## 🚀 Strategic Roadmap
+### Directory Structure  
 
-### 📍 Phase 1: MVP & Standardization (Ongoing)
+```
+phinma-education-media-directory/
+│
+├── index.html                 # Main entry point (Landing Page)
+├── style.css                  # Core layout and design system
+├── blob.css                   # Dynamic background blob animations
+├── script.js                  # Interactivity (Carousel, Navbar, etc.)
+│
+├── Assets/                    # Centralized media storage
+│   ├── Icons/                 # Vector-based interface icons
+│   └── Images/                # Optimized campus photography
+│
+├── Schools/                   # Institution-specific directories
+│   ├── SWU/                   # Southwestern University PHINMA
+│   │   ├── southwesthern-university.html
+│   │   └── academic-level/
+│   └── ...                    # Support for 12 institutions
+│
+├── CONTRIBUTING.md            # Guidelines for community updates
+└── LICENSE                    # MIT License terms
+```
 
-* Finalize the primary directory for **Southwestern University PHINMA**.
-* Establish a scalable template to onboard the remaining **11 PHINMA Education institutions**.
+### Data Flow  
 
-### 🔍 Phase 2: Intelligent Navigation
+1. **User Request**: The browser loads `index.html` from Vercel's global CDN.
+2. **Resource Loading**: Global styles and core scripts are executed immediately for a "fast boil" experience.
+3. **Dynamic Interaction**: `script.js` manages quote rotations, hero image fades, and the interactive university carousel.
+4. **Navigation**: Campus-specific pages are linked directly within the institutional cards for instant state transitions.
 
-* Implementation of a global search bar for instant access via keywords.
-* Tag-based filtering for departments and specific school offices.
+---  
 
-### 🗺️ Phase 3: Spatial UX Integration
+## 🚀 Getting Started  
 
-* Integration of **low-poly 3D campus maps** to visualize and locate physical offices easily within the directory.
-* UI/UX enhancements for spatial navigation.
+### Local Development  
 
-### ⚙️ Phase 4: Enterprise Refactor
+1. **Clone the Repository**  
+   ```bash
+   git clone https://github.com/resty-aldave/PHINMA-Education-Media-Directory.git
+   cd PHINMA-Education-Media-Directory
+   ```
 
-* Tech stack migration to **React** and **TypeScript** for robust scalability.
-* Refactoring CSS architecture to **Tailwind CSS** for rapid styling and design system consistency.
+2. **Launch Preview**  
+   Because this is a static project, you can simply open `index.html` in your browser. For the best experience (including relative path resolution), use a local server:
+   - **VS Code**: Use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension.
+   - **Python**: Run `python -m http.server 8000` and visit `localhost:8000`.
 
+---  
 
+## 🗺️ Strategic Roadmap  
 
-## 🛠️ Technical Implementation
+### Phase 1: MVP & Standardization (ACTIVE)  
+Establish the core directory for SWU PHINMA and the primary network template.  
 
-* **Frontend Stack:** Developed using semantic HTML5 and modern CSS (Nesting, Flexbox, and Grid).
-* **Fluid Typography & Scaling:** Utilizes advanced CSS functions to ensure consistent visual hierarchy across resolutions.
-* **CI/CD Pipeline:** Automated deployment via **Vercel** for high availability and performance.
+### Phase 2: Intelligent Navigation  
+Implementation of a global fuzzy-search bar and tag-based filtering for departments.  
 
+### Phase 3: Spatial UX Integration  
+Introduction of low-poly 3D campus maps for physical office navigation.  
 
+### Phase 4: Enterprise Refactor  
+Migration to **Next.js (React)** and **Tailwind CSS** for advanced state management and scalability.  
 
-## 🛡️ Governance & Workflow
+---  
 
-1. **Protected Branches:** Enforced restrictions on `main` and `stage` branches.
-2. **Quality Assurance:** All updates require a Pull Request (PR) and comprehensive code review.
-3. **Data Integrity:** Periodic audits ensure all institutional links remain accurate.
-4. **Contribution Guidelines:** Detailed instructions can be found in [CONTRIBUTING.md](./CONTRIBUTING.md).
+## 🛡️ Governance & Contribution  
 
----
+This project is a collaborative effort. To ensure data integrity:
+- **Link Audits**: Institutional links are periodically verified for accuracy.
+- **Pull Requests**: All updates go through a code review process.
+- **Guidelines**: See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed workflow instructions.
 
+---  
 
-<br>
-<div align="center">
+## ⚠️ Disclaimer  
 
-### ⚠️ Disclaimer
+**Independent Student Initiative:**  
+This platform is not an official website of the PHINMA Education network. It is a student-led project created for educational and community-building purposes. Institutional names, logos, and photography remain the intellectual property of their respective owners and are used here under **Fair Use** for identification and support.
 
+---  
 
-This site is an **independent project** and is **not an official website** of the PHINMA Education network. Institutional names, logos, and photography remain the intellectual property of their respective owners and are used here under **Fair Use** for educational purposes only.
+## ⚖️ License  
 
-</div>
+Distributed under the **MIT License**. See `LICENSE` for more information.  
 
-
-<br>
-<div align="center">
-
-### ⚖️ License
-
-This project is licensed under the **MIT License**. 
-See the [LICENSE](./LICENSE) file for details.
-
-</div>
+*Built with 🎓 by students, for the PHINMA Education community.*
