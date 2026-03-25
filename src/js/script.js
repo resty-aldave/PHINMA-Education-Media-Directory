@@ -142,4 +142,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Alphabetize cards inside every university-contacts section (A→Z)
+    document.querySelectorAll('section.university-contacts').forEach((section) => {
+        const container = section.querySelector('.container');
+        if (!container) return;
+
+        // Cards can be either <div class="cards"> or <a class="cards">
+        const cards = Array.from(container.querySelectorAll(':scope > .cards'));
+        if (cards.length < 2) return;
+
+        const decorated = cards.map((el, idx) => {
+            const titleEl = el.querySelector('.cards-info > p');
+            const title = (titleEl?.textContent || '').trim();
+            return { el, idx, title };
+        });
+
+        decorated.sort((a, b) => {
+            const aIsMore = a.title.trim().toLowerCase() === 'more';
+            const bIsMore = b.title.trim().toLowerCase() === 'more';
+            if (aIsMore !== bIsMore) return aIsMore ? 1 : -1;
+
+            const byTitle = a.title.localeCompare(b.title, undefined, { sensitivity: 'base', numeric: true });
+            return byTitle !== 0 ? byTitle : a.idx - b.idx;
+        });
+
+        decorated.forEach(({ el }) => container.appendChild(el));
+    });
 });

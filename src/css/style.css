@@ -87,17 +87,18 @@ nav {
 
   & #nav-container {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     max-width: clamp(300px, 95vw, 1600px);
     align-items: center;
     margin-inline: auto;
     padding-inline: clamp(1rem, 5vw, 2rem);
     padding-block: 1.5em;
-    justify-content: space-between;
-    /* background-color: #0000005f; */
+    gap: 1.5em;
 
     & #go-back {
       z-index: 100;
+      flex-shrink: 0;
 
       & .logo-img {
         height: auto;
@@ -105,13 +106,68 @@ nav {
           120px,
           10vw,
           12.48em
-        ); /*grabee gamitan pag math 4vw is looking 100px on my screen so to get the exact 312px just calculate it okay!*/
+        );
+      }
+    }
+
+    & #breadcrumb-list {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex: 1;
+      flex-wrap: wrap;
+      font-family: "Inter", sans-serif;
+      font-optical-sizing: auto;
+      
+      &::before {
+        content: ">";
+        display: inline-flex;
+        align-items: center;
+        color: rgba(0, 0, 0, 0.25);
+        margin-inline: 0.35em;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+
+      & .breadcrumb-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: clamp(0.7rem, 1vw, 0.875rem);
+        font-weight: 500;
+
+        & .breadcrumb-link {
+          color: rgba(0, 0, 0, 0.6);
+          text-decoration: none;
+          transition: color 0.25s ease;
+
+          &:hover { color: rgba(246, 48, 73, 1); }
+        }
+
+        & .breadcrumb-separator {
+          display: flex;
+          align-items: center;
+          color: rgba(0, 0, 0, 0.25);
+          margin-inline: 0.35em;
+          flex-shrink: 0;
+          font-weight: 600;
+        }
+
+        & .breadcrumb-current {
+          color: rgba(0, 0, 0, 0.8);
+          font-weight: 600;
+        }
       }
     }
 
     & #more {
       display: flex;
       align-items: center;
+      flex-shrink: 0;
+      margin-left: auto;
 
       & input {
         display: none;
@@ -132,124 +188,6 @@ nav {
         height: auto;
         display: none;
         width: clamp(24px, 2.5vw, 40px);
-      }
-    }
-  }
-}
-
-/* ============================
-   BREADCRUMB NAVIGATION
-   ============================ */
-#breadcrumb-nav {
-  position: fixed;
-  inset-block-start: 0;
-  inset-inline: 0;
-  margin-inline: auto;
-  margin-top: 5em;
-  z-index: 15;
-  max-width: clamp(300px, 95vw, 1600px);
-  padding-inline: clamp(1rem, 5vw, 2rem);
-  background-color: transparent;
-
-  & .breadcrumb-list {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0.65em 1.25em;
-    background-color: rgba(252, 248, 248, 0.5);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 0.5px solid #0000003f;
-    border-radius: 0.75em;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-
-    & .breadcrumb-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-
-      & .breadcrumb-link {
-        font: var(--body);
-        font-size: clamp(0.7rem, 1vw, 0.875rem);
-        font-weight: 500;
-        color: rgba(0, 0, 0, 0.55);
-        text-decoration: none;
-        transition: color 0.25s ease, transform 0.2s ease;
-        white-space: nowrap;
-        padding-block: 0.15em;
-
-        &:hover { color: rgba(246, 48, 73, 1); translate: 0 -1px; }
-        &:active { translate: 0 0; }
-      }
-
-      & .breadcrumb-separator {
-        display: flex;
-        align-items: center;
-        color: rgba(0, 0, 0, 0.2);
-        margin-inline: 0.35em;
-        flex-shrink: 0;
-
-        & svg { width: 6px; height: 10px; }
-      }
-
-      & .breadcrumb-current,
-      & .breadcrumb-dots {
-        font: var(--body);
-        font-size: clamp(0.7rem, 1vw, 0.875rem);
-        font-weight: 600;
-        white-space: nowrap;
-        padding-block: 0.15em;
-      }
-
-      & .breadcrumb-current {
-        color: rgba(0, 0, 0, 0.85);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 28ch;
-      }
-
-      & .breadcrumb-dots {
-        color: rgba(0, 0, 0, 0.35);
-        letter-spacing: 0.15em;
-        cursor: default;
-      }
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 4.5em;
-    padding-inline: clamp(0.75rem, 4vw, 1.5rem);
-
-    & .breadcrumb-list {
-      padding: 0.5em 0.875em;
-      gap: 0;
-      border-radius: 0.6em;
-
-      & .breadcrumb-item {
-        & .breadcrumb-link {
-          font-size: clamp(0.6rem, 2.5vw, 0.75rem);
-        }
-
-        & .breadcrumb-current,
-        & .breadcrumb-dots {
-          font-size: clamp(0.6rem, 2.5vw, 0.75rem);
-        }
-
-        & .breadcrumb-current {
-          max-width: 18ch;
-        }
-
-        & .breadcrumb-separator {
-          margin-inline: 0.25em;
-
-          & svg {
-            width: 5px;
-            height: 8px;
-          }
-        }
       }
     }
   }
@@ -1153,8 +1091,8 @@ main {
   }
 
   & .university-contacts {
-    margin-top: 4em;
-    margin-bottom: -2em;
+    margin-top: 8em;
+    margin-bottom: 0;
 
     & h2 {
       font: var(--subheading);

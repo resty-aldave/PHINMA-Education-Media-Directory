@@ -49,9 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const sep = document.createElement("span");
       sep.className = "breadcrumb-separator";
       sep.setAttribute("aria-hidden", "true");
-      sep.innerHTML = `<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 1L5 5L1 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>`;
+      sep.textContent = ">";
       li.appendChild(sep);
     } else {
       const current = document.createElement("span");
@@ -101,7 +99,7 @@ function handleMobileCollapse(nav, crumbs) {
 
     const ellipsis = document.createElement("li");
     ellipsis.className = "breadcrumb-item breadcrumb-ellipsis";
-    ellipsis.innerHTML = `<span class="breadcrumb-dots">···</span><span class="breadcrumb-separator" aria-hidden="true"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L1 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`;
+    ellipsis.innerHTML = `<span class="breadcrumb-dots">···</span><span class="breadcrumb-separator" aria-hidden="true">&gt;</span>`;
     items[0].after(ellipsis);
   } else {
     items.forEach(item => {

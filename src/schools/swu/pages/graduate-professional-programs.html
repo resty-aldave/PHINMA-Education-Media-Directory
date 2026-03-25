@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../../../style.css">
-    <link rel="stylesheet" href="../../blob.css">
-    <link rel="stylesheet" href="../../../../developing.css"
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../css/blob.css">
+    <link rel="stylesheet" href="../../../css/developing.css"
 
     <!--Poppins Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
 
     <title>PHINMA Education Media Directory</title>
 
-    <link rel="icon" type="image/svg+xml" href="../../../../Assets/Icons/Logo.svg">
+    <link rel="icon" type="image/svg+xml" href="../../../assets/icons/Logo.svg">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://phinma-education-media-directory.vercel.app">
@@ -49,23 +49,38 @@
 
     <nav>
         <div id="nav-container">
-            <a id="go-back" href="../../southwestern-university.html">
-                <img class="logo-img" src="../../../../Assets/Images/PHINMA-education-media-directory-logo.webp" alt="The logo of this website">
+            <a id="go-back" href="../../../index.html">
+                <img class="logo-img" src="../../../assets/images/PHINMA-education-media-directory-logo.webp" alt="The logo of this website">
             </a>
             
-        <div id="more">
-            <div id="menu-overlay"></div>
+            <!-- Breadcrumbs integrated in navbar -->
+            <ol id="breadcrumb-list" class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" class="breadcrumb-link" href="../index.html">
+                        <span itemprop="name">SWU</span>
+                    </a>
+                    <span class="breadcrumb-separator" aria-hidden="true">&gt;</span>
+                    <meta itemprop="position" content="1">
+                </li>
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span class="breadcrumb-current" itemprop="name">Graduate & Professional Programs</span>
+                    <meta itemprop="position" content="2">
+                </li>
+            </ol>
+            
+            <div id="more">
+                <div id="menu-overlay"></div>
 
-            <div id="nav-text">
-                <div id="nav-text-mobile-margin"></div>
-                <a href="../../../../index.html">Home</a>
-                <a href="../../../../index.html#flow-two">Institution</a>
-                <a href="../../../../index.html#flow-three">Contact Us</a>
-                <a href="../../../../index.html#flow-four">About Us</a>
+                <div id="nav-text">
+                    <div id="nav-text-mobile-margin"></div>
+                    <a href="../../index.html">Home</a>
+                    <a href="../../../index.html#flow-two">Institution</a>
+                    <a href="../../../index.html#flow-three">Contact Us</a>
+                    <a href="../../../index.html#flow-four">About Us</a>
+                </div>
+
+                <img id="more-icon" src="../../../assets/icons/kebab.png">
             </div>
-
-            <img id="more-icon" src="../../../../Assets/Icons/kebab.png">
-        </div>
         </div>
     </nav>
 
@@ -77,18 +92,17 @@
                     This independent student project uses campus images and names for identification under 
                     Fair Use to support the community and accurately represent the PHINMA Education network.</p>
             </div>
-            <img src="../../../../Assets/Icons/exclamation.png">
+            <img src="../../../assets/icons/exclamation.png">
         </div>
     </div>
     
-    <nav id="breadcrumb-nav" aria-label="Breadcrumb" data-crumbs='[{"label":"Home","href":"../../../../index.html"},{"label":"SWU","href":"../../southwestern-university.html"},{"label":"Graduate & Professional Programs"}]'></nav>
 
 
     <main>
         <section id="developing">
             <div id="content">
                 <h1>Just me for now! This page is still getting ready.</h1>
-                <img src="../../../../Assets/Images/under-development.webp" alt="underdevelopment ">
+                <img src="../../../assets/images/under-development.webp" alt="underdevelopment ">
             </div>
         </section>
     </main>
@@ -97,7 +111,7 @@
         <div id="footer-desktop-view">
             <div id="top-footer">
                 <div id="phinma-information">
-                    <img class="logo-img" src="../../../../Assets/Images/PHINMA-education-media-directory-logo.webp" alt="The logo of this website" >
+                    <img class="logo-img" src="../../../assets/images/PHINMA-education-media-directory-logo.webp" alt="The logo of this website" >
                     <p id="phinma-title">PHINMA Education Main Office</p>
                     <p id="phinma-text"><em>Visit the official website for central news and corporate inquiries.</em></p>
                     <div id="phinma">
@@ -107,8 +121,8 @@
                     </div>
                 </div>
                 <div id="footer-nav">
-                    <a href="../../../../index.html"><strong>Home</strong></a>
-                    <a href="../../../../index.html#flow-two"><strong>Institution</strong></a>
+                    <a href="../../index.html"><strong>Home</strong></a>
+                    <a href="../../../index.html#flow-two"><strong>Institution</strong></a>
                     <a href="#">Araullo University</a>
                     <a href="#">Cagayan de Oro College</a>
                     <a href="#">Horizon University Indonesia</a>
@@ -117,12 +131,12 @@
                     <a href="#">Saint Jude College Cavite</a>
                     <a href="#">Saint Jude College Manila</a>
                     <a href="#">Saint Jude College Quezon</a>
-                    <a href="Schools/SWU/southwestern-university.html">Southwestern University</a>
+                    <a href="../index.html">Southwestern University</a>
                     <a href="#">Union College of Laguna</a>
                     <a href="#">University of Iloilo</a>
                     <a href="#">University of Pangasinan</a>
-                    <a href="../../../../index.html#flow-three"><strong>Contact Us</strong></a>
-                    <a href="../../../../index.thml#flow-four"><strong>About Us</strong></a>
+                    <a href="../../../index.html#flow-three"><strong>Contact Us</strong></a>
+                    <a href="../../../index.html#flow-four"><strong>About Us</strong></a>
                 </div>
             </div>
 
@@ -130,12 +144,12 @@
 
             <div id="bottom-footer">
                 <div id="student-led">
-                    <img src="../../../../Assets/Icons/student.png">
+                    <img src="../../../assets/icons/student.png">
                     <p>A Student-Led Initiative</p>
                 </div>
                 <p>© 2026 PHINMA Education Media Directory. Not an official PHINMA Education website.</p>
                 <div id="version">
-                    <img src="../../../../Assets/Icons/version.png">
+                    <img src="../../../assets/icons/version.png">
                     <p>version-1.0</p>
                 </div>
             </div>
@@ -144,7 +158,7 @@
         <div id="footer-mobile-view">
             <div id="top-footer">
                 <div id="phinma-information">
-                    <img class="logo-img" src="../../../../Assets/Images/PHINMA-education-media-directory-logo.webp" alt="The logo of this website" >
+                    <img class="logo-img" src="../../../assets/images/PHINMA-education-media-directory-logo.webp" alt="The logo of this website" >
                     <p id="phinma-title">PHINMA Education Main Office</p>
                     <p id="phinma-text"><em>Visit the official website for central news and corporate inquiries.</em></p>
                     <div id="phinma">
@@ -155,15 +169,15 @@
                 </div>
 
                 <div id="footer-nav">
-                    <a href="../../../../index.html" class="footer-nav-button">
+                    <a href="../../index.html" class="footer-nav-button">
                         <strong>Home</strong>
-                        <img src="../../../../Assets/Icons/next-button.png">
+                        <img src="../../../assets/icons/next-button.png">
                     </a>
 
                     <div class="accordion-group">
                         <div class="footer-nav-button" onclick="toggleInstitution()">
                             <strong>Institution</strong>
-                            <img id="institution-arrow" src="../../../../Assets/Icons/next-button.png">
+                            <img id="institution-arrow" src="../../../assets/icons/next-button.png">
                         </div>
 
                         <div id="institution-options">
@@ -175,21 +189,21 @@
                             <a href="#">Saint Jude College Cavite</a>
                             <a href="#">Saint Jude College Manila</a>
                             <a href="#">Saint Jude College Quezon</a>
-                            <a href="Schools/SWU/southwestern-university.html">Southwestern University</a>
+                            <a href="../index.html">Southwestern University</a>
                             <a href="#">Union College of Laguna</a>
                             <a href="#">University of Iloilo</a>
                             <a href="#">University of Pangasinan</a>
                         </div>
                     </div>
 
-                    <a href="../../../../index.html#flow-three" class="footer-nav-button">
+                    <a href="../../../index.html#flow-three" class="footer-nav-button">
                         <strong>Contact Us</strong>
-                        <img src="../../../../Assets/Icons/next-button.png">
+                        <img src="../../../assets/icons/next-button.png">
                     </a>
 
-                    <a href="../../../../index.html#flow-four" class="footer-nav-button">
+                    <a href="../../../index.html#flow-four" class="footer-nav-button">
                         <strong>About Us</strong>
-                        <img src="../../../../Assets/Icons/next-button.png">
+                        <img src="../../../assets/icons/next-button.png">
                     </a>
                 </div>
             </div>
@@ -201,12 +215,12 @@
 
                 <div id="version-led">
                     <div id="student-led">
-                        <img src="../../../../Assets/Icons/student.png">
+                        <img src="../../../assets/icons/student.png">
                         <p>A Student-Led Initiative</p>
                     </div>
 
                     <div id="version">
-                        <img src="../../../../Assets/Icons/version.png">
+                        <img src="../../../assets/icons/version.png">
                         <p>version-1.0</p>
                     </div>
                 </div>
@@ -215,7 +229,7 @@
         
     </footer>
 
-    <script src="../../../../script.js"></script>
-    <script src="../../../../breadcrumb.js"></script>
+    <script src="../../../script.js"></script>
+    <script src="../../../breadcrumb.js"></script>
 </body>
 </html>
