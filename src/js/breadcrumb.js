@@ -82,28 +82,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function handleMobileCollapse(nav, crumbs) {
+  // Horizontal scroll solution on mobile removes need for collapse
+  // All breadcrumb items are now visible and scrollable on smaller screens
   const existingEllipsis = nav.querySelectorAll(".breadcrumb-ellipsis");
   existingEllipsis.forEach(el => el.remove());
 
   const items = nav.querySelectorAll(".breadcrumb-item");
-  const isMobile = window.innerWidth <= 768;
-
-  if (isMobile && crumbs.length > 3) {
-    items.forEach((item, i) => {
-      if (i === 0 || i >= crumbs.length - 2) {
-        item.style.display = "";
-      } else {
-        item.style.display = "none";
-      }
-    });
-
-    const ellipsis = document.createElement("li");
-    ellipsis.className = "breadcrumb-item breadcrumb-ellipsis";
-    ellipsis.innerHTML = `<span class="breadcrumb-dots">···</span><span class="breadcrumb-separator" aria-hidden="true">&gt;</span>`;
-    items[0].after(ellipsis);
-  } else {
-    items.forEach(item => {
-      item.style.display = "";
-    });
-  }
+  
+  // Show all items - CSS handles scrolling overflow on mobile
+  items.forEach(item => {
+    item.style.display = "";
+  });
 }
