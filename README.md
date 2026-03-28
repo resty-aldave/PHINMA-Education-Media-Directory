@@ -24,20 +24,20 @@ Designed with a **mobile-first** approach, the directory features a premium UI u
 - 🎨 **Modern Aesthetic** – Sleek interface with glassmorphism cards, fluid blob animations, and interactive motion design.
 - 📱 **Responsive Design** – Optimized for seamless access across mobile, tablet, and desktop resolutions.
 - ⚡ **Lightweight Core** – Built with zero-dependency Vanilla JS, HTML5, and modern CSS (Flexbox & Grid).
-- 📂 **Institutional Hierarchy** – Organized file structure for easy navigation and campus-specific resource discovery.
+- 📂 **Institutional Hierarchy** – Organized file structure in `/schools` for easy campus-specific discovery.
 - 🌍 **International Scope** – Support for the full network across the Philippines and Indonesia.
 
 ---  
 
 ## 🛠️ Tech Stack  
 
-| Category        | Technology                                     | Implementation Details                       |
-|-----------------|------------------------------------------------|----------------------------------------------|
-| **Markup**      | HTML5                                          | Semantic structure for SEO and accessibility |
-| **Styling**     | CSS3 (Flexbox, Grid, Nesting)                  | Custom properties, `blob.css` for animations |
-| **Logic**       | Vanilla JavaScript                             | DOM manipulation for carousels & navigation  |
-| **Deployment**  | Vercel                                         | Automated CI/CD from GitHub main branch      |
-| **Assets**      | Optimized SVG & WebP                           | Low-latency media stored in `/Assets`       |
+| Category | Technology | Implementation Details |
+| :--- | :--- | :--- |
+| **Markup** | HTML5 | Semantic structure for SEO and accessibility |
+| **Styling** | CSS3 (Flexbox, Grid, Nesting) | Custom properties, `css/blob.css` for animations |
+| **Logic** | Vanilla JavaScript | DOM manipulation for carousels & navigation |
+| **Deployment** | Vercel | Automated CI/CD from GitHub main branch |
+| **Assets** | Optimized SVG & WebP | Low-latency media stored in `/assets` |
 
 ---  
 
@@ -48,30 +48,42 @@ Designed with a **mobile-first** approach, the directory features a premium UI u
 ```
 phinma-education-media-directory/
 │
-├── index.html                 # Main entry point (Landing Page)
-├── style.css                  # Core layout and design system
-├── blob.css                   # Dynamic background blob animations
-├── script.js                  # Interactivity (Carousel, Navbar, etc.)
+├── index.html                 # Main Landing Page
 │
-├── Assets/                    # Centralized media storage
-│   ├── Icons/                 # Vector-based interface icons
-│   └── Images/                # Optimized campus photography
+├── assets/                    # Optimized media storage
+│   ├── icons/                 # UI components and brand logos
+│   ├── images/                # Optimized campus and system photography
+│   └── social-preview.png     # Open Graph preview image
 │
-├── Schools/                   # Institution-specific directories
-│   ├── SWU/                   # Southwestern University PHINMA
-│   │   ├── southwesthern-university.html
-│   │   └── academic-level/
-│   └── ...                    # Support for 12 institutions
+├── css/                       # Global styling system
+│   ├── blob.css               # Dynamic background animations
+│   ├── developing.css         # "In Development" status styles
+│   └── style.css              # Core layout and component tokens
 │
-├── CONTRIBUTING.md            # Guidelines for community updates
-└── LICENSE                    # MIT License terms
+├── js/                        # Client-side interactivity
+│   ├── breadcrumb.js          # Dynamic navigation hierarchy generator
+│   └── script.js              # Core UI logic and animations
+│
+├── schools/                   # Institutional-specific sub-directories
+│   ├── swu/                   # Southwestern University PHINMA
+│   ├── araullo/               # Araullo University PHINMA
+│   ├── coc/                   # Cagayan de Oro College PHINMA
+│   └── ...                    # Support for all 12 PHINMA institutions
+│       ├── index.html         # School-specific landing page
+│       ├── css/               # Modular styling overrides
+│       ├── pages/             # Institutional resource pages
+│       └── more/              # Additional school content
+│
+├── CONTRIBUTING.md            # Community contribution standards
+├── LICENSE                    # MIT Open-Source Legal Terms
+└── README.md                  # Project documentation
 ```
 
 ### Data Flow  
 
 1. **User Request**: The browser loads `index.html` from Vercel's global CDN.
 2. **Resource Loading**: Global styles and core scripts are executed immediately for a "fast boil" experience.
-3. **Dynamic Interaction**: `script.js` manages quote rotations, hero image fades, and the interactive university carousel.
+3. **Dynamic Interaction**: `js/script.js` manages quote rotations, hero image fades, and the interactive university carousel.
 4. **Navigation**: Campus-specific pages are linked directly within the institutional cards for instant state transitions.
 
 ---  
